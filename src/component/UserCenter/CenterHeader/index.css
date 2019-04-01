@@ -1,0 +1,15 @@
+.center-header{
+    width: 100%;
+    padding: 0 10px;
+    color: #fff;
+}
+.center-user-info{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.center-setting{
+    float: right;
+}

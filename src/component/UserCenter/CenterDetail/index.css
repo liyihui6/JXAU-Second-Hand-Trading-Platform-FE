@@ -1,0 +1,28 @@
+.detail-wrapper{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.detail-user-info{
+    width: 100%;
+    padding: 10px;
+}
+.detail-user-name{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+.detail-user-avatar{
+    width: 100px;
+    padding: 20px 0;
+}
+.detail-info{
+    font-size: 12px;
+    line-height: 20px;
+    color: gray;
+}
+.detail-user-avatar img{
+    width: 70px;
+    margin-right: 20px;
+    border-radius: 5px;
+}

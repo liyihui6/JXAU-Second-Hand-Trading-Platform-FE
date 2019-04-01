@@ -1,0 +1,37 @@
+.forum-content{
+    width: 100%;
+    padding: 5px 0;
+}
+.forum-content-header{
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+.forum-content-header-avatar{
+    margin-right: 10px;
+}
+
+.forum-content-header-username{
+
+}
+.forum-content-content{
+    width: 100%;
+
+}
+.forum-content-images{
+    width: 100%;
+    overflow: auto;
+}
+.forum-content-image{
+    width: 33%;
+}
+.forum-content-image img{
+    width: 100%;
+}
+.ant-comment-inner{
+    padding: 5px 0 !important;
+    border-bottom: 1px solid #eee;
+}
+.ant-comment-content-detail p{
+    margin-bottom: 5px !important;
+}

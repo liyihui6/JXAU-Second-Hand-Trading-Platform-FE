@@ -1,0 +1,31 @@
+.sell-product{
+    width: 100%;
+    overflow: auto;
+}
+
+.sell-product-title{
+    word-wrap: break-word;word-break: break-all;overflow: hidden;
+    padding: 2px 2px;
+    margin: 0;
+    font-size: 18px;
+}
+.sell-price{
+    font-size: 18px;
+    color: rgba(255, 125, 26, 0.7);
+}
+.sell--product-detail{
+    border-bottom: 0.1rem solid #eee;
+}
+.sell-user-info{
+    padding: 5px 2px;
+}
+.sell-user-name{
+    font-size: 16px;
+    font-weight: 600;
+}
+.sell-user-avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}

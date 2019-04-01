@@ -1,0 +1,28 @@
+.find{
+    padding: 0 5px 15px;
+    border-bottom: 0.1875rem solid #eee;
+}
+
+.thing{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.card{
+    width: 48%;
+    min-height: 80px;
+    line-height: 80px;
+    background: blue;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.else{
+    width: 48%;
+    min-height: 80px;
+    line-height: 80px;
+    background: yellow;
+    font-size: 18px;
+    border-radius: 4px;
+}

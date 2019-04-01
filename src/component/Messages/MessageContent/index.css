@@ -1,0 +1,23 @@
+.message-content-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+}
+.message-content-avatar img{
+    width: 50px;
+    height: 50px;
+}
+.message-content-info{
+    width: 80%;
+}
+.message-content-info-username{
+    font-size: 18px;
+    font-weight: 800;
+}
+.message-content-info-time{
+    font-size: 10px;
+    float: right;
+    color: gray;
+}

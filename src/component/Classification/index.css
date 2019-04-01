@@ -1,0 +1,24 @@
+.models{
+    padding: 0.75rem;
+    border-bottom: 0.1875rem solid #eee;
+    list-style: none;
+    display: block;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.product{
+    width: 20%;
+    text-align: center;
+    float: left;
+    display: list-item;
+}
+.model-tip{
+    margin-top: 0.25rem;
+    /*font-size: 0.75rem;*/
+    color: #666;
+}
+.link{
+    display: block;
+    padding: 4px 12px;
+}

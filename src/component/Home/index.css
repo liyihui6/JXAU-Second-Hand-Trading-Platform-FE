@@ -1,0 +1,29 @@
+.layout-wrapper{
+    width: 100%;
+    margin: 0 auto;
+    /*background: yellow;*/
+    height: 100vh;
+    position: relative;
+}
+.header-wrapper{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 52px;
+    z-index: 100;
+    background: #fff;
+}
+.footer{
+    z-index: 100;
+    padding: 2px 0;
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    width: 100%;
+}
+.container-wrapper{
+    min-height: calc(100% - 55.8px - 52px);
+    margin-top: 52px;
+    margin-bottom: 56px;
+    padding: 10px 5px;
+}

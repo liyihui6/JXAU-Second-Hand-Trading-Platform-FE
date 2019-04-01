@@ -1,0 +1,24 @@
+.forum-header{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    overflow: auto;
+    min-height: 40px;
+    position: relative;
+}
+.forum-header-title{
+    position: absolute;
+    top: 0;
+    font-size: 18px;
+    padding: 5px;
+    margin: 0 auto;
+}
+.add-forum{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 15px;
+    border: 1px solid #eee;
+    border-radius: 25px;
+    background: yellow;
+}
