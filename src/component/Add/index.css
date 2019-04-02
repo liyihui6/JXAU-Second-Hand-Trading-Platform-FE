@@ -1,4 +1,7 @@
 .add{
+
+}
+.addOption{
     display: flex;
     justify-content: space-between;
 }

@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {Modal,Button} from 'antd'
 import './index.css'
+import {Link} from 'react-router-dom'
 
 class Add extends Component{
     constructor(props) {
@@ -14,7 +15,7 @@ class Add extends Component{
 
     render() {
         return (
-            <div>
+            <div className={'add'}>
                 <Modal
                     title="发布商品"
                     visible={this.props.visible}
@@ -23,10 +24,11 @@ class Add extends Component{
                     footer={null}
                     align={null}
                 >
-                    <div className={'add'}>
-                        <Button>发布闲置</Button>
-                        <Button>发表帖子</Button>
-                        <Button>信用回收</Button>
+                    <div className={'addOption'}>
+                        <Button><Link to={'/add/product'}>发布闲置</Link></Button>
+                        <Button><Link to={'/add/note'}>发帖子</Link></Button>
+                        <Button><Link to={'/add/finding'}>失物招领</Link></Button>
+                        <Button><Link to={'/add/else'}>其他</Link></Button>
                     </div>
                 </Modal>
             </div>
