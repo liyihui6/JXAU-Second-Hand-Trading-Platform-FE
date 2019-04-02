@@ -6,6 +6,7 @@ import UserCenter from "../component/UserCenter/UserCenter";
 import Forum from '../component/Forum/Forum'
 import RouterAdd from '../Router/RouterAdd'
 import AddPage from '../component/Add/AddPage'
+import CommodityDetails from '../component/CommodityDetails/CommodityDetails'
 
 
 class RootRouter extends Component{
@@ -21,6 +22,7 @@ class RootRouter extends Component{
                 <Route exact path='/messages' component={Messages}></Route>
                 <Route exact path='/userCenter' component={UserCenter}></Route>
                 <Route exact path='/forum' component={Forum}></Route>
+                <Route exact path='/commodityDetails' component={CommodityDetails}></Route>
                 <Route exact path='/add' component={AddPage}>
                     <RouterAdd></RouterAdd>
                 </Route>

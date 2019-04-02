@@ -1,0 +1,27 @@
+.commodity-details{
+    width: 100%;
+}
+.commodity-details-header{
+    width: 100%;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 200;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.commodity-details-header-title{
+    margin-bottom: 5px;
+    font-size: 22px;
+    color: #ff5d24;
+}
+.commodity-details-content-wrapper{
+    margin-top: 50px;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
