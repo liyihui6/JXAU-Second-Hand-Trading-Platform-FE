@@ -1,0 +1,62 @@
+.add-note{
+    width: 100%;
+    height: 100vh;
+    background: lightgray;
+}
+.add-note-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    background: lightgray;
+    top: 0;
+    z-index: 200;
+}
+.add-note-title{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px;
+}
+.add-note-cancel{
+    font-size: 16px;
+    padding: 5px;
+}
+.add-note-submit{
+    padding: 5px;
+    font-size: 16px;
+}
+.add-note-content{
+    margin-top: 50px;
+    background: #fff;
+}
+.add-note-content-input{
+    padding: 5px;
+}
+.add-note-input-pics{
+    padding: 0 5px 5px;
+    /*border-bottom: 1px solid #eee;*/
+}
+.add-note-content-title{
+    padding: 5px;
+}
+.add-note-tag-common{
+    width: 96%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.add-note-tag{
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+.add-note-address{
+    border-bottom: 1px solid #eee;
+}

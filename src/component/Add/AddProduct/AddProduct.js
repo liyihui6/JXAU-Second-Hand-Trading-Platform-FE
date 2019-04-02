@@ -30,6 +30,10 @@ class AddProduct extends Component{
     handleShow = () => {
         this.setState({ visible: true });
     }
+
+    onCancel = ()=>{
+        this.props.history.goBack()
+    }
     render() {
         return (
             <div className={'add-product'}>
@@ -45,7 +49,8 @@ class AddProduct extends Component{
                     <PicturesWall></PicturesWall>
                 </div>
                 <div className={'add-product-input-submit'}>
-                    <Button type={"primary"} onClick={this.submit}>确认发布</Button>
+                    <Button type={"primary"} className={'add-product-input-submit-ok'} onClick={this.submit}>确认发布</Button>
+                    <Button type={"primary"} className={'add-product-input-submit-cancel'} onClick={this.onCancel}>取消</Button>
                 </div>
             </div>
         );
