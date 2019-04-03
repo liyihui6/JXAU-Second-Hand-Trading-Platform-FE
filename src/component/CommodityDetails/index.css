@@ -21,7 +21,69 @@
 }
 .commodity-details-content-wrapper{
     margin-top: 50px;
-    padding: 0 10px;
+    margin-bottom: 42px;
     font-size: 16px;
+    padding: 0 2px 5px;
+}
+.ant-card-meta{
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+.ant-card-meta-title{
+    margin-bottom: 2px !important;
+}
+.commodity-details-content{
+    padding: 5px;
+}
+.commodity-details-content h3{
+    color: #ff5d24;
+}
+.commodity-details-content p{
+    padding: 5px 5px 10px 5px;
+    text-indent: 5px;
+    border-bottom: 1px solid #eee;
+}
+.commodity-details-content-images{
+    padding: 5px;
+}
+.commodity-details-content-image{
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+.commodity-details-content-image img{
+    width: 100%;
+}
+.commodity-details-footer{
+    position: fixed;
+    padding: 5px 10px;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 200;
+    border-top: 1px solid #eee;
+}
+.commodity-details-content-info{
+    padding: 0 12px 5px 12px;
+    color: blue;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.commodity-details-content-info-see{
+    color: #666666;
+}
+.commodity-details-footer-infos{
+    display: inline-block;
+}
+.commodity-details-footer-lianxi{
+    display: inline-block;
 }
 
+.commodity-details-footer-info{
+    font-size: 14px;
+    padding: 2px 20px;
+}
