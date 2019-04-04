@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import './index.css'
 import ava from './123.jpg'
 import {Avatar} from 'antd'
-// import img from './img1.png'
 import ImgDetail from '../ImgDetail/ImgDetail'
 
 /**

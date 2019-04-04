@@ -96,7 +96,7 @@ class Notice extends Component{
                         <img src={info} width={'30px'} height={'30px'} style={{marginRight:'35px',verticalAlign:'middle',display:'inline-block'}} alt=""/>
                         <div className={'notice-content'}>
                             <div style={{fontSize:'19px',color:'#888888'}}>通知</div>
-                            <div style={{fontSize:'12px'}}>暂时没有通知</div>
+                            <div style={{fontSize:'12px'}}><span className={'notice-new'}><p>暂时没有通知</p></span></div>
                         </div>
                     </div>
                     <div onClick={this.showModal} className={'allNotices'}>
