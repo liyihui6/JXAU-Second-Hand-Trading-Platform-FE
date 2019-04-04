@@ -13,16 +13,31 @@
     width: 48%;
     min-height: 80px;
     line-height: 80px;
-    background: blue;
+    background: url("./bg.jpg");
     font-size: 18px;
     border-radius: 4px;
+    font-weight: 800;
 }
 
 .else{
     width: 48%;
     min-height: 80px;
     line-height: 80px;
-    background: yellow;
+    background: url("./true.jpg");
+    /*background: yellow;*/
     font-size: 18px;
     border-radius: 4px;
+    font-weight: 800;
+}
+.card a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.else a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
 }
