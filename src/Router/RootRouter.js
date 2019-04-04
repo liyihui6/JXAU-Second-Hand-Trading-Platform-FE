@@ -7,6 +7,8 @@ import Forum from '../component/Forum/Forum'
 import RouterAdd from '../Router/RouterAdd'
 import AddPage from '../component/Add/AddPage'
 import CommodityDetails from '../component/CommodityDetails/CommodityDetails'
+import Login from '../component/Login/Login'
+import Register from '../component/Register/Register'
 
 
 class RootRouter extends Component{
@@ -26,6 +28,8 @@ class RootRouter extends Component{
                 <Route exact path='/add' component={AddPage}>
                     <RouterAdd></RouterAdd>
                 </Route>
+                <Route exact path='/login' component={Login}></Route>
+                <Route path={'/register'} component={Register}></Route>
             </Router>
         );
     }
