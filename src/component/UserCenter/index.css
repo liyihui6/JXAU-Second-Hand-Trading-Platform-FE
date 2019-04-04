@@ -24,3 +24,16 @@
     height: 5px;
     background: #eee;
 }
+.center-container-wrapper-ret{
+    position: relative;
+    top: 40px;
+    padding: 0 5px 0 5px;
+}
+
+.center-container-wrapper-ret .ant-btn{
+    background: red;
+    color: #fff;
+    border-color: white;
+    font-size: 16px;
+    font-weight: 600;
+}

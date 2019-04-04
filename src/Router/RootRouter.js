@@ -10,6 +10,7 @@ import CommodityDetails from '../component/CommodityDetails/CommodityDetails'
 import Login from '../component/Login/Login'
 import Register from '../component/Register/Register'
 import UserCenterSetting from '../component/UserCenterSetting/UserCenterSetting'
+import AllProduct from '../component/AllProduct/AllProduct'
 
 
 class RootRouter extends Component{
@@ -31,7 +32,8 @@ class RootRouter extends Component{
                 </Route>
                 <Route exact path='/login' component={Login}></Route>
                 <Route path={'/register'} component={Register}></Route>
-                <Route component={UserCenterSetting} path={'/userCenterSetting'}></Route>
+                <Route path={'/userCenterSetting'} component={UserCenterSetting}></Route>
+                <Route path={'/allProduct'} component={AllProduct}></Route>
             </Router>
         );
     }

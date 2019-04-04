@@ -1,0 +1,24 @@
+.all-product{
+    width: 100%;
+}
+.all-product-header{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+}
+.all-sell-products{
+    padding: 5px;
+}
+.all-sell-product-wrapper{
+    width: 48%;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 5px;
+    list-style: none;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}

@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {Link} from 'react-router-dom'
 import './index.css'
 import Product from './product/Product'
 
@@ -20,7 +21,7 @@ class Sell extends Component{
         return (
             <div className={'sell'}>
                 <div className={'sell-title'}>
-                    <h1 className={'sell-detail'}>出售<span className={'sell-more'}>查看更多 >></span></h1>
+                    <h1 className={'sell-detail'}>出售<span className={'sell-more'}><Link to={'/allProduct'}>查看更多 >></Link></span></h1>
                 </div>
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>

@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import './index.css'
+import {Button} from 'antd'
 import CenterHeader from './CenterHeader/CenterHeader'
 import CenterDetail from './CenterDetail/CenterDetail'
 import Bought from './Bought/Bought'
@@ -37,6 +38,10 @@ class UserCenter extends Component{
                             <Sold></Sold>
                         </div>
                     </div>
+                    <div className={'center-container-wrapper-ret'}>
+                        <Button block>退出登陆</Button>
+                    </div>
+
                 </div>
                 <div className={'footer'}>
                     <Footer></Footer>
