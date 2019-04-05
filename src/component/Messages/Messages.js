@@ -32,28 +32,28 @@ class Messages extends Component{
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                             <li className={'message-content'}>
-                                <MessageContent></MessageContent>
+                                <MessageContent history={this.props.history}></MessageContent>
                             </li>
                         </ul>
                     </div>

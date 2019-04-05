@@ -23,10 +23,13 @@ class MessageContent extends Component{
         this.setState({ loading: !checked });
     }
 
+    toDetail = () => {
+        this.props.history.push('/conversation')
+    }
     render() {
         // const { loading } = this.state;
         return (
-            <div className={'message-content-wrapper'}>
+            <div onClick={this.toDetail} className={'message-content-wrapper'}>
                 {/*<Card hoverable={true} style={{borderRadius: '0'}}>*/}
                     {/*<Meta*/}
                         {/*style={{float:'left'}}*/}

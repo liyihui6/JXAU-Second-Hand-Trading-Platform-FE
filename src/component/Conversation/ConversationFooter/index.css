@@ -1,0 +1,16 @@
+.conversation-footer{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+}
+.conversation-footer-input{
+    padding: 0;
+}
+
+.conversation-footer-input .ant-input{
+    border-radius: 0;
+}
+.conversation-footer-input .ant-btn{
+    border-radius: 0;
+}

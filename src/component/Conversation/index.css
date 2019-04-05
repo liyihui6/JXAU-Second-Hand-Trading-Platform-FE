@@ -1,0 +1,93 @@
+.conversation{
+    width: 100%;
+}
+.conversation-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+}
+.conversation-header-wrapper{
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.conversation-header-username{
+    font-weight: 600;
+}
+.conversation-header-messages{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.conversation-header-setting{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.conversation-content-wrapper{
+    margin-top: 48px;
+    padding-bottom: 235px;
+}
+.conversation-content{
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    /*overflow: auto;*/
+}
+.conversation-content-avatar{
+    margin-right: 10px;
+    position: relative;
+    top: 8px;
+}
+.conversation-content-detail{
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    overflow: visible;
+}
+.conversation-content-detail p{
+    line-height: 1.5;
+    background: white;
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 0;
+    word-wrap:break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.conversation-content-self{
+    width: 100%;
+    padding: 5px;
+}
+.conversation-content-avatar-self{
+    margin-right: 10px;
+    float: right;
+}
+.conversation-content-detail-self{
+    width: 80%;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: visible;
+    margin-right: 10px;
+    float: right;
+}
+.conversation-content-detail-self p{
+    line-height: 1.5;
+    font-size: 16px;
+    margin-bottom: 0;
+    height: auto;
+    background: white;
+    word-wrap:break-word;
+    word-break: break-all;
+    overflow: hidden;
+}

@@ -19,6 +19,10 @@ class CommodityDetails extends Component{
         }
     }
 
+    componentWillMount(){
+        document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
+    }
+
     onCancel = () =>{
         this.props.history.goBack()
     }

@@ -9,6 +9,10 @@ class AllProduct extends Component{
         super(props);
         this.state = {}
     }
+    componentWillMount(){
+        document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
+    }
+
 
     back =() => {
         this.props.history.goBack()

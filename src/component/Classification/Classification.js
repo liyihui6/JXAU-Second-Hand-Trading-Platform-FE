@@ -1,5 +1,15 @@
 import React, {Component} from 'react'
 import './index.css'
+import threeBall from '../../assets/images/三球.svg'
+import people from '../../assets/images/地球.svg'
+import space from '../../assets/images/太空.svg'
+import moon from '../../assets/images/星月.svg'
+import star from '../../assets/images/星球.svg'
+import star_2 from '../../assets/images/星轨.svg'
+import rocket from '../../assets/images/火箭2.svg'
+import ball from '../../assets/images/球.svg'
+import ship from '../../assets/images/飞船.svg'
+import blue from '../../assets/images/蓝球.svg'
 
 /**
  *
@@ -17,211 +27,61 @@ class Classification extends Component {
             <ul className={"models"}>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
+                        <img src={blue} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>书籍</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={people} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>衣物</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={space} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>手机平板</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={moon} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>厨具</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={star} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>电脑配件</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={star_2} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>帮助</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={rocket} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>租房</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={ball} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>车子</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
-                        <div className={'model-tip'}>书籍</div>
+                        <img src={ship} className={'classify-link-icon'} alt=""/>
+                        <div className={'model-tip'}>其他</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href="#" className={'link'}>
-                        <svg id="icon-book-2" viewBox="0 0 1024 1024" width="100%" height="100%">
-                            <path d="M32 347.2h204.8v614.4H32zM32 80h204.8v235.2H32z" fill="#9DE8F7"></path>
-                            <path
-                                d="M0 48v944h268.8V48H0z m32 913.6V347.2h204.8v614.4H32z m204.8-646.4H32V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path d="M368 347.2h204.8v614.4H368zM368 80h204.8v235.2H368z" fill="#FAD97F"></path>
-                            <path
-                                d="M336 48v944h268.8V48H336z m32 913.6V347.2h204.8v614.4H368z m204.8-646.4H368V80h204.8v235.2z"
-                                fill="#1A1718"></path>
-                            <path
-                                d="M931.2 297.6L910.4 64l-203.2 19.2 20.8 232zM988.8 940.8l-54.4-611.2-203.2 17.6L785.6 960z"
-                                fill="#F2385A"></path>
-                            <path
-                                d="M939.2 30.4L672 52.8l84.8 940.8L1024 971.2 939.2 30.4zM910.4 64l20.8 233.6-203.2 17.6-20.8-232L910.4 64z m24 265.6l54.4 611.2-203.2 19.2-54.4-612.8 203.2-17.6z"
-                                fill="#1A1718"></path>
-                        </svg>
+                        <img src={threeBall} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>书籍</div>
                     </a>
                 </li>
