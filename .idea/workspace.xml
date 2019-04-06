@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1005e140-a234-4abe-8b96-10af5fe1be24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Storages/LocalStorages/Token.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Storages/SessionStorages/LoginSession.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/Register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/userSetting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/Forum/ForumComment/CommentButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Add/AddElse/AddElse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Add/AddElse/AddElse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Add/AddFinding/AddFinding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Add/AddFinding/AddFinding.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Add/AddNote/AddNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Add/AddNote/AddNote.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Add/AddPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Add/AddPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Add/AddProduct/AddProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Add/AddProduct/AddProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Footer/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Footer/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Forum/ForumComment/ForumComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Forum/ForumComment/ForumComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Messages/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Messages/Messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/PicturesWall/PicturesWall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/PicturesWall/PicturesWall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UserCenter/UserCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UserCenter/UserCenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UserCenterSetting/UploadAvatar/UploadAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UserCenterSetting/UploadAvatar/UploadAvatar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" afterDir="false" />
-    </list>
+    <list default="true" id="1005e140-a234-4abe-8b96-10af5fe1be24" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -338,12 +312,12 @@
       <workItem from="1554200868727" duration="1637000" />
       <workItem from="1554262048290" duration="17928000" />
       <workItem from="1554357629231" duration="25166000" />
-      <workItem from="1554534028896" duration="7584000" />
+      <workItem from="1554534028896" duration="8183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127244000" />
+    <option name="totallyTimeSpent" value="127843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
