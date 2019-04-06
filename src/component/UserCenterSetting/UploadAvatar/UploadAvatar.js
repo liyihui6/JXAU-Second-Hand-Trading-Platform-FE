@@ -10,24 +10,25 @@ function getBase64(img, callback) {
     reader.readAsDataURL(img);
 }
 
-function beforeUpload(file) {
-    const isJPG = file.type === 'image/jpeg';
-    if (!isJPG) {
-        message.error('You can only upload JPG file!');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
-    }
-    return isJPG && isLt2M;
-}
-
 class UploadAvatar extends Component{
     constructor(props) {
         super(props);
         this.state = {
             loading: false,
         }
+    }
+
+    beforeUpload = (file) => {
+        const isJPG = file.type === 'image/jpeg';
+        if (!isJPG) {
+            message.error('You can only upload JPG file!');
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+            message.error('Image must smaller than 2MB!');
+        }
+        // let datas = new FormData().append('file',isJPG && isLt2M)
+        return isJPG && isLt2M;
     }
 
     handleChange = (info) => {
@@ -42,7 +43,9 @@ class UploadAvatar extends Component{
                 loading: false,
             }));
         }
+        console.log(info)
     }
+
 
 
     render() {
@@ -62,11 +65,11 @@ class UploadAvatar extends Component{
                     listType="picture-card"
                     className="avatar-uploader"
                     showUploadList={false}
-                    action="//jsonplaceholder.typicode.com/posts/"
-                    beforeUpload={beforeUpload}
+                    action="http://127.0.0.1:5000/saveFile"
+                    beforeUpload={this.beforeUpload}
                     onChange={this.handleChange}
                 >
-                    {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton}
+                    {imageUrl ? <img src={imageUrl} width={'126px'} alt="avatar" /> : uploadButton}
                 </Upload>
             </div>
         );

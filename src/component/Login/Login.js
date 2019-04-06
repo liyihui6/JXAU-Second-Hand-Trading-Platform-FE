@@ -1,19 +1,49 @@
 import React,{Component} from 'react'
-import {Input,Button,Divider} from 'antd'
+import {Input,Button,Divider,message} from 'antd'
 import {Link} from 'react-router-dom'
 import './index.css'
 import ava from './123.jpg'
 import ret from './ret.svg'
+import login from '../../Storages/SessionStorages/LoginSession'
+import LoginApi from '../../api/Login'
+
 
 class Login extends Component{
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            email:'',
+            pwd:''
+        }
+    }
+
+    haddlePwd = (e) => {
+        this.setState({
+            pwd:e.target.value
+        })
+    }
+
+    haddleEmail = (e) => {
+        this.setState({
+            email:e.target.value
+        })
+    }
+
+    submit = () => {
+        login.login({
+            email:this.state.email,
+            password:this.state.pwd
+        })
+        LoginApi([])
+        this.props.history.goBack()
+        message.success('登录成功')
     }
 
     back = () =>{
         this.props.history.goBack()
     }
+
+
     render() {
         return (
             <div className={'login'}>
@@ -26,14 +56,14 @@ class Login extends Component{
                     </div>
                     <div className={'login-input'}>
                         <div className={'login-input-email'}>
-                            <Input size={'large'} placeholder={'手机号/邮箱'}/>
+                            <Input onChange={this.haddleEmail} value={this.state.email} size={'large'} placeholder={'手机号/邮箱'}/>
                         </div>
                         <div className={'login-input-password'}>
-                            <Input size={'large'} placeholder={'密码'}/>
+                            <Input onChange={this.haddlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
                         </div>
                     </div>
                     <div className={'login-submit'}>
-                        <Button block size={'large'} ghost>登录</Button>
+                        <Button block size={'large'} onClick={this.submit} ghost>登录</Button>
                     </div>
                     <div className={'login-else-info'}>
                         <span className={'login-forget-password'}>忘记密码?</span>

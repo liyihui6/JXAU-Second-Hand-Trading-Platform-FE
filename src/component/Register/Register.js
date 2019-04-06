@@ -13,6 +13,8 @@ class Register extends Component{
         this.props.history.goBack()
     }
 
+
+
     render() {
         return (
             <div className={'register'}>

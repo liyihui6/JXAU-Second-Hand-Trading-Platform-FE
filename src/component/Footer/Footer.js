@@ -1,13 +1,10 @@
 import React,{Component} from 'react'
-// import home from './home.svg'
-// import msg from './msg.svg'
-// import user from './user.svg'
-// import pro from './product.svg'
 import add from './add.svg'
 import {Link} from 'react-router-dom'
 import './index.css'
 import '../../assets/css/style.css'
 import Add from '../../component/Add/Add'
+
 
 /**
  *
@@ -19,7 +16,8 @@ class Footer extends Component{
     constructor(props){
         super(props)
         this.state = {
-            visible:false
+            visible:false,
+            redirect:false
         }
     }
     show = () =>{

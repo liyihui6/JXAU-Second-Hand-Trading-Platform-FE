@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import MessageHeader from './MessageHeader/MessageHeader'
 import MessageContent from './MessageContent/MessageContent'
 import {Input} from "antd";
+import login from '../../Storages/SessionStorages/LoginSession'
 
 /**
  *
@@ -16,6 +17,12 @@ class Messages extends Component{
         super(props);
         this.state = {
 
+        }
+    }
+
+    componentWillMount() {
+        if (!login.isLogin()){
+            this.props.history.push('/login')
         }
     }
 

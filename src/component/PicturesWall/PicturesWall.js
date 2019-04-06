@@ -1,5 +1,5 @@
 import React from 'react'
-import { Upload, Icon, Modal } from 'antd';
+import {Upload, Icon, Modal} from 'antd';
 
 class PicturesWall extends React.Component {
     state = {
@@ -13,7 +13,11 @@ class PicturesWall extends React.Component {
         }],
     };
 
-    handleCancel = () => this.setState({ previewVisible: false })
+    handleCancel = () => {
+        this.setState({
+            previewVisible: false
+        })
+    }
 
     handlePreview = (file) => {
         this.setState({
@@ -22,20 +26,27 @@ class PicturesWall extends React.Component {
         });
     }
 
-    handleChange = ({ fileList }) => this.setState({ fileList })
+    handleChange = ({fileList}) => {
+        // console.log(fileList)
+        this.setState({
+            fileList:fileList
+        })
+        this.props.handlePics(fileList)
+        console.log(fileList)
+    }
 
     render() {
-        const { previewVisible, previewImage, fileList } = this.state;
+        const {previewVisible, previewImage, fileList} = this.state;
         const uploadButton = (
             <div>
-                <Icon type="plus" />
+                <Icon type="plus"/>
                 <div className="ant-upload-text">Upload</div>
             </div>
         );
         return (
             <div className="clearfix">
                 <Upload
-                    action="//jsonplaceholder.typicode.com/posts/"
+                    action="http://127.0.0.1:5000/saveFiles"
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={this.handlePreview}
@@ -44,7 +55,7 @@ class PicturesWall extends React.Component {
                     {fileList.length >= 6 ? null : uploadButton}
                 </Upload>
                 <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                    <img alt="example" style={{width: '100%'}} src={previewImage}/>
                 </Modal>
             </div>
         );

@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
-import { Comment, Tooltip, List,Input } from 'antd';
+import { Comment, Tooltip, List,Input ,Button} from 'antd';
 import moment from 'moment';
+import CommentButton from './CommentButton'
 
 
 /**
@@ -40,10 +41,42 @@ class ForumComment extends Component{
                         </Tooltip>
                     ),
                 },
-            ]
+            ],
+            content:'',
+            showButton:false
         }
     }
 
+    handleContent = (e) => {
+        this.setState({
+            content:e.target.value
+        })
+    }
+
+    showButton = () => {
+        this.setState({
+            showButton:true
+        })
+    }
+
+    hideButton= () => {
+        this.setState({
+            showButton:false
+        })
+    }
+
+    submit = () => {
+        let data = {
+            content:this.state.content
+        }
+        console.log(data)
+    }
+
+    clearContent = ()=> {
+        this.setState({
+            content:''
+        })
+    }
     render() {
         return (
             <List
@@ -60,7 +93,11 @@ class ForumComment extends Component{
                         datetime={item.datetime}
                     />
                 )}
-                footer={<div><Input placeholder={'评论:'}/></div>}
+                footer={
+                    <div style={{overflow:'auto'}}><Input onFocus={this.showButton} value={this.state.content} onChange={this.handleContent} placeholder={'评论:'}/>
+                        <CommentButton clearContent={this.clearContent} submit={this.submit} hideButton={this.hideButton} showButton={this.state.showButton}></CommentButton>
+                    </div>
+                }
             />
         );
     }
