@@ -30,13 +30,12 @@ class Login extends Component{
     }
 
     submit = () => {
-        login.login({
-            email:this.state.email,
+        let data = {
+            userEmail:this.state.email,
             password:this.state.pwd
-        })
-        LoginApi([])
-        this.props.history.goBack()
-        message.success('登录成功')
+        }
+        login.login(data)
+        LoginApi(data,this.props.history)
     }
 
     back = () =>{
