@@ -4,12 +4,11 @@ import Axios from '../main'
 import {message} from "antd";
 
 
-export default function AddComment(data,history){
-    Axios.post('',data).then((response) => {
+export default function AddComment(data){
+    Axios.post('api/addComment',data).then((response) => {
         let resInfo = response.data
         if (resInfo.code === 1){
             message.success('添加评论成功')
-            history.push('/')
         }else {
             message.error(response.data.message)
         }

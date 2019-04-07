@@ -28,6 +28,7 @@ class CommodityDetails extends Component{
         // console.log(this.props.location.state)
         getProductDetail(this,this.props.location.state.publishId)
         getUserInfo(this,this.props.location.state.email)
+        // commodityPhotos
     }
 
     onCancel = () =>{
@@ -54,15 +55,22 @@ class CommodityDetails extends Component{
                         <h3>￥{this.state.productData.publishPrice}</h3>
                         <p>{this.state.productData.publishContent}</p>
                         <div className={'commodity-details-content-images'}>
-                            <div className={'commodity-details-content-image'}>
-                                <img src={pr} alt=""/>
-                            </div>
-                            <div className={'commodity-details-content-image'}>
-                                <img src={pr} alt=""/>
-                            </div>
-                            <div className={'commodity-details-content-image'}>
-                                <img src={pr} alt=""/>
-                            </div>
+                            {
+                                this.state.productData.commodityPhotos?this.state.productData.commodityPhotos.map((value,index)=>{
+                                    return <div key={index} className={'commodity-details-content-image'}>
+                                        <img src={'http://127.0.0.1:5000/show/'+value.articlePhotoPath} alt=""/>
+                                    </div>
+                                }):null
+                            }
+                            {/*<div className={'commodity-details-content-image'}>*/}
+                                {/*<img src={pr} alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className={'commodity-details-content-image'}>*/}
+                                {/*<img src={pr} alt=""/>*/}
+                            {/*</div>*/}
+                            {/*<div className={'commodity-details-content-image'}>*/}
+                                {/*<img src={pr} alt=""/>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                     <div className={'commodity-details-content-info'}>

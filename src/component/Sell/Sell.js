@@ -23,7 +23,7 @@ class Sell extends Component{
 
     render() {
         let data = this.state.allData
-        console.log(data)
+        // console.log(data)
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         return (

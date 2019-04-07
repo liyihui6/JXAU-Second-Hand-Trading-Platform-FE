@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import { Comment, Tooltip, List,Input} from 'antd';
 import moment from 'moment';
 import CommentButton from './CommentButton'
+import User from '../../../Storages/LocalStorages/User'
+import addComment from '../../../api/PostApi/addComment'
 
 
 /**
@@ -14,21 +16,7 @@ class ForumComment extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            data : [
-                {
-                    // actions: [<span>Reply to</span>],
-                    author: 'Han Solo',
-                    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-                    content: (
-                        <p>hello world</p>
-                    ),
-                    datetime: (
-                        <Tooltip title={moment().subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-                            <span>{moment().subtract(30, 'days').fromNow()}</span>
-                        </Tooltip>
-                    ),
-                },
-            ],
+            data : [],
             content:'',
             showButton:false
         }
@@ -53,10 +41,32 @@ class ForumComment extends Component{
     }
 
     submit = () => {
-        let data = {
-            content:this.state.content
+        let tempData = {
+            articleCommentContent:this.state.content,
+            fkArticleId:this.props.datas.publishId,
+            fkUserId:User.getUser().userId
         }
-        console.log(data)
+        addComment(tempData,this)
+        let datas = []
+        this.state.data.forEach(value=>{
+            datas.push(value)
+        })
+        let user = User.getUser()
+        datas.push({
+            author: user.userNike,
+            avatar: 'http://127.0.0.1:5000/show/'+user.userPhotoPath,
+            content: (
+                <p>{tempData.articleCommentContent}</p>
+            ),
+            datetime: (
+                <Tooltip title={moment().subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+                    <span>{moment().subtract(30, 'days').fromNow()}</span>
+                </Tooltip>
+            ),
+        })
+        this.setState({
+            data:datas
+        })
     }
 
     clearContent = ()=> {
@@ -64,7 +74,29 @@ class ForumComment extends Component{
             content:''
         })
     }
+    componentWillMount() {
+        let datas = []
+        this.props.datas.articleComments.forEach((value,index) => {
+            datas.push({
+                author: value.commentUserNike,
+                avatar: 'http://127.0.0.1:5000/show/'+value.commentUserPhonePath,
+                content: (
+                    <p>{value.articleCommentContent}</p>
+                ),
+                datetime: (
+                    <Tooltip title={moment().subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+                        <span>{moment().subtract(30, 'days').fromNow()}</span>
+                    </Tooltip>
+                ),
+            })
+        })
+        this.setState({
+            data:datas
+        })
+    }
+
     render() {
+        console.log(this.props.datas.articleComments)
         return (
             <List
                 className="comment-list"

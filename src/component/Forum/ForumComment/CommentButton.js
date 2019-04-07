@@ -13,7 +13,6 @@ class CommentButton extends Component{
         this.props.submit()
         this.props.clearContent()
         this.props.hideButton()
-        message.success('发表成功!')
     }
 
     oncancel = () => {

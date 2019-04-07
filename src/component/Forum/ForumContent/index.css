@@ -18,6 +18,11 @@
     width: 100%;
 
 }
+.forum-content-content p{
+    margin: 5px 0;
+    font-size: 15px;
+    text-indent: 15px;
+}
 .forum-content-images{
     width: 100%;
     overflow: auto;

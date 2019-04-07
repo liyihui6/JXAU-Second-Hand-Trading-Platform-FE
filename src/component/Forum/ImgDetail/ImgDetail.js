@@ -21,39 +21,32 @@ class ImgDetail extends Component{
             previewImage:'',
             current:90,
             transStyle:'',
-            fileList: [{
-                uid: '0',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },{
-                uid: '1',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },{
-                uid: '2',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },{
-                uid: '3',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },{
-                uid: '4',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            },{
-                uid: '5',
-                name: 'xxx.png',
-                status: 'done',
-                url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-            }],
+            fileList: [],
+        // {
+        //     uid: '0',
+        //     name: 'xxx.png',
+        //     status: 'done',
+        //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        // }
         }
     }
+
+    componentWillMount() {
+        let fileList = []
+        // articlePhotoPath
+        this.props.photos.map((value,index)=>{
+            fileList.push({
+                uid: index,
+                name: index+'xxx.png',
+                status: 'done',
+                url: 'http://127.0.0.1:5000/show/'+value.articlePhotoPath,
+            })
+        })
+        this.setState({
+            fileList:fileList
+        })
+    }
+
     // 预览，设置查看的当前图片，设置弹框为展开
     preview = (file) => {
         this.setState({

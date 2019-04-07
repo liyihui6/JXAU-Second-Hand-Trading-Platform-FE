@@ -24,7 +24,7 @@ class ForumContent extends Component{
             <div className={'forum-content'}>
                 <div className={'forum-content-header'}>
                     <div className={'forum-content-header-avatar'}>
-                        <Avatar src={'http://127.0.0.1:5000/show/'+this.props.datas.user.userPhotoPath} alt=""/>
+                        <Avatar src={this.props.datas.user.userPhotoPath?'http://127.0.0.1:5000/show/'+this.props.datas.user.userPhotoPath:ava} alt=""/>
                     </div>
                     <div className={'forum-content-header-username'}>
                         {this.props.datas.user.userNike}
@@ -34,7 +34,7 @@ class ForumContent extends Component{
                     <p>{this.props.datas.publishContent||'hello world'}</p>
                 </div>
                 <div className={'forum-content-images'}>
-                    <ImgDetail></ImgDetail>
+                    <ImgDetail photos={this.props.datas.commodityPhotos}></ImgDetail>
                 </div>
             </div>
         );

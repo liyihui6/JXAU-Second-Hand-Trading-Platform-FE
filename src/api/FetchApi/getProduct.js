@@ -4,7 +4,7 @@ let getProduct = (component) => {
     Axios.get('/api/getAllCommodity').then((response)=> {
         let data = response.data.list
         if (data){
-            console.log(data)
+            // console.log(data)
             component.setState({
                 allData:data
             })

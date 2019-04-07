@@ -23,12 +23,12 @@ class FaultFinding extends Component{
                 </div>
                 <div className={'thing'}>
                     <div className={'card'}>
-                        <Link to={'/commodityDetails'}>
+                        <Link to={'/forum'}>
                         校园卡
                         </Link>
                     </div>
                     <div className={'else'}>
-                        <Link to={'/commodityDetails'}>
+                        <Link to={'/forum'}>
                         其他
                         </Link>
                     </div>

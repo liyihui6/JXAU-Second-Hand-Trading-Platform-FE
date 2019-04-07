@@ -1,4 +1,7 @@
 import Axios from '../main'
+import {Tooltip} from "antd";
+import moment from "../../component/Forum/ForumComment/ForumComment";
+import React from "react";
 
 let getUserInfo = (component,email) => {
     Axios.get('/api/user/'+email).then((response)=> {
@@ -8,6 +11,18 @@ let getUserInfo = (component,email) => {
             component.setState({
                 sellerInfo:data
             })
+        }
+    }).catch((response)=>{
+
+    })
+}
+
+export let getUserInfoById = (id) => {
+    Axios.get('/api/userById/'+id).then((response)=> {
+        let data = response.data
+        console.log(data)
+        if (data){
+
         }
     }).catch((response)=>{
 
