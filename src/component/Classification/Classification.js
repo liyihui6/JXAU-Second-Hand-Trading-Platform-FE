@@ -76,13 +76,13 @@ class Classification extends Component {
                 <li className={'product'}>
                     <a href={'/allProduct'} className={'link'}>
                         <img src={ship} className={'classify-link-icon'} alt=""/>
-                        <div className={'model-tip'}>其他</div>
+                        <div className={'model-tip'}>健身</div>
                     </a>
                 </li>
                 <li className={'product'}>
                     <a href={'/allProduct'} className={'link'}>
                         <img src={threeBall} className={'classify-link-icon'} alt=""/>
-                        <div className={'model-tip'}>书籍</div>
+                        <div className={'model-tip'}>其他</div>
                     </a>
                 </li>
             </ul>

@@ -3,6 +3,7 @@ import {Input} from "antd";
 import PicturesWall from "../../PicturesWall/PicturesWall";
 import login from "../../../Storages/SessionStorages/LoginSession";
 import addProduct from "../../../api/PostApi/addProduct";
+import user from "../../../Storages/LocalStorages/User";
 
 class AddElse extends Component{
     constructor(props) {
@@ -47,7 +48,8 @@ class AddElse extends Component{
             publishKinds:4,
             publishTitle:this.state.title,
             publishContent:this.state.content,
-            pics:this.state.pics
+            pics:this.state.pics,
+            fkUserId:user.getUser()['userId'],
         }
         addProduct(data,this.props.history)
     }

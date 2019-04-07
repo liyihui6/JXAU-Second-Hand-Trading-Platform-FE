@@ -4,6 +4,8 @@ import ForumHeader from './ForumHeader/ForumHeader'
 import ForumContent from './ForumContent/ForumContent'
 import ForumComment from './ForumComment/ForumComment'
 import Footer from '../../component/Footer/Footer'
+import getProduct from "../../api/FetchApi/getProduct";
+
 
 /**
  *
@@ -15,8 +17,12 @@ class Forum extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            allData:[]
         }
+    }
+    componentWillMount(){
+        document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
+        getProduct(this)
     }
 
     render() {
@@ -26,18 +32,32 @@ class Forum extends Component{
                     <ForumHeader></ForumHeader>
                 </div>
                 <div className={'forum-content-wrapper'}>
-                    <div className={'forum-content-detail'}>
-                        <ForumContent></ForumContent>
-                        <div className={'forum-content-comments'}>
-                            <ForumComment></ForumComment>
-                        </div>
-                    </div>
-                    <div className={'forum-content-detail'}>
-                        <ForumContent></ForumContent>
-                        <div className={'forum-content-comments'}>
-                            <ForumComment></ForumComment>
-                        </div>
-                    </div>
+                    {
+                        this.state.allData.map((value,index) =>{
+                            if (value.publishKinds !== 1){
+                                return <div key={index} className={'forum-content-detail'}>
+                                    <ForumContent datas={value}></ForumContent>
+                                    <div className={'forum-content-comments'}>
+                                        <ForumComment datas={value}></ForumComment>
+                                    </div>
+                                </div>
+                            }else {
+                                return null
+                            }
+                        })
+                    }
+                    {/*<div className={'forum-content-detail'}>*/}
+                        {/*<ForumContent></ForumContent>*/}
+                        {/*<div className={'forum-content-comments'}>*/}
+                            {/*<ForumComment></ForumComment>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
+                    {/*<div className={'forum-content-detail'}>*/}
+                        {/*<ForumContent></ForumContent>*/}
+                        {/*<div className={'forum-content-comments'}>*/}
+                            {/*<ForumComment></ForumComment>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
                 </div>
                 <div className={'footer'}>
                     <Footer></Footer>

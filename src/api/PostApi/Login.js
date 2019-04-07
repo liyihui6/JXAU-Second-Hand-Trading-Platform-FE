@@ -11,6 +11,7 @@ let login = (data,history) => {
             message.success('登录成功')
             token.setToken(info.token)
             user.setUser(info.user)
+            axios.defaults.headers['token'] = info.token
             history.push('/userCenter')
         }else {
             message.error(info.message)

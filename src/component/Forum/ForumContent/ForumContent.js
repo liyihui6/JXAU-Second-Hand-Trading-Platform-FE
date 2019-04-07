@@ -13,22 +13,25 @@ import ImgDetail from '../ImgDetail/ImgDetail'
 class ForumContent extends Component{
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+
+        }
     }
+
 
     render() {
         return (
             <div className={'forum-content'}>
                 <div className={'forum-content-header'}>
                     <div className={'forum-content-header-avatar'}>
-                        <Avatar src={ava} alt=""/>
+                        <Avatar src={'http://127.0.0.1:5000/show/'+this.props.datas.user.userPhotoPath} alt=""/>
                     </div>
                     <div className={'forum-content-header-username'}>
-                        李艺晖
+                        {this.props.datas.user.userNike}
                     </div>
                 </div>
                 <div className={'forum-content-content'}>
-                    <p>hello world</p>
+                    <p>{this.props.datas.publishContent||'hello world'}</p>
                 </div>
                 <div className={'forum-content-images'}>
                     <ImgDetail></ImgDetail>

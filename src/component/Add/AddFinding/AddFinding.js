@@ -4,6 +4,7 @@ import './index.css'
 import PicturesWall from "../../PicturesWall/PicturesWall";
 import login from "../../../Storages/SessionStorages/LoginSession";
 import addProduct from '../../../api/PostApi/addProduct'
+import user from "../../../Storages/LocalStorages/User";
 
 class AddFinding extends Component{
     constructor(props) {
@@ -48,7 +49,8 @@ class AddFinding extends Component{
             publishKinds:3,
             publishTitle:this.state.title,
             publishContent:this.state.content,
-            pics:this.state.pics
+            pics:this.state.pics,
+            fkUserId:user.getUser()['userId'],
         }
         addProduct(data,this.props.history)
     }

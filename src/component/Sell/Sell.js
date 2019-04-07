@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
 import './index.css'
 import Product from './product/Product'
+import getProduct from "../../api/FetchApi/getProduct";
 
 /**
  *
@@ -13,12 +14,15 @@ class Sell extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            allData:[]
         }
+    }
+    componentWillMount() {
+        getProduct(this)
     }
 
     render() {
-        let data = this.props.allData
+        let data = this.state.allData
         console.log(data)
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
@@ -31,7 +35,7 @@ class Sell extends Component{
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
                             data.map((value,index) => {
-                                return (index>5?null:<li key={index} className={index%2===0?style_1:style_2}>
+                                return (value.publishKinds !== 1?null:<li key={index} className={index%2===0?style_1:style_2}>
                                     <Product data={value}></Product>
                                 </li>)
                             })

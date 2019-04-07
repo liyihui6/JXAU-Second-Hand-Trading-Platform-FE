@@ -28,19 +28,6 @@ class ForumComment extends Component{
                         </Tooltip>
                     ),
                 },
-                {
-                    // actions: [<span>Reply to</span>],
-                    author: 'Han Solo',
-                    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-                    content: (
-                        <p>hello world</p>
-                    ),
-                    datetime: (
-                        <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-                            <span>{moment().subtract(2, 'days').fromNow()}</span>
-                        </Tooltip>
-                    ),
-                },
             ],
             content:'',
             showButton:false

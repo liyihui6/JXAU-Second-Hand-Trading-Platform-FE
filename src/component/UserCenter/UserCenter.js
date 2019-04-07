@@ -8,6 +8,8 @@ import Sold from './Sold/Sold'
 import Footer from '../Footer/Footer'
 import login from '../../Storages/SessionStorages/LoginSession'
 import token from '../../Storages/LocalStorages/Token'
+import getUserInfo from '../../api/FetchApi/getUserInfo'
+import User from '../../Storages/LocalStorages/User'
 
 /**
  *
@@ -19,12 +21,12 @@ class UserCenter extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            sellerInfo:{}
         }
     }
 
     componentWillMount() {
-
+        getUserInfo(this,User.getUser().userEmail)
     }
 
     componentDidMount() {
@@ -49,7 +51,7 @@ class UserCenter extends Component{
                     <CenterHeader></CenterHeader>
                 </div>
                 <div className={'center-container-wrapper'}>
-                    <CenterDetail></CenterDetail>
+                    <CenterDetail userInfo={this.state.sellerInfo}></CenterDetail>
                     <div className={'none'}></div>
                     <div className={'center-container-wrapper-lists'}>
                         <div className={'center-container-wrapper-list'}>

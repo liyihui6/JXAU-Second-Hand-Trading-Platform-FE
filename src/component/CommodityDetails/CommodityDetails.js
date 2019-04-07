@@ -4,6 +4,8 @@ import {Card,Button,Skeleton,Avatar, } from 'antd'
 import pr from './pr.jpg'
 import add from './add.svg'
 import ret from './return.svg'
+import getProductDetail from '../../api/FetchApi/getProductDetail'
+import getUserInfo from '../../api/FetchApi/getUserInfo'
 
 /***
  *
@@ -16,11 +18,16 @@ class CommodityDetails extends Component{
         super(props);
         this.state = {
             loading: false,
+            productData:{},
+            sellerInfo:{}
         }
     }
 
     componentWillMount(){
         document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
+        // console.log(this.props.location.state)
+        getProductDetail(this,this.props.location.state.publishId)
+        getUserInfo(this,this.props.location.state.email)
     }
 
     onCancel = () =>{
@@ -32,20 +39,20 @@ class CommodityDetails extends Component{
             <div className={'commodity-details'}>
                 <div className={'commodity-details-header'}>
                     <span className={'commodity-details-header-title'} onClick={this.onCancel}> <img src={ret} width={'30px'} alt=""/> </span>
-                    <span className={'commodity-details-header-title'}>￥100</span>
+                    <span className={'commodity-details-header-title'}>￥{this.state.productData.publishPrice}</span>
                     <span className={'commodity-details-header-title'}><img src={add} width={'30px'} alt=""/> </span>
                 </div>
                 <div className={'commodity-details-content-wrapper'}>
                     <Skeleton loading={this.state.loading} avatar active>
                         <Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title="Card title"
-                            description="This is the description"
+                            avatar={<Avatar icon="user" src={this.state.sellerInfo.userPhotoPath?'http://127.0.0.1:5000/show/'+this.state.sellerInfo.userPhotoPath:null} />}
+                            title={this.state.sellerInfo.userNike}
+                            description={this.state.sellerInfo.userDes}
                         />
                     </Skeleton>
                     <div className={'commodity-details-content'}>
-                        <h3>￥500</h3>
-                        <p>【视频看货 女款可选】尼尚(Nesun)手表 男士全自动机械表 三眼多功能夜光防水手表 男士-棕面皮带款</p>
+                        <h3>￥{this.state.productData.publishPrice}</h3>
+                        <p>{this.state.productData.publishContent}</p>
                         <div className={'commodity-details-content-images'}>
                             <div className={'commodity-details-content-image'}>
                                 <img src={pr} alt=""/>

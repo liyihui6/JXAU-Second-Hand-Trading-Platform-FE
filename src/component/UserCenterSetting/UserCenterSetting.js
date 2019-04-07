@@ -11,13 +11,19 @@ class UserCenterSetting extends Component{
         this.state = {
             name:'',
             phone:'',
-            pic:''
+            pic:'',
+            desc:''
         }
     }
 
     handleName = (e) => {
         this.setState({
             name:e.target.value
+        })
+    }
+    handleDesc= (e) => {
+        this.setState({
+            desc:e.target.value
         })
     }
 
@@ -41,7 +47,8 @@ class UserCenterSetting extends Component{
         let data = {
             name:this.state.name,
             phone:this.state.phone,
-            pic:this.state.pic
+            pic:this.state.pic,
+            desc:this.state.desc
         }
         console.log(data)
         userSetting(data,this.props.history)
@@ -67,6 +74,10 @@ class UserCenterSetting extends Component{
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>昵称</h3>
                         <Input value={this.state.name} onChange={this.handleName}/>
+                    </div>
+                    <div>
+                        <h3 className={'user-center-setting-content-input-title'}>个性签名</h3>
+                        <Input value={this.state.desc} onChange={this.handleDesc}/>
                     </div>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>手机号</h3>

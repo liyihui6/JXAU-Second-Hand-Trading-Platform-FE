@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import './index.css'
 import pro from './img2.png'
 import avatar from "./123.jpg"
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Product extends Component{
     constructor(props) {
@@ -15,7 +15,7 @@ class Product extends Component{
     render() {
         return (
             <div className={'sell-product'}>
-                <NavLink to={'/commodityDetails'}>
+                <Link to={{pathname:'/commodityDetails',state:{email:this.props.data.user.userEmail,publishId:this.props.data.publishId}}}>
                     <div className={'sell--product-detail'}>
                         <img src={pro} alt="" width={'100%'}/>
                         <h2 className={'sell-product-title'}>
@@ -27,7 +27,7 @@ class Product extends Component{
                         <img className={'sell-user-avatar'} src={avatar} alt=""/>
                         <span className={'sell-user-name'}>{this.props.data.user.userNike}</span>
                     </div>
-                </NavLink>
+                </Link>
             </div>
         );
     }

@@ -7,7 +7,7 @@ import {message} from "antd";
 export default function AddProduct(data,history){
     Axios.post('/api/addCommodity',data).then((response) => {
         let resInfo = response.data
-        console.log(response)
+        // console.log(response)
         if (resInfo.code === 1){
             message.success('发布成功')
             setTimeout(()=>{
