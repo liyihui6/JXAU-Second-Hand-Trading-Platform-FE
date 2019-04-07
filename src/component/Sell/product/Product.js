@@ -19,13 +19,13 @@ class Product extends Component{
                     <div className={'sell--product-detail'}>
                         <img src={pro} alt="" width={'100%'}/>
                         <h2 className={'sell-product-title'}>
-                            电竞椅
+                            {this.props.data.publishTitle}
                         </h2>
-                        <span className={'sell-price'}>￥200</span>
+                        <span className={'sell-price'}>￥{this.props.data.publishPrice}</span>
                     </div>
                     <div className={'sell-user-info'}>
                         <img className={'sell-user-avatar'} src={avatar} alt=""/>
-                        <span className={'sell-user-name'}>李艺晖</span>
+                        <span className={'sell-user-name'}>{this.props.data.user.userNike}</span>
                     </div>
                 </NavLink>
             </div>

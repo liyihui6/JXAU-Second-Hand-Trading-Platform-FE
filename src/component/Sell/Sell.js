@@ -18,6 +18,10 @@ class Sell extends Component{
     }
 
     render() {
+        let data = this.props.allData
+        console.log(data)
+        let style_1 = 'sell-product-wrapper'
+        let style_2 = 'sell-product-wrapper clear-margin-right'
         return (
             <div className={'sell'}>
                 <div className={'sell-title'}>
@@ -25,18 +29,25 @@ class Sell extends Component{
                 </div>
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
-                        <li className={'sell-product-wrapper'}>
-                            <Product></Product>
-                        </li>
-                        <li className={'sell-product-wrapper clear-margin-right'}>
-                            <Product></Product>
-                        </li>
-                        <li className={'sell-product-wrapper'}>
-                            <Product></Product>
-                        </li>
-                        <li className={'sell-product-wrapper clear-margin-right'}>
-                            <Product></Product>
-                        </li>
+                        {
+                            data.map((value,index) => {
+                                return (index>5?null:<li key={index} className={index%2===0?style_1:style_2}>
+                                    <Product data={value}></Product>
+                                </li>)
+                            })
+                        }
+                        {/*<li className={'sell-product-wrapper'}>*/}
+                            {/*<Product></Product>*/}
+                        {/*</li>*/}
+                        {/*<li className={'sell-product-wrapper clear-margin-right'}>*/}
+                            {/*<Product></Product>*/}
+                        {/*</li>*/}
+                        {/*<li className={'sell-product-wrapper'}>*/}
+                            {/*<Product></Product>*/}
+                        {/*</li>*/}
+                        {/*<li className={'sell-product-wrapper clear-margin-right'}>*/}
+                            {/*<Product></Product>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>
             </div>

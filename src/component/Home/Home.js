@@ -7,6 +7,7 @@ import Classification from '../Classification/Classification'
 import FaultFinding from '../FaultFinding/FaultFinding'
 import Sell from '../Sell/Sell'
 import './index.css'
+import getProduct from '../../api/FetchApi/getProduct'
 
 
 /**
@@ -18,8 +19,12 @@ class Home extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
+            allData:[]
         }
+    }
+
+    componentWillMount() {
+        getProduct(this)
     }
 
 
@@ -36,7 +41,7 @@ class Home extends Component{
                             <Notice/>
                             <Classification/>
                             <FaultFinding/>
-                            <Sell/>
+                            <Sell allData={this.state.allData}/>
                         </article>
                     </div>
                     <div className={"footer"}>
