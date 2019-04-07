@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input,Button,Divider,message} from 'antd'
+import {Input,Button,Divider} from 'antd'
 import {Link} from 'react-router-dom'
 import './index.css'
 import ava from './123.jpg'

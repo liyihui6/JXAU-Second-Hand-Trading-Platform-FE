@@ -10,10 +10,10 @@ class RouterAdd extends Component{
     render() {
         return (
             <div>
-                <Route exact path='/add/finding' component={AddFinding}></Route>
-                <Route exact path='/add/else' component={AddElse}></Route>
-                <Route exact path='/add/note' component={AddNote}></Route>
-                <Route exact path='/add/product' component={AddProduct}></Route>
+                <Route exact path='/add/finding' component={AddFinding}/>
+                <Route exact path='/add/else' component={AddElse}/>
+                <Route exact path='/add/note' component={AddNote}/>
+                <Route exact path='/add/product' component={AddProduct}/>
             </div>
         );
     }

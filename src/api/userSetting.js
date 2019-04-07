@@ -2,10 +2,6 @@ import axios from './main'
 import token from '../Storages/LocalStorages/Token'
 
 let userSetting = (value) => {
-    let info = {
-        name:value['name'],
-        phone:value['phone']
-    }
     let pic = value['pic']
     console.log(pic)
     let form = new FormData().append('file',pic)

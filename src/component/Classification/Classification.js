@@ -26,61 +26,61 @@ class Classification extends Component {
         return (
             <ul className={"models"}>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={blue} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>书籍</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={people} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>衣物</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={space} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>手机平板</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={moon} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>厨具</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={star} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>电脑配件</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={star_2} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>帮助</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={rocket} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>租房</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={ball} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>车子</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={ship} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>其他</div>
                     </a>
                 </li>
                 <li className={'product'}>
-                    <a href="#" className={'link'}>
+                    <a href={'/allProduct'} className={'link'}>
                         <img src={threeBall} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>书籍</div>
                     </a>

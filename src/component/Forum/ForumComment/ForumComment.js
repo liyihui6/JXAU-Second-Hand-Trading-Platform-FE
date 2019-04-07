@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Comment, Tooltip, List,Input ,Button} from 'antd';
+import { Comment, Tooltip, List,Input} from 'antd';
 import moment from 'moment';
 import CommentButton from './CommentButton'
 

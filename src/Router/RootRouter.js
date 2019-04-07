@@ -5,7 +5,7 @@ import Messages from '../component/Messages/Messages'
 import UserCenter from "../component/UserCenter/UserCenter";
 import Forum from '../component/Forum/Forum'
 import RouterAdd from '../Router/RouterAdd'
-import AddPage from '../component/Add/AddPage'
+// import AddPage from '../component/Add/AddPage'
 import CommodityDetails from '../component/CommodityDetails/CommodityDetails'
 import Login from '../component/Login/Login'
 import Register from '../component/Register/Register'
@@ -22,19 +22,20 @@ class RootRouter extends Component{
 
         return (
             <Router>
-                <Route exact path='/' component={Home}></Route>
-                <Route exact path='/messages' component={Messages}></Route>
-                <Route exact path='/userCenter' component={UserCenter}></Route>
-                <Route exact path='/forum' component={Forum}></Route>
-                <Route exact path='/commodityDetails' component={CommodityDetails}></Route>
-                <Route exact path='/add' component={AddPage}>
-                    <RouterAdd></RouterAdd>
-                </Route>
-                <Route exact path='/login' component={Login}></Route>
-                <Route path={'/register'} component={Register}></Route>
-                <Route path={'/userCenterSetting'} component={UserCenterSetting}></Route>
-                <Route path={'/allProduct'} component={AllProduct}></Route>
-                <Route path={'/conversation'} component={Conversation}></Route>
+                <Route exact path='/' component={Home}/>
+                <Route exact path='/messages' component={Messages}/>
+                <Route exact path='/userCenter' component={UserCenter}/>
+                <Route exact path='/forum' component={Forum}/>
+                <Route exact path='/commodityDetails' component={CommodityDetails}/>
+                {/*<Route exact path='/add' component={AddPage}>*/}
+                    {/**/}
+                {/*</Route>*/}
+                <RouterAdd/>
+                <Route exact path='/login' component={Login}/>
+                <Route path={'/register'} component={Register}/>
+                <Route path={'/userCenterSetting'} component={UserCenterSetting}/>
+                <Route path={'/allProduct'} component={AllProduct}/>
+                <Route path={'/conversation'} component={Conversation}/>
             </Router>
         );
     }
