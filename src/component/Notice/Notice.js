@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import info from './info.svg'
 import './index.css'
 import {Modal} from 'antd'
+import getNotice from "../../api/FetchApi/getFNotice";
+import formatDate from '../../utils/formateDate'
 
 /**
  *
@@ -13,7 +15,10 @@ class Notice extends Component{
         super(props);
         this.state = {
             all_visible: false,
-            detail_visible: false
+            detail_visible: false,
+            notices:[],
+            detailTitle:'',
+            detailContent:''
         }
     }
 
@@ -24,42 +29,48 @@ class Notice extends Component{
     }
 
     handleOk = (e) => {
-        console.log(e);
+        // console.log(e);
         this.setState({
             all_visible: false,
         });
     }
 
     handleCancel = (e) => {
-        console.log(e);
         this.setState({
             all_visible: false,
         });
     }
 
 
-    showDetailModal = () => {
+    showDetailModal(item) {
         this.setState({
             detail_visible: true,
+            detailTitle:item.title,
+            detailContent:item.content
         });
     }
 
     handleDetailOk = (e) => {
-        console.log(e);
         this.setState({
             detail_visible: false,
         });
     }
 
     handleDetailCancel = (e) => {
-        console.log(e);
+        // console.log(e);
         this.setState({
             detail_visible: false,
         });
     }
+    componentWillMount() {
+        getNotice(this)
+    }
+
 
     render() {
+        let message = this.state.notices
         return (
+
             <div>
                 <div>
                     <Modal
@@ -69,26 +80,23 @@ class Notice extends Component{
                         onCancel={this.handleCancel}
                     >
                         <div className={'notice-options'}>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
-                            <div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-1-1</span></div>
+                            {
+                                this.state.notices.map((item, index) => (
+                                    <div className={'notice-option'} key={index} onClick={this.showDetailModal.bind(this,item)}><span className={'notice-detail-content'}><p>{item.content}</p></span><span style={{float:'right',maxWidth:'100px'}}>{formatDate(new Date(item.time),'yyyy-MM-dd')}</span></div>
+                                ))
+                            }
+                            {/*<div className={'notice-option'} onClick={this.showDetailModal}><span className={'notice-detail-content'}><p>Some contents Some contents Some contents Some contents...</p></span><span style={{float:'right'}}>2019-10-10</span></div>*/}
                         </div>
                     </Modal>
                 </div>
                 <div>
                     <Modal
-                        title="通知详情"
+                        title={this.state.detailTitle}
                         visible={this.state.detail_visible}
                         onOk={this.handleDetailOk}
                         onCancel={this.handleDetailCancel}
                     >
-                        <p>通知详情</p>
+                        <p>{this.state.detailContent}</p>
                     </Modal>
                 </div>
                 <div className={'notice'}>
@@ -96,7 +104,11 @@ class Notice extends Component{
                         <img src={info} width={'30px'} height={'30px'} style={{marginRight:'35px',verticalAlign:'middle',display:'inline-block'}} alt=""/>
                         <div className={'notice-content'}>
                             <div style={{fontSize:'19px',color:'#888888'}}>通知</div>
-                            <div style={{fontSize:'12px'}}><span className={'notice-new'}><p>暂时没有通知</p></span></div>
+                            <div style={{fontSize:'12px'}}><span className={'notice-new'}>
+                                <p>{
+                                    (message&&message.length>0)?message[0].title:'暂时没有通知'
+                                }</p>
+                            </span></div>
                         </div>
                     </div>
                     <div onClick={this.showModal} className={'allNotices'}>

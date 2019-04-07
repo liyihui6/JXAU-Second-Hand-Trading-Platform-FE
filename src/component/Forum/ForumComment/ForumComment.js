@@ -23,8 +23,8 @@ class ForumComment extends Component{
                         <p>hello world</p>
                     ),
                     datetime: (
-                        <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-                            <span>{moment().subtract(1, 'days').fromNow()}</span>
+                        <Tooltip title={moment().subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+                            <span>{moment().subtract(30, 'days').fromNow()}</span>
                         </Tooltip>
                     ),
                 },
@@ -95,7 +95,7 @@ class ForumComment extends Component{
                 )}
                 footer={
                     <div style={{overflow:'auto'}}><Input onFocus={this.showButton} value={this.state.content} onChange={this.handleContent} placeholder={'评论:'}/>
-                        <CommentButton clearContent={this.clearContent} submit={this.submit} hideButton={this.hideButton} showButton={this.state.showButton}></CommentButton>
+                        <CommentButton clearContent={this.clearContent} submit={this.submit} hideButton={this.hideButton} showButton={this.state.showButton}/>
                     </div>
                 }
             />

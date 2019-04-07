@@ -1,6 +1,6 @@
 class Token {
     setToken =(value) => {
-        localStorage.setItem('token',JSON.stringify(value))
+        localStorage.setItem('token',value)
     }
 
     getToken =()=>{

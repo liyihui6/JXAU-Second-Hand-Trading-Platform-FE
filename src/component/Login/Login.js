@@ -5,7 +5,7 @@ import './index.css'
 import ava from './123.jpg'
 import ret from './ret.svg'
 import login from '../../Storages/SessionStorages/LoginSession'
-import LoginApi from '../../api/Login'
+import LoginApi from '../../api/PostApi/Login'
 
 
 class Login extends Component{
@@ -41,6 +41,9 @@ class Login extends Component{
     back = () =>{
         this.props.history.goBack()
     }
+    showForget = () => {
+
+    }
 
 
     render() {
@@ -65,7 +68,7 @@ class Login extends Component{
                         <Button block size={'large'} onClick={this.submit} ghost>登录</Button>
                     </div>
                     <div className={'login-else-info'}>
-                        <span className={'login-forget-password'}>忘记密码?</span>
+                        <span onClick={this.showForget} className={'login-forget-password'}>忘记密码?</span>
                         <Link to={'/register'}>
                             <span className={'login-register'}>注册账号</span>
                         </Link>

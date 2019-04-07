@@ -43,7 +43,10 @@ class UploadAvatar extends Component{
                 loading: false,
             }));
         }
-        console.log(info)
+        if (info.file.response[0].filename){
+            this.props.handlePic(info.file.response[0].filename)
+        }
+
     }
 
 

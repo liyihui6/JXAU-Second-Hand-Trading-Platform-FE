@@ -8,6 +8,7 @@ import FaultFinding from '../FaultFinding/FaultFinding'
 import Sell from '../Sell/Sell'
 import './index.css'
 
+
 /**
  *
  * 首页组件
@@ -21,24 +22,25 @@ class Home extends Component{
         }
     }
 
+
     render() {
         return (
             <div>
                 <div className={"layout-wrapper"}>
                     <div className={'header-wrapper'}>
-                        <Header></Header>
+                        <Header/>
                     </div>
                     <div className={"container-wrapper"}>
                         <article>
-                            <Carousels></Carousels>
-                            <Notice></Notice>
-                            <Classification></Classification>
-                            <FaultFinding></FaultFinding>
-                            <Sell></Sell>
+                            <Carousels/>
+                            <Notice/>
+                            <Classification/>
+                            <FaultFinding/>
+                            <Sell/>
                         </article>
                     </div>
                     <div className={"footer"}>
-                        <Footer></Footer>
+                        <Footer/>
                     </div>
                 </div>
             </div>

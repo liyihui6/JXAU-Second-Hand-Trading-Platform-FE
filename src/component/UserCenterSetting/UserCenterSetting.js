@@ -3,7 +3,7 @@ import './index.css'
 import {Button,Input} from 'antd'
 import UploadAvatar from './UploadAvatar/UploadAvatar'
 import re from './return.svg'
-import userSetting from '../../api/userSetting'
+import userSetting from '../../api/PostApi/userSetting'
 
 class UserCenterSetting extends Component{
     constructor(props) {
@@ -11,6 +11,7 @@ class UserCenterSetting extends Component{
         this.state = {
             name:'',
             phone:'',
+            pic:''
         }
     }
 
@@ -26,6 +27,12 @@ class UserCenterSetting extends Component{
         })
     }
 
+    handlePic= (filename) => {
+        this.setState({
+            pic:filename
+        })
+    }
+
     back =() => {
         this.props.history.goBack()
     }
@@ -34,8 +41,10 @@ class UserCenterSetting extends Component{
         let data = {
             name:this.state.name,
             phone:this.state.phone,
+            pic:this.state.pic
         }
-        userSetting(data)
+        console.log(data)
+        userSetting(data,this.props.history)
     }
 
 
@@ -49,7 +58,7 @@ class UserCenterSetting extends Component{
                 <div className={'user-center-setting-content'}>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>修改头像</h3>
-                        <UploadAvatar></UploadAvatar>
+                        <UploadAvatar handlePic={this.handlePic}></UploadAvatar>
                     </div>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>邮箱</h3>

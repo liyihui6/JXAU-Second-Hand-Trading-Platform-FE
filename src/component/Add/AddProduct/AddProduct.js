@@ -1,8 +1,10 @@
 import React,{Component} from 'react'
-import {Input, InputNumber, Button, message} from 'antd'
+import {Input, InputNumber, Button} from 'antd'
 import './index.css'
 import PicturesWall from '../../PicturesWall/PicturesWall'
 import login from "../../../Storages/SessionStorages/LoginSession";
+import user from "../../../Storages/LocalStorages/User";
+import addProduct from '../../../api/PostApi/addProduct'
 
 const { TextArea } = Input;
 
@@ -26,18 +28,16 @@ class AddProduct extends Component{
 
     submit = () => {
         let data = {
-            title:this.state.title,
-            style:this.state.style,
-            price:this.state.price,
-            reason:this.state.reason,
+            publishTitle:this.state.title,
+            publishKinds:1,
+            publishStyle:this.state.style,
+            publishPrice:this.state.price,
+            publishContent:this.state.reason,
+            fkUserId:user.getUser()['userId'],
             pics:this.state.pics
         }
-        let JsonData = JSON.stringify(data)
-        console.log(JsonData)
-        message.info('添加成功')
-        setTimeout(()=>{
-            this.props.history.push('/')
-        },500)
+        // let JsonData = JSON.stringify(data)
+        addProduct(data,this.props.history)
     }
 
 

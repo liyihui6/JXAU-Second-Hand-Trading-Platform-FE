@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import './index.css'
+import {Link} from 'react-router-dom'
 
 /**
  *
@@ -15,13 +16,16 @@ class ForumHeader extends Component{
         }
     }
 
+
     render() {
         return (
             <div className={'forum-header'}>
                 <span className={'forum-header-title'}>鱼塘</span>
-                <span className={'add-forum'}>
-                    发帖子
-                </span>
+                <Link to={'/add/note'}>
+                    <span className={'add-forum'}>
+                        发帖子
+                    </span>
+                </Link>
             </div>
         );
     }

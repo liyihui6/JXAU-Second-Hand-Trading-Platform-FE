@@ -5,12 +5,8 @@ class PicturesWall extends React.Component {
     state = {
         previewVisible: false,
         previewImage: '',
-        fileList: [{
-            uid: '1',
-            name: 'xxx.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        }],
+        fileList: [],
+        filenames:[]
     };
 
     handleCancel = () => {
@@ -27,12 +23,20 @@ class PicturesWall extends React.Component {
     }
 
     handleChange = ({fileList}) => {
-        // console.log(fileList)
         this.setState({
-            fileList:fileList
+            fileList:fileList,
         })
-        this.props.handlePics(fileList)
-        console.log(fileList)
+        let filenames = []
+        try {
+            fileList.forEach((item,index)=>{
+                let temp = item.response
+                filenames.push(temp[0].filename)
+            })
+            console.log(filenames)
+            this.props.handlePics(filenames)
+        }catch (e) {
+
+        }
     }
 
     render() {

@@ -1,4 +1,4 @@
-import axios from './main'
+import axios from '../main'
 import {message} from "antd";
 
 export default function register(data,history) {

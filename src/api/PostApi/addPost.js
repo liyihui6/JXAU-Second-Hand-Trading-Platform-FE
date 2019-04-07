@@ -1,14 +1,14 @@
-//添加商品API
+//添加帖子API
 
-import Axios from './main'
+import Axios from '../main'
 import {message} from "antd";
 
 
-export default function AddComment(data,history){
+export default function AddPost(data,history){
     Axios.post('',data).then((response) => {
         let resInfo = response.data
         if (resInfo.code === 1){
-            message.success('添加评论成功')
+            message.success('添加成功')
             history.push('/')
         }else {
             message.error(response.data.message)

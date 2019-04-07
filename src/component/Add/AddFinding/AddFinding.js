@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
-import {Input, message} from 'antd'
+import {Input} from 'antd'
 import './index.css'
 import PicturesWall from "../../PicturesWall/PicturesWall";
 import login from "../../../Storages/SessionStorages/LoginSession";
+import addProduct from '../../../api/PostApi/addProduct'
 
 class AddFinding extends Component{
     constructor(props) {
@@ -10,7 +11,7 @@ class AddFinding extends Component{
         this.state = {
             title:'',
             content:'',
-            pics:''
+            pics:[]
         }
     }
 
@@ -44,13 +45,12 @@ class AddFinding extends Component{
 
     submit = () => {
         let data = {
-            title:this.state.title,
-            content:this.state.content,
+            publishKinds:3,
+            publishTitle:this.state.title,
+            publishContent:this.state.content,
             pics:this.state.pics
         }
-        let JsonData = JSON.stringify(data)
-        console.log(JsonData)
-        message.info('添加成功')
+        addProduct(data,this.props.history)
     }
     render() {
         const { TextArea } = Input;
