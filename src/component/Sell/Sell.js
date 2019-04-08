@@ -14,7 +14,8 @@ class Sell extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData:[]
+            allData:[],
+            count:0
         }
     }
     componentWillMount() {
@@ -29,14 +30,15 @@ class Sell extends Component{
         return (
             <div className={'sell'}>
                 <div className={'sell-title'}>
-                    <h1 className={'sell-detail'}>出售<span className={'sell-more'}><Link to={'/allProduct'}>查看更多 >></Link></span></h1>
+                    <h1 className={'sell-detail'}>出售<span className={'sell-more'}><Link to={{pathname:'/allProduct',state:{tag:'all'}}}>查看更多 >></Link></span></h1>
                 </div>
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
+
                             data.map((value,index) => {
                                 return (value.publishKinds !== 1?null:<li key={index} className={index%2===0?style_1:style_2}>
-                                    <Product data={value}></Product>
+                                    <Product data={value}/>
                                 </li>)
                             })
                         }

@@ -9,12 +9,19 @@ class AllProduct extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData:[]
+            allData:[],
+            tag:'all'
         }
     }
     componentWillMount(){
         document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
         getProduct(this)
+        let tag = this.props.location.state.tag
+        if (tag){
+            this.setState({
+                tag:tag
+            })
+        }
     }
 
     goBack = () => {
@@ -35,9 +42,21 @@ class AllProduct extends Component{
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
                             data.map((value,index) => {
-                                return (value.publishKinds !== 1?null:<li key={index} className={index%2===0?style_1:style_2}>
+                                let tag = value.tag
+                                let flag = false
+                                if (!tag){
+                                    tag = 'all'
+                                }
+                                console.log(tag+'   '+this.state.tag)
+                                if (this.state.tag === 'all'){
+                                    flag = true
+                                }else if(value.publishKinds === 1 && tag === this.state.tag ){
+                                    flag = true
+                                }
+
+                                return (flag?<li key={index} className={index%2===0?style_1:style_2}>
                                     <Product data={value}></Product>
-                                </li>)
+                                </li>:null)
                             })
                         }
                     </ul>

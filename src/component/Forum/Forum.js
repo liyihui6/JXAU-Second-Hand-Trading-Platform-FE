@@ -21,8 +21,12 @@ class Forum extends Component{
         }
     }
     componentWillMount(){
-        document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
+        // console.log(document.getElementById('forum-content-wrapper'))
         getProduct(this)
+    }
+
+    componentDidMount() {
+        document.getElementById('forum-content-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
     }
 
     render() {
@@ -31,7 +35,7 @@ class Forum extends Component{
                 <div className={'forum-header-wrapper'}>
                     <ForumHeader></ForumHeader>
                 </div>
-                <div className={'forum-content-wrapper'}>
+                <div className={'forum-content-wrapper'} id={'forum-content-wrapper'}>
                     {
                         this.state.allData.map((value,index) =>{
                             if (value.publishKinds !== 1){

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './index.css'
+import {Link} from 'react-router-dom'
 import threeBall from '../../assets/images/三球.svg'
 import people from '../../assets/images/地球.svg'
 import space from '../../assets/images/太空.svg'
@@ -26,64 +27,64 @@ class Classification extends Component {
         return (
             <ul className={"models"}>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'book'}}} className={'link'}>
                         <img src={blue} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>书籍</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'clothes'}}} className={'link'}>
                         <img src={people} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>衣物</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'phone'}}} className={'link'}>
                         <img src={space} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>手机平板</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'cook'}}} className={'link'}>
                         <img src={moon} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>厨具</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'computer'}}} className={'link'}>
                         <img src={star} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>电脑配件</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'help'}}} className={'link'}>
                         <img src={star_2} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>帮助</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'house'}}} className={'link'}>
                         <img src={rocket} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>租房</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'car'}}} className={'link'}>
                         <img src={ball} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>车子</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'self'}}} className={'link'}>
                         <img src={ship} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>健身</div>
-                    </a>
+                    </Link>
                 </li>
                 <li className={'product'}>
-                    <a href={'/allProduct'} className={'link'}>
+                    <Link to={{pathname:'/allProduct',state:{tag:'else'}}} className={'link'}>
                         <img src={threeBall} className={'classify-link-icon'} alt=""/>
                         <div className={'model-tip'}>其他</div>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         )

@@ -25,6 +25,9 @@ class Messages extends Component{
             this.props.history.push('/login')
         }
     }
+    componentDidMount() {
+        document.getElementById('message-container-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
+    }
 
     render() {
         return (
@@ -35,7 +38,7 @@ class Messages extends Component{
                         <Input placeholder={'搜索'}/>
                     </div>
                 </div>
-                <div className={'message-container-wrapper'}>
+                <div className={'message-container-wrapper'} id={'message-container-wrapper'}>
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
                             <li className={'message-content'}>
