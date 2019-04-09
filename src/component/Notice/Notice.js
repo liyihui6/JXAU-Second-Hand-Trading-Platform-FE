@@ -29,7 +29,6 @@ class Notice extends Component{
     }
 
     handleOk = (e) => {
-        // console.log(e);
         this.setState({
             all_visible: false,
         });
@@ -57,12 +56,11 @@ class Notice extends Component{
     }
 
     handleDetailCancel = (e) => {
-        // console.log(e);
         this.setState({
             detail_visible: false,
         });
     }
-    componentWillMount() {
+    componentDidMount() {
         getNotice(this)
     }
 

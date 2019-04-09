@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input,Button,Divider} from 'antd'
+import {Input,Button,Divider,message} from 'antd'
 import {Link} from 'react-router-dom'
 import './index.css'
 import ava from './123.jpg'
@@ -30,12 +30,16 @@ class Login extends Component{
     }
 
     submit = () => {
-        let data = {
-            userEmail:this.state.email,
-            password:this.state.pwd
+        if (this.state.email.length<5||this.state.pwd<6){
+            message.errno('请检查账号密码是否输入正确')
+        }else {
+            let data = {
+                userEmail:this.state.email,
+                password:this.state.pwd
+            }
+            login.login(data)
+            LoginApi(data,this.props.history)
         }
-        login.login(data)
-        LoginApi(data,this.props.history)
     }
 
     back = () =>{

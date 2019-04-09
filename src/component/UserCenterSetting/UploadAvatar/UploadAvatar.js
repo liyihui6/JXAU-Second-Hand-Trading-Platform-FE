@@ -59,7 +59,7 @@ class UploadAvatar extends Component{
                 <div className="ant-upload-text">Upload</div>
             </div>
         );
-        const imageUrl = this.state.imageUrl;
+        const imageUrl = this.props.imageUrl;
 
         return (
             <div className={'upload-avatar'}>

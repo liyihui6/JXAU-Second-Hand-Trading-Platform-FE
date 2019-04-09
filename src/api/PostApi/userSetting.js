@@ -3,10 +3,6 @@ import token from '../../Storages/LocalStorages/Token'
 import {message} from "antd";
 
 let userSetting = (value,history) => {
-    // let pic = value['pic']
-    // console.log(pic)
-    // let form = new FormData().append('file',pic)
-    console.log(token.getToken())
     axios.post('/api/updateUserInfoToUserNikeAndPhone',value,{headers:{'token':token.getToken()}}).then((response)=> {
         let resInfo = response.data
         if(resInfo && resInfo['picMessage']){

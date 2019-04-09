@@ -4,6 +4,7 @@ import {Button,Input} from 'antd'
 import UploadAvatar from './UploadAvatar/UploadAvatar'
 import re from './return.svg'
 import userSetting from '../../api/PostApi/userSetting'
+import User from '../../Storages/LocalStorages/User'
 
 class UserCenterSetting extends Component{
     constructor(props) {
@@ -12,7 +13,9 @@ class UserCenterSetting extends Component{
             name:'',
             phone:'',
             pic:'',
-            desc:''
+            photo:'',
+            desc:'',
+            userInfo:{}
         }
     }
 
@@ -35,7 +38,8 @@ class UserCenterSetting extends Component{
 
     handlePic= (filename) => {
         this.setState({
-            pic:filename
+            pic:'http://127.0.0.1:5000/show/'+filename,
+            photo:filename
         })
     }
 
@@ -47,11 +51,22 @@ class UserCenterSetting extends Component{
         let data = {
             name:this.state.name,
             phone:this.state.phone,
-            pic:this.state.pic,
+            pic:this.state.photo,
             desc:this.state.desc
         }
         console.log(data)
         userSetting(data,this.props.history)
+    }
+    componentWillMount() {
+        let info = User.getUser()
+        this.setState({
+            userInfo:info,
+            email:info.userEmail,
+            name:info.userNike,
+            desc:info.userDes,
+            phone:info.userPhone,
+            pic:'http://127.0.0.1:5000/show/'+info.userPhotoPath
+        })
     }
 
 
@@ -65,11 +80,11 @@ class UserCenterSetting extends Component{
                 <div className={'user-center-setting-content'}>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>修改头像</h3>
-                        <UploadAvatar handlePic={this.handlePic}></UploadAvatar>
+                        <UploadAvatar imageUrl={this.state.pic} handlePic={this.handlePic}/>
                     </div>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>邮箱</h3>
-                        <Input disabled={true} placeholder={'3187858832@qq.com'}/>
+                        <Input disabled={true} placeholder={this.state.userInfo.userEmail}/>
                     </div>
                     <div>
                         <h3 className={'user-center-setting-content-input-title'}>昵称</h3>

@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input, InputNumber, Button,Select} from 'antd'
+import {Input, InputNumber, Button,Select,message} from 'antd'
 import './index.css'
 import PicturesWall from '../../PicturesWall/PicturesWall'
 import login from "../../../Storages/SessionStorages/LoginSession";
@@ -14,7 +14,7 @@ class AddProduct extends Component{
         this.state = {
             title:'',
             style:'',
-            price:'',
+            price:-1,
             reason:'',
             pics:[],
             tag:'else'
@@ -28,18 +28,29 @@ class AddProduct extends Component{
     }
 
     submit = () => {
-        let data = {
-            publishTitle:this.state.title,
-            publishKinds:1,
-            publishStyle:this.state.style,
-            publishPrice:this.state.price,
-            publishContent:this.state.reason,
-            fkUserId:user.getUser()['userId'],
-            pics:this.state.pics,
-            tag:this.state.tag
+        if (this.state.reason.length<20){
+            message.error('请至少输入20个字的描述')
+        } else if (this.state.style.length<=0){
+            message.error('请输入交易方式')
+        } else if (this.state.price === -1) {
+            message.error('请输入金额')
+        } else if (this.state.pics.length < 1){
+            message.error('请至少添加一张图片描述')
+        } else if (this.state.title < 2){
+            message.error('请至少输入2个字的标题')
+        }else {
+            let data = {
+                publishTitle:this.state.title,
+                publishKinds:1,
+                publishStyle:this.state.style,
+                publishPrice:this.state.price,
+                publishContent:this.state.reason,
+                fkUserId:user.getUser()['userId'],
+                pics:this.state.pics,
+                tag:this.state.tag
+            }
+            addProduct(data,this.props.history)
         }
-        console.log(data)
-        addProduct(data,this.props.history)
     }
 
 

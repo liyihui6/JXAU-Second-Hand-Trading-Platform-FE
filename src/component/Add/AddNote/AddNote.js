@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input} from 'antd'
+import {Input, message} from 'antd'
 import './index.css'
 import PicturesWall from "../../PicturesWall/PicturesWall";
 import login from "../../../Storages/SessionStorages/LoginSession";
@@ -45,14 +45,23 @@ class AddNote extends Component{
     }
 
     submit = () => {
-        let data = {
-            publishKinds:2,
-            publishTitle:this.state.title,
-            publishContent:this.state.content,
-            pics:this.state.pics,
-            fkUserId:user.getUser()['userId'],
+        if (this.state.content.length<20){
+            message.error('请至少输入20个字的描述')
+        } else if (this.state.pics.length < 1){
+            message.error('请至少添加一张图片描述')
+        } else if (this.state.title < 2){
+            message.error('请至少输入2个字的标题')
+        }else {
+            let data = {
+                publishKinds:2,
+                publishTitle:this.state.title,
+                publishContent:this.state.content,
+                pics:this.state.pics,
+                fkUserId:user.getUser()['userId'],
+            }
+            addProduct(data,this.props.history)
         }
-        addProduct(data,this.props.history)
+
     }
 
     render() {

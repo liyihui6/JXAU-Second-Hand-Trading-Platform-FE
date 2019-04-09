@@ -34,7 +34,7 @@ class ForumContent extends Component{
                     <p>{this.props.datas.publishContent||'hello world'}</p>
                 </div>
                 <div className={'forum-content-images'}>
-                    <ImgDetail photos={this.props.datas.commodityPhotos}></ImgDetail>
+                    <ImgDetail photos={this.props.datas.commodityPhotos}/>
                 </div>
             </div>
         );

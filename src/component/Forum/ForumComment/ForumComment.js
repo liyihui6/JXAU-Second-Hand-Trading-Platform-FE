@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Comment, Tooltip, List,Input} from 'antd';
+import { Comment, Tooltip, List,Input,message} from 'antd';
 import moment from 'moment';
 import CommentButton from './CommentButton'
 import User from '../../../Storages/LocalStorages/User'
@@ -41,6 +41,9 @@ class ForumComment extends Component{
     }
 
     submit = () => {
+        if (this.state.content.length<5){
+            message.error('请至少输入5个字的评论')
+        }
         let tempData = {
             articleCommentContent:this.state.content,
             fkArticleId:this.props.datas.publishId,
@@ -113,7 +116,7 @@ class ForumComment extends Component{
                     />
                 )}
                 footer={
-                    <div style={{overflow:'auto'}}><Input onFocus={this.showButton} value={this.state.content} onChange={this.handleContent} placeholder={'评论:'}/>
+                    <div style={{overflow:'auto'}}><Input onFocus={this.showButton} value={this.state.content} onChange={this.handleContent} placeholder={'请至少输入5个字的评论'}/>
                         <CommentButton clearContent={this.clearContent} submit={this.submit} hideButton={this.hideButton} showButton={this.state.showButton}/>
                     </div>
                 }

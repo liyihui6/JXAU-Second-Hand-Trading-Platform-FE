@@ -6,7 +6,7 @@ import {message} from "antd";
 let login = (data,history) => {
     axios.post('api/login',data,{}).then((response)=>{
         let info = response.data
-        console.log(response)
+        // console.log(response)
         if (info.code === 1){
             message.success('登录成功')
             token.setToken(info.token)
