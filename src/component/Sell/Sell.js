@@ -24,7 +24,7 @@ class Sell extends Component{
 
     render() {
         let data = this.state.allData
-        // console.log(data)
+        let count = 0
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         return (
@@ -35,25 +35,18 @@ class Sell extends Component{
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
-
                             data.map((value,index) => {
-                                return (value.publishKinds !== 1?null:<li key={index} className={index%2===0?style_1:style_2}>
+                                let flag = false
+                                count ++
+                                if (value.publishKinds !== 1 || count > 6){
+                                    flag = true
+                                    count --
+                                }
+                                return (flag?null:<li key={index} className={index%2===0?style_1:style_2}>
                                     <Product data={value}/>
                                 </li>)
                             })
                         }
-                        {/*<li className={'sell-product-wrapper'}>*/}
-                            {/*<Product></Product>*/}
-                        {/*</li>*/}
-                        {/*<li className={'sell-product-wrapper clear-margin-right'}>*/}
-                            {/*<Product></Product>*/}
-                        {/*</li>*/}
-                        {/*<li className={'sell-product-wrapper'}>*/}
-                            {/*<Product></Product>*/}
-                        {/*</li>*/}
-                        {/*<li className={'sell-product-wrapper clear-margin-right'}>*/}
-                            {/*<Product></Product>*/}
-                        {/*</li>*/}
                     </ul>
                 </div>
             </div>

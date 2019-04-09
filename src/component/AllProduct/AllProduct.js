@@ -29,7 +29,7 @@ class AllProduct extends Component{
     }
     render() {
         let data = this.state.allData
-        console.log(data)
+        // console.log(data)
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         return (
@@ -47,8 +47,7 @@ class AllProduct extends Component{
                                 if (!tag){
                                     tag = 'all'
                                 }
-                                console.log(tag+'   '+this.state.tag)
-                                if (this.state.tag === 'all'){
+                                if (this.state.tag === 'all' && value.publishKinds === 1){
                                     flag = true
                                 }else if(value.publishKinds === 1 && tag === this.state.tag ){
                                     flag = true
