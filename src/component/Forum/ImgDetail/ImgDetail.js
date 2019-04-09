@@ -22,19 +22,12 @@ class ImgDetail extends Component{
             current:90,
             transStyle:'',
             fileList: [],
-        // {
-        //     uid: '0',
-        //     name: 'xxx.png',
-        //     status: 'done',
-        //     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        // }
         }
     }
 
     componentWillMount() {
         let fileList = []
-        // articlePhotoPath
-        this.props.photos.map((value,index)=>{
+        this.props.photos.forEach((value,index)=>{
             fileList.push({
                 uid: index,
                 name: index+'xxx.png',

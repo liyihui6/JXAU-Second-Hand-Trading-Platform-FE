@@ -43,7 +43,6 @@ class Forum extends Component{
                 <div className={'forum-content-wrapper'} id={'forum-content-wrapper'}>
                     {
                         this.state.allData.map((value,index) =>{
-                            console.log(value.publishKinds)
                             if (value.publishKinds !== 1 && (type === 2 || value.publishKinds === type)){
                                 return <div key={index} className={'forum-content-detail'}>
                                     <ForumContent datas={value}></ForumContent>
@@ -56,18 +55,6 @@ class Forum extends Component{
                             }
                         })
                     }
-                    {/*<div className={'forum-content-detail'}>*/}
-                        {/*<ForumContent></ForumContent>*/}
-                        {/*<div className={'forum-content-comments'}>*/}
-                            {/*<ForumComment></ForumComment>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<div className={'forum-content-detail'}>*/}
-                        {/*<ForumContent></ForumContent>*/}
-                        {/*<div className={'forum-content-comments'}>*/}
-                            {/*<ForumComment></ForumComment>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
                 </div>
                 <div className={'footer'}>
                     <Footer></Footer>

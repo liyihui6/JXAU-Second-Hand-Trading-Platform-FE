@@ -1,7 +1,6 @@
 import React,{Component} from 'react'
 import './index.css'
 import {Card,Button,Skeleton,Avatar, } from 'antd'
-import pr from './pr.jpg'
 import add from './add.svg'
 import ret from './return.svg'
 import getProductDetail from '../../api/FetchApi/getProductDetail'

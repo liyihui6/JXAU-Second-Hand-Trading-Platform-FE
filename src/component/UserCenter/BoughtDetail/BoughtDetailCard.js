@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Card, Icon, Avatar , Modal, Button } from 'antd';
+import { Card, Icon, Modal,} from 'antd';
 import deleteProduct from '../../../api/FetchApi/deleteProduct'
 const { Meta } = Card;
 

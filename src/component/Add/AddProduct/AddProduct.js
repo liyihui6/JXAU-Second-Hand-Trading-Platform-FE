@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input, InputNumber, Button,Select,Form,} from 'antd'
+import {Input, InputNumber, Button,Select} from 'antd'
 import './index.css'
 import PicturesWall from '../../PicturesWall/PicturesWall'
 import login from "../../../Storages/SessionStorages/LoginSession";

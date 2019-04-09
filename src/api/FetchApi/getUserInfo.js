@@ -1,7 +1,4 @@
 import Axios from '../main'
-import {Tooltip} from "antd";
-import moment from "../../component/Forum/ForumComment/ForumComment";
-import React from "react";
 
 let getUserInfo = (component,email) => {
     Axios.get('/api/user/'+email).then((response)=> {

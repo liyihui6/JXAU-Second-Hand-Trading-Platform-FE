@@ -29,7 +29,7 @@ class AllProduct extends Component{
     }
     render() {
         let data = this.state.allData
-        // console.log(data)
+
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         return (
@@ -54,7 +54,7 @@ class AllProduct extends Component{
                                 }
 
                                 return (flag?<li key={index} className={index%2===0?style_1:style_2}>
-                                    <Product data={value}></Product>
+                                    <Product data={value}/>
                                 </li>:null)
                             })
                         }
