@@ -96,7 +96,7 @@ class ForumComment extends Component{
     }
 
     render() {
-        console.log(this.props.datas.articleComments)
+        // console.log(this.props.datas.articleComments)
         return (
             <List
                 className="comment-list"

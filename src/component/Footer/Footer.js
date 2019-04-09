@@ -46,7 +46,7 @@ class Footer extends Component{
                         </li>
 
                     <li className={'menu-content-wrapper'}>
-                        <Link to="/forum">
+                        <Link to={{pathname:'/forum',state:{type:2}}}>
                         <div className={'menu-content'}>
                             {/*<img src={pro} width={'30px'} alt=""/>*/}
                             <span className={'icon-product'} style={{fontSize: '30px'}}/>

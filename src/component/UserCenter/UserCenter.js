@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer'
 import login from '../../Storages/SessionStorages/LoginSession'
 import token from '../../Storages/LocalStorages/Token'
 import getUserInfo from '../../api/FetchApi/getUserInfo'
+import getUserProduct from '../../api/FetchApi/getUserProduct'
 import User from '../../Storages/LocalStorages/User'
 
 /**
@@ -21,20 +22,24 @@ class UserCenter extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            sellerInfo:{}
+            sellerInfo:{},
+            productInfo:[]
         }
     }
 
     componentWillMount() {
-        getUserInfo(this,User.getUser().userEmail)
+        if (!login.isLogin()){
+            message.error('清先登录！')
+            this.props.history.push('/login')
+        }else {
+            getUserInfo(this,User.getUser().userEmail)
+            getUserProduct(this,User.getUser().userId)
+        }
     }
 
     componentDidMount() {
         // token.getToken()
-        if (!login.isLogin()){
-            message.error('清先登录！')
-            this.props.history.push('/login')
-        }
+
     }
 
     loginOut = () => {
@@ -45,6 +50,7 @@ class UserCenter extends Component{
     }
 
     render() {
+        let length = this.state.productInfo.length
         return (
             <div className={'homepage'}>
                 <div className={'center-header-wrapper'}>
@@ -55,10 +61,10 @@ class UserCenter extends Component{
                     <div className={'none'}></div>
                     <div className={'center-container-wrapper-lists'}>
                         <div className={'center-container-wrapper-list'}>
-                            <Bought></Bought>
+                            <Bought length={length}></Bought>
                         </div>
                         <div className={'center-container-wrapper-list'}>
-                            <Sold></Sold>
+                            <Sold length={length}></Sold>
                         </div>
                     </div>
                     <div className={'center-container-wrapper-ret'}>

@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import './index.css'
 import bought from './bought.svg'
+import {Link} from "react-router-dom";
 
 /**
  *
@@ -21,10 +22,10 @@ class Bought extends Component{
             <div className={'center-tips'}>
                 <div>
                     <img className={'center-tip-icon'} src={bought} alt=""/>
-                    <span style={{verticalAlign: 'middle'}}>我买到的</span>
+                    <Link to={'/bought/detail'}><span style={{verticalAlign: 'middle'}}>我买到的</span></Link>
                 </div>
                 <div>
-                    <span>0</span>
+                    <span>{this.props.length}</span>
                     <span> > </span>
                 </div>
             </div>

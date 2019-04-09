@@ -17,12 +17,16 @@ class Forum extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData:[]
+            allData:[],
+            type:4
         }
     }
     componentWillMount(){
-        // console.log(document.getElementById('forum-content-wrapper'))
         getProduct(this)
+        let state = this.props.location.state
+        this.setState({
+            type:state.type
+        })
     }
 
     componentDidMount() {
@@ -30,6 +34,7 @@ class Forum extends Component{
     }
 
     render() {
+        let type = this.state.type
         return (
             <div className={'forum'}>
                 <div className={'forum-header-wrapper'}>
@@ -38,7 +43,8 @@ class Forum extends Component{
                 <div className={'forum-content-wrapper'} id={'forum-content-wrapper'}>
                     {
                         this.state.allData.map((value,index) =>{
-                            if (value.publishKinds !== 1){
+                            console.log(value.publishKinds)
+                            if (value.publishKinds !== 1 && (type === 2 || value.publishKinds === type)){
                                 return <div key={index} className={'forum-content-detail'}>
                                     <ForumContent datas={value}></ForumContent>
                                     <div className={'forum-content-comments'}>

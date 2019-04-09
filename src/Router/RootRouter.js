@@ -12,6 +12,7 @@ import Register from '../component/Register/Register'
 import UserCenterSetting from '../component/UserCenterSetting/UserCenterSetting'
 import AllProduct from '../component/AllProduct/AllProduct'
 import Conversation from '../component/Conversation/Conversation'
+import BoughtDetail from '../component/UserCenter/BoughtDetail/BoughtDetail'
 
 class RootRouter extends Component{
     constructor(props) {
@@ -36,6 +37,7 @@ class RootRouter extends Component{
                 <Route path={'/userCenterSetting'} component={UserCenterSetting}/>
                 <Route path={'/allProduct'} component={AllProduct}/>
                 <Route path={'/conversation'} component={Conversation}/>
+                <Route path={'/bought/detail'} component={BoughtDetail}/>
             </Router>
         );
     }

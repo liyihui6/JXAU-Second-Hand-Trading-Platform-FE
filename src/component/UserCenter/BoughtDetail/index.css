@@ -1,0 +1,27 @@
+.bought-detail{
+    width: 100%;
+}
+.bought-detail-header{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    padding: 5px;
+}
+.bought-detail-header-span{
+    float: left;
+    font-size: 16px;
+}
+.bought-detail-header-title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.bought-detail-content-wrapper{
+    width: 100%;
+    padding: 5px 10px;
+}
+.bought-detail-content{
+    padding: 10px 10px;
+    width: 50%;
+    display: inline-block;
+    /*border-bottom: 1px solid #eee;*/
+}

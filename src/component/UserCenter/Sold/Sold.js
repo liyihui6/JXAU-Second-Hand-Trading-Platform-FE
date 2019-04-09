@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import sold from './sold.svg'
 import './index.css'
+import {Link} from "react-router-dom";
 
 /**
  *
@@ -22,10 +23,11 @@ class Sold extends Component{
             <div className={'center-tips'}>
                 <div>
                     <img className={'center-tip-icon'} src={sold} alt=""/>
-                    <span style={{verticalAlign: 'middle'}}>我发布的</span>
+                    <Link to={'/bought/detail'}><span style={{verticalAlign: 'middle'}}>我发布的</span></Link>
+
                 </div>
                 <div>
-                    <span>0</span>
+                    <span>{this.props.length}</span>
                     <span> > </span>
                 </div>
             </div>
