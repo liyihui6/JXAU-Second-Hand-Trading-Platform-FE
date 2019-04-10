@@ -25,3 +25,19 @@
     display: inline-block;
     /*border-bottom: 1px solid #eee;*/
 }
+.bought-detail-content .ant-card-meta-description{
+    max-height: 50px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+.bought-detail-content .ant-card-head{
+    min-height: 24px;
+    padding: 0 12px;
+}
+.bought-detail-content .ant-card-head-title{
+    padding: 5px;
+}
+.bought-detail-content .ant-card-body{
+    padding: 5px 12px;
+}

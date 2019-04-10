@@ -50,12 +50,8 @@ class ForumComment extends Component{
             fkUserId:User.getUser().userId
         }
         addComment(tempData,this)
-        let datas = []
-        this.state.data.forEach(value=>{
-            datas.push(value)
-        })
         let user = User.getUser()
-        datas.push({
+        let tempInfo = {
             author: user.userNike,
             avatar: 'http://127.0.0.1:5000/show/'+user.userPhotoPath,
             content: (
@@ -66,9 +62,9 @@ class ForumComment extends Component{
                     <span>{moment().subtract(30, 'days').fromNow()}</span>
                 </Tooltip>
             ),
-        })
+        }
         this.setState({
-            data:datas
+            data:[...this.state.data,tempInfo]
         })
     }
 

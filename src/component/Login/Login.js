@@ -65,7 +65,7 @@ class Login extends Component{
                             <Input onChange={this.haddleEmail} value={this.state.email} size={'large'} placeholder={'手机号/邮箱'}/>
                         </div>
                         <div className={'login-input-password'}>
-                            <Input onChange={this.haddlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
+                            <Input onPressEnter={this.submit} onChange={this.haddlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
                         </div>
                     </div>
                     <div className={'login-submit'}>

@@ -21,6 +21,18 @@ class BoughtDetail extends Component{
         this.props.history.goBack()
     }
 
+    deleteBoughtProduct = (id) => {
+        this.setState({
+            productInfo:this.state.productInfo.filter((item,index)=>{
+                if (item.publishId === id){
+                    return false
+                } else {
+                    return true
+                }
+            })
+        })
+    }
+
 
     render() {
         return (
@@ -33,7 +45,7 @@ class BoughtDetail extends Component{
                     {
                         this.state.productInfo.map((value,index)=>{
                             return <div key={index} className={'bought-detail-content'}>
-                                <BoughtDetailCard data={value}/>
+                                <BoughtDetailCard deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
                             </div>
                         })
                     }

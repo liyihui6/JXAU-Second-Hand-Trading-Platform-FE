@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Token from '../Storages/LocalStorages/Token'
-axios.defaults.baseURL = 'http://10.200.224.163/';
+axios.defaults.baseURL = 'http://10.200.224.84/';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 axios.defaults.headers['token'] = Token.getToken()
 

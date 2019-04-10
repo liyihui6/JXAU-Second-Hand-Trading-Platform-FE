@@ -29,6 +29,7 @@ class BoughtDetailCard extends Component{
         console.log(this.props.data.publishId)
         let id = this.props.data.publishId
         deleteProduct(id)
+        this.props.deleteBoughtProduct(id)
         this.setState({
             visible: false,
         });

@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './index.css'
-import {Button,Input} from 'antd'
+import {Button,Input,message} from 'antd'
 import UploadAvatar from './UploadAvatar/UploadAvatar'
 import re from './return.svg'
 import userSetting from '../../api/PostApi/userSetting'
@@ -48,14 +48,21 @@ class UserCenterSetting extends Component{
     }
 
     submit = () => {
-        let data = {
-            name:this.state.name,
-            phone:this.state.phone,
-            pic:this.state.photo,
-            desc:this.state.desc
+        if (this.state.name.length<=0){
+            message.error('昵称不能为空')
+        } else if (this.state.phone.length !== 11){
+            message.error('请输入正确的电话号码')
+        } else if (this.state.desc.length<2){
+            message.error('请输入至少2个字的个性签名')
+        } else {
+            let data = {
+                name:this.state.name,
+                phone:this.state.phone,
+                pic:this.state.photo,
+                desc:this.state.desc
+            }
+            userSetting(data,this.props.history)
         }
-        console.log(data)
-        userSetting(data,this.props.history)
     }
     componentWillMount() {
         let info = User.getUser()
