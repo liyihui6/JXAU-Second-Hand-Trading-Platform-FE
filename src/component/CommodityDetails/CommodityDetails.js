@@ -1,10 +1,12 @@
 import React,{Component} from 'react'
 import './index.css'
-import {Card,Button,Skeleton,Avatar, } from 'antd'
+import {Card,Button,Skeleton,Avatar,Modal,message} from 'antd'
 import add from './add.svg'
 import ret from './return.svg'
 import getProductDetail from '../../api/FetchApi/getProductDetail'
 import getUserInfo from '../../api/FetchApi/getUserInfo'
+import User from '../../Storages/LocalStorages/User'
+import addRoom from '../../api/PostApi/addRoom'
 
 /***
  *
@@ -17,26 +19,78 @@ class CommodityDetails extends Component{
         super(props);
         this.state = {
             loading: false,
+            visible:false,
             productData:{},
-            sellerInfo:{}
+            sellerInfo:{},
+            sellId:0,
+            userId:0,
+            sellNike:'',
+            userNike:''
         }
     }
 
     componentWillMount(){
         document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
-        // console.log(this.props.location.state)
         getProductDetail(this,this.props.location.state.publishId)
         getUserInfo(this,this.props.location.state.email)
-        // commodityPhotos
+    }
+
+    componentDidMount() {
+
     }
 
     onCancel = () =>{
         this.props.history.goBack()
     }
+
+    showModal = () => {
+        let userInfo = User.getUser()
+        let sellInfo = this.state.sellerInfo
+        if (userInfo.userId !== sellInfo.userId){
+            if (sellInfo){
+                let userId = userInfo.userId
+                let sellId = sellInfo.userId
+                this.setState({
+                    sellId:userId,
+                    userId:sellId,
+                    sellNike:sellInfo.userNike,
+                    userNike:userInfo.userNike
+                })
+            }
+            this.setState({
+                visible: true,
+            });
+        }else {
+            message.info('这是您自己的商品哦~')
+        }
+    }
+
+    handleOk = (e) => {
+        let data = {
+            roomName:'room_'+[this.state.sellId,this.state.userId].sort().join('_'),
+            fkUser1:this.state.sellId,
+            fkUser2:this.state.userId
+        }
+        addRoom(data,this)
+    }
+
+    handleCancel = (e) => {
+        this.setState({
+            visible: false,
+        });
+    }
     render() {
         const { Meta } = Card;
         return (
             <div className={'commodity-details'}>
+                <Modal
+                    title="发起聊天"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                >
+                    <p>确认发起联系?</p>
+                </Modal>
                 <div className={'commodity-details-header'}>
                     <span className={'commodity-details-header-title'} onClick={this.onCancel}> <img src={ret} width={'30px'} alt=""/> </span>
                     <span className={'commodity-details-header-title'}>￥{this.state.productData.publishPrice}</span>
@@ -61,15 +115,6 @@ class CommodityDetails extends Component{
                                     </div>
                                 }):null
                             }
-                            {/*<div className={'commodity-details-content-image'}>*/}
-                                {/*<img src={pr} alt=""/>*/}
-                            {/*</div>*/}
-                            {/*<div className={'commodity-details-content-image'}>*/}
-                                {/*<img src={pr} alt=""/>*/}
-                            {/*</div>*/}
-                            {/*<div className={'commodity-details-content-image'}>*/}
-                                {/*<img src={pr} alt=""/>*/}
-                            {/*</div>*/}
                         </div>
                     </div>
                     <div className={'commodity-details-content-info'}>
@@ -84,7 +129,7 @@ class CommodityDetails extends Component{
                         <span className={'commodity-details-footer-info'}>收藏</span>
                     </div>
                     <div className={'commodity-details-footer-lianxi'}>
-                        <Button type={"primary"}>马上联系</Button>
+                        <Button onClick={this.showModal} type={"primary"}>马上联系</Button>
                     </div>
                 </div>
             </div>
