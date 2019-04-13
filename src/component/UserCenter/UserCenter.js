@@ -11,12 +11,31 @@ import token from '../../Storages/LocalStorages/Token'
 import getUserInfo from '../../api/FetchApi/getUserInfo'
 import getUserProduct from '../../api/FetchApi/getUserProduct'
 import User from '../../Storages/LocalStorages/User'
+import {connect} from 'react-redux'
+import axios from '../../api/main'
 
 /**
  *
  * 用户中心组件
  *
  * **/
+
+const mapStateToProps = (state) => {
+    return {
+        userRoomList: state.userRoomList
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initRoomInfo: (data) => {
+            dispatch({
+                type: 'INITROOMINFO',
+                payload:data
+            });
+        }
+    };
+}
 
 class UserCenter extends Component{
     constructor(props) {
@@ -38,8 +57,19 @@ class UserCenter extends Component{
     }
 
     componentDidMount() {
-        // token.getToken()
-
+        let info = User.getUser()
+        let userId = info.userId
+        axios.get('/api/room/'+userId).then((res)=>{
+            let roomData = res.data
+            if (roomData.code === 1) {
+                let rooms = roomData.rooms
+                this.props.initRoomInfo(rooms)
+            }else {
+                message.error('服务器错误')
+            }
+        }).catch((res)=> {
+            message.error('服务器错误')
+        })
     }
 
     loginOut = () => {
@@ -58,7 +88,7 @@ class UserCenter extends Component{
                 </div>
                 <div className={'center-container-wrapper'}>
                     <CenterDetail userInfo={this.state.sellerInfo}></CenterDetail>
-                    <div className={'none'}></div>
+                    <div className={'none'}/>
                     <div className={'center-container-wrapper-lists'}>
                         <div className={'center-container-wrapper-list'}>
                             <Bought length={length}></Bought>
@@ -81,4 +111,7 @@ class UserCenter extends Component{
 
 }
 
-export default UserCenter
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UserCenter)

@@ -33,6 +33,9 @@ class Home extends Component{
                         <Header/>
                     </div>
                     <div className={"container-wrapper"}>
+                        <div style={{width:'100%',height:'52px'}}>
+
+                        </div>
                         <article>
                             <Carousels/>
                             <Notice/>

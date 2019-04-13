@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
-// import {Card, Avatar,} from 'antd';
-// import ContentTitle from './ContentTitle/ContentTitle'
 import './index.css'
+import formateDate from '../../../utils/formateDate'
+import addRoom from "../../../api/PostApi/addRoom";
 
 // const { Meta } = Card;
 
@@ -24,40 +24,32 @@ class MessageContent extends Component{
     }
 
     toDetail = () => {
-        this.props.history.push('/conversation')
+        console.log(this.props.data)
+        let user1 = this.props.data.user1
+        let user2 = this.props.data.user2
+        console.log(user1)
+        let data = {
+            roomName:'room_'+[user1.userId,user2.userId].sort().join('_'),
+            fkUser1:user1.userId,
+            fkUser2:user2.userId
+        }
+        addRoom(data,this)
     }
     render() {
-        // const { loading } = this.state;
+        let newChat = this.props.data.chats[this.props.data.chats.length-1]
+        let user1 = this.props.data.user1
         return (
             <div onClick={this.toDetail} className={'message-content-wrapper'}>
-                {/*<Card hoverable={true} style={{borderRadius: '0'}}>*/}
-                    {/*<Meta*/}
-                        {/*style={{float:'left'}}*/}
-                        {/*avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}*/}
-                        {/*title='李艺晖'*/}
-                        {/*description="今天去吃饭"*/}
-                    {/*/>*/}
-                    {/*<p*/}
-                        {/*style={{*/}
-                            {/*fontSize: 14,*/}
-                            {/*color: 'rgba(0, 0, 0, 0.85)',*/}
-                            {/*fontWeight: 400,*/}
-                            {/*float:'right'*/}
-                        {/*}}*/}
-                    {/*>*/}
-                        {/*2019-1-1*/}
-                    {/*</p>*/}
-                {/*</Card>*/}
                 <div className={'message-content-avatar'}>
-                    <img src={'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'} alt={'hello'}></img>
+                    <img src={user1?'http://127.0.0.1:5000/show/'+user1.userPhotoPath:null} alt={'hello'}/>
                 </div>
                 <div className={'message-content-info'}>
                     <div>
-                        <span className={'message-content-info-username'}>李艺晖</span>
-                        <span className={'message-content-info-time'}>2019-1-1</span>
+                        <span className={'message-content-info-username'}>{user1?user1.userNike:null}</span>
+                        <span className={'message-content-info-time'}>{newChat?formateDate(new Date(newChat.sendTime),'yyyy-MM-dd hh:mm:ss'):null}</span>
                     </div>
                     <div className={'message-content-detail'}>
-                        今晚去吃烤鱼
+                        {newChat?newChat.chatContent:null}
                     </div>
                 </div>
             </div>
@@ -65,5 +57,9 @@ class MessageContent extends Component{
     }
 
 }
-
+MessageContent.defaultProps = {
+    data:{
+        chats:[]
+    }
+}
 export default MessageContent

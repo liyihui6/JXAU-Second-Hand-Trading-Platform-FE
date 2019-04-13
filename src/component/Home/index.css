@@ -23,7 +23,7 @@
 }
 .container-wrapper{
     min-height: calc(100% - 55.8px - 52px);
-    margin-top: 52px;
+    /*margin-top: 52px;*/
     margin-bottom: 56px;
     padding: 10px 5px;
 }

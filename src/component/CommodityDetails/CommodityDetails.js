@@ -97,6 +97,9 @@ class CommodityDetails extends Component{
                     <span className={'commodity-details-header-title'}><img src={add} width={'30px'} alt=""/> </span>
                 </div>
                 <div className={'commodity-details-content-wrapper'}>
+                    <div style={{width:'100%',height:'50px'}}>
+
+                    </div>
                     <Skeleton loading={this.state.loading} avatar active>
                         <Meta
                             avatar={<Avatar icon="user" src={this.state.sellerInfo.userPhotoPath?'http://127.0.0.1:5000/show/'+this.state.sellerInfo.userPhotoPath:null} />}

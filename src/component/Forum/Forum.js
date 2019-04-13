@@ -41,6 +41,9 @@ class Forum extends Component{
                     <ForumHeader></ForumHeader>
                 </div>
                 <div className={'forum-content-wrapper'} id={'forum-content-wrapper'}>
+                    <div style={{width:'100%',height:'52px'}}>
+
+                    </div>
                     {
                         this.state.allData.map((value,index) =>{
                             if (value.publishKinds !== 1 && (type === 2 || value.publishKinds === type)){

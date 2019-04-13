@@ -28,8 +28,14 @@ class Chat extends Component{
                 to:this.props.location.state.sellId,
             })
         }
+        let roomName = ''
+        try {
+            roomName = this.props.location.state.roomName
+        }catch (e) {
+            roomName = this.state.roomName
+        }
          this.state.socket.on('receiveMsg',this.receiveMsg)
-         this.state.socket.emit('join',this.props.location.state.roomName,'hello,我进入了房间')
+         this.state.socket.emit('join',roomName,'hello,我进入了房间')
      }
 
     handleMsg = (e) => {

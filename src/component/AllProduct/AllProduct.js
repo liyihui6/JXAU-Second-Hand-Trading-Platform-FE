@@ -29,7 +29,6 @@ class AllProduct extends Component{
     }
     render() {
         let data = this.state.allData
-
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         return (

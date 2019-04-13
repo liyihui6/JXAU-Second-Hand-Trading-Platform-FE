@@ -5,12 +5,26 @@ import MessageHeader from './MessageHeader/MessageHeader'
 import MessageContent from './MessageContent/MessageContent'
 import {Input} from "antd";
 import login from '../../Storages/SessionStorages/LoginSession'
+import {connect} from 'react-redux'
 
 /**
  *
  * 消息首页组件
  *
  * **/
+
+const mapStateToProps = (state) => {
+    return {
+        userRoomList: state.userRoomList
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
 
 class Messages extends Component{
     constructor(props) {
@@ -33,32 +47,26 @@ class Messages extends Component{
         return (
             <div className={'messages'}>
                 <div className={'message-header'}>
-                    <MessageHeader></MessageHeader>
+                    <MessageHeader/>
                     <div className={'message-search'}>
                         <Input placeholder={'搜索'}/>
                     </div>
                 </div>
                 <div className={'message-container-wrapper'} id={'message-container-wrapper'}>
+                    <div style={{width:'100%',height:'84px'}}>
+
+                    </div>
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
+                            {
+                                this.props.userRoomList?this.props.userRoomList.map((value,index) => {
+                                    return (
+                                        <li key={index} className={'message-content'}>
+                                            <MessageContent history={this.props.history} data={value}/>
+                                        </li>
+                                    )
+                                }):null
+                            }
                             <li className={'message-content'}>
                                 <MessageContent history={this.props.history}></MessageContent>
                             </li>
@@ -76,4 +84,7 @@ class Messages extends Component{
     }
 
 }
-export default Messages
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Messages)
