@@ -43,11 +43,15 @@ class BoughtDetail extends Component{
                 </div>
                 <div className={'bought-detail-content-wrapper'} ref={'par'}>
                     {
-                        this.state.productInfo.map((value,index)=>{
+                        this.state.productInfo.length>1?this.state.productInfo.map((value,index)=>{
                             return <div key={index} className={'bought-detail-content'}>
                                 <BoughtDetailCard deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
                             </div>
-                        })
+                        }):(
+                            <div className={'forum-content--nodata'}>
+                                <h1>暂无数据哦~</h1>
+                            </div>
+                        )
                     }
                 </div>
             </div>

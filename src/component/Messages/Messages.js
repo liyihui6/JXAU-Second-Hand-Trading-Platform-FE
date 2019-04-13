@@ -59,25 +59,29 @@ class Messages extends Component{
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
                             {
-                                this.props.userRoomList?this.props.userRoomList.map((value,index) => {
+                                this.props.userRoomList.length>1?this.props.userRoomList.map((value,index) => {
                                     return (
                                         <li key={index} className={'message-content'}>
                                             <MessageContent history={this.props.history} data={value}/>
                                         </li>
                                     )
-                                }):null
+                                }):(
+                                    <div className={'forum-content--nodata'}>
+                                        <h1>暂无数据哦~</h1>
+                                    </div>
+                                )
                             }
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
-                            <li className={'message-content'}>
-                                <MessageContent history={this.props.history}></MessageContent>
-                            </li>
+                            {/*<li className={'message-content'}>*/}
+                                {/*<MessageContent history={this.props.history}/>*/}
+                            {/*</li>*/}
+                            {/*<li className={'message-content'}>*/}
+                                {/*<MessageContent history={this.props.history}/>*/}
+                            {/*</li>*/}
                         </ul>
                     </div>
                 </div>
                 <div className={'footer'}>
-                    <Footer></Footer>
+                    <Footer/>
                 </div>
             </div>
         );

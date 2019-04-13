@@ -40,7 +40,7 @@ class AllProduct extends Component{
                 <div className={'all-sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
-                            data.map((value,index) => {
+                            data.length>1?data.map((value,index) => {
                                 let tag = value.tag
                                 let flag = false
                                 if (!tag){
@@ -55,7 +55,11 @@ class AllProduct extends Component{
                                 return (flag?<li key={index} className={index%2===0?style_1:style_2}>
                                     <Product data={value}/>
                                 </li>:null)
-                            })
+                            }):(
+                                <div className={'forum-content--nodata'}>
+                                    <h1>暂无数据哦~</h1>
+                                </div>
+                            )
                         }
                     </ul>
                 </div>

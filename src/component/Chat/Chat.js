@@ -4,6 +4,24 @@ import 'socket.io-client'
 import './index.css'
 import addChat from '../../api/PostApi/addChat'
 import setChatIsRead from '../../api/PostApi/setChatIsRead'
+import {connect} from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+        data:state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        InsertChat:(data)=>{
+            dispatch({
+                type:'',
+                payload:data
+            })
+        }
+    }
+}
 
 class Chat extends Component{
     constructor(props) {
@@ -129,4 +147,18 @@ class Chat extends Component{
 
 }
 
-export default Chat
+Chat.defaultProps = {
+    location:{
+        state:{
+            roomId:0,
+            roomName:'default',
+            userId:0,
+            sellId:0
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Chat)

@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {message,Badge} from 'antd'
 import './index.css'
 import formateDate from '../../../utils/formateDate'
 import addRoom from "../../../api/PostApi/addRoom";
@@ -24,22 +25,27 @@ class MessageContent extends Component{
     }
 
     toDetail = () => {
-        console.log(this.props.data)
-        let user1 = this.props.data.user1
-        let user2 = this.props.data.user2
-        console.log(user1)
-        let data = {
-            roomName:'room_'+[user1.userId,user2.userId].sort().join('_'),
-            fkUser1:user1.userId,
-            fkUser2:user2.userId
+        // console.log(this.props.data)
+        try {
+            let user1 = this.props.data.user1
+            let user2 = this.props.data.user2
+            let data = {
+                roomName:'room_'+[user1.userId,user2.userId].sort().join('_'),
+                fkUser1:user1.userId,
+                fkUser2:user2.userId
+            }
+            addRoom(data,this)
+        }catch (e) {
+            message.error('请联网哦~')
         }
-        addRoom(data,this)
+
     }
     render() {
         let newChat = this.props.data.chats[this.props.data.chats.length-1]
         let user1 = this.props.data.user1
         return (
             <div onClick={this.toDetail} className={'message-content-wrapper'}>
+
                 <div className={'message-content-avatar'}>
                     <img src={user1?'http://127.0.0.1:5000/show/'+user1.userPhotoPath:null} alt={'hello'}/>
                 </div>
@@ -52,6 +58,7 @@ class MessageContent extends Component{
                         {newChat?newChat.chatContent:null}
                     </div>
                 </div>
+                <Badge style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} count={1000} overflowCount={99}/>
             </div>
         );
     }

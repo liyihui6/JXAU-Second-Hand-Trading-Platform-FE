@@ -35,7 +35,7 @@ class Sell extends Component{
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
-                            data.map((value,index) => {
+                            data.length>1?data.map((value,index) => {
                                 let flag = false
                                 count ++
                                 if (value.publishKinds !== 1 || count > 6){
@@ -45,7 +45,11 @@ class Sell extends Component{
                                 return (flag?null:<li key={index} className={index%2===0?style_1:style_2}>
                                     <Product data={value}/>
                                 </li>)
-                            })
+                            }):(
+                                <div style={{textAlign:'center',marginTop:'20px'}}>
+                                    <h1>暂无数据哦~</h1>
+                                </div>
+                            )
                         }
                     </ul>
                 </div>

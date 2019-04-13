@@ -22,4 +22,11 @@
     padding: 0 20px;
     border-top: 1px solid #eee;
 }
-
+.forum-content--nodata{
+    width: 100%;
+    text-align: center;
+    padding: 200px 0;
+}
+.forum-content--nodata h1{
+    color: gray;
+}
