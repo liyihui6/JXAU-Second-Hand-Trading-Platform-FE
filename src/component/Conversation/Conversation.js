@@ -31,6 +31,7 @@ class Conversation extends Component{
                     </div>
                 </div>
                 <div className={'conversation-content-wrapper'}>
+                    <div style={{width:'100%',height:'42px'}}></div>
                     <div className={'conversation-content'}>
                         <div className={'conversation-content-avatar'}><Avatar>U</Avatar></div>
                         <div className={'conversation-content-detail'}><p>hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world</p></div>

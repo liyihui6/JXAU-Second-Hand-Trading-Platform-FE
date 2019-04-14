@@ -5,6 +5,10 @@
     width: 100%;
     padding: 10px;
     border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    background: #fff;
 }
 .chat-header h2{
     text-align: center;

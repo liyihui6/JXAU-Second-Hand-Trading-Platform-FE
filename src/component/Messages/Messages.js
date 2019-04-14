@@ -6,6 +6,8 @@ import MessageContent from './MessageContent/MessageContent'
 import {Input} from "antd";
 import login from '../../Storages/SessionStorages/LoginSession'
 import {connect} from 'react-redux'
+import User from "../../Storages/LocalStorages/User";
+import axios from "../../api/main";
 
 /**
  *
@@ -21,8 +23,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
-    }
+        initRoomInfo: (data) => {
+            dispatch({
+                type: 'INITROOMINFO',
+                payload:data
+            });
+        }
+    };
 }
 
 
@@ -38,6 +45,22 @@ class Messages extends Component{
         if (!login.isLogin()){
             this.props.history.push('/login')
         }
+        setInterval(()=>{
+            let info = User.getUser()
+            let userId = info.userId
+            axios.get('/api/room/'+userId).then((res)=>{
+                let roomData = res.data
+                if (roomData.code === 1) {
+                    // console.log('更新数据成功')
+                    let rooms = roomData.rooms
+                    this.props.initRoomInfo(rooms)
+                }else {
+
+                }
+            }).catch((res)=> {
+                // message.error('服务器错误2')
+            })
+        },2000)
     }
     componentDidMount() {
         document.getElementById('message-container-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
@@ -60,9 +83,17 @@ class Messages extends Component{
                         <ul className={'messages-contents'}>
                             {
                                 this.props.userRoomList.length>=1?this.props.userRoomList.map((value,index) => {
+                                    console.log(value)
+                                    let count = 0
+                                    value.chats.forEach(item => {
+                                        if (item.isRead === 0){
+                                            count ++
+                                        }
+                                    })
+                                    console.log(count)
                                     return (
                                         <li key={index} className={'message-content'}>
-                                            <MessageContent history={this.props.history} data={value}/>
+                                            <MessageContent history={this.props.history} data={value} notRead={count}/>
                                         </li>
                                     )
                                 }):(

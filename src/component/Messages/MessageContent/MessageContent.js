@@ -19,7 +19,7 @@ class MessageContent extends Component{
         this.state = {
             loading: false,
             userId:0,
-            sellId:0
+            sellId:0,
         }
     }
 
@@ -27,36 +27,29 @@ class MessageContent extends Component{
         this.setState({ loading: !checked });
     }
 
-    componentWillUnmount() {
-        let user1 = this.props.data.user1
-        let user2 = this.props.data.user2
-        if (this.props.data.user1.userId!==User.getUser().userId) {
-            user1 = this.props.data.user2
-            user2 = this.props.data.user1
+    componentWillMount() {
+        let datas = this.props.data
+        let user1 = datas.user1
+        let user2 = datas.user2
+        let user = User.getUser()
+        if (user.userId !== user1.userId){
+            user1  = datas.user2
+            user2 = datas.user1
         }
-        console.log({
-            userId:user1.userId,
-            sellId:user2.userId
-        })
-        this.setState({
-            userId:user1.userId,
-            sellId:user2.userId
-        })
+        if (user2){
+            this.setState({
+                userId:user1.userId,
+                sellId:user2.userId
+            })
+        }
     }
 
     toDetail = () => {
         try {
-            let user1 = this.props.data.user1
-            let user2 = this.props.data.user2
-            console.log(User.getUser().userId)
-            if (this.props.data.user1.userId===User.getUser().userId) {
-                user1 = this.props.data.user2
-                user2 = this.props.data.user1
-            }
             let data = {
-                roomName:'room_'+[user1.userId,user2.userId].sort().join('_'),
-                fkUser1:user1.userId,
-                fkUser2:user2.userId
+                roomName:'room_'+[this.state.userId,this.state.sellId].sort().join('_'),
+                fkUser1:this.state.userId,
+                fkUser2:this.state.sellId
             }
             console.log(data)
             addRoom(data,this)
@@ -68,11 +61,9 @@ class MessageContent extends Component{
     render() {
         let newChat = this.props.data.chats[this.props.data.chats.length-1]
         let user1 = this.props.data.user1
-        // console.log(User.getUser().userId)
         if (this.props.data.user1.userId===User.getUser().userId) {
             user1 = this.props.data.user2
         }
-        console.log(user1)
         return (
             <div onClick={this.toDetail} className={'message-content-wrapper'}>
 
@@ -88,7 +79,9 @@ class MessageContent extends Component{
                         {newChat?newChat.chatContent:null}
                     </div>
                 </div>
-                <Badge style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} count={1000} overflowCount={99}/>
+                <div className={'message-content-Badge'}>
+                    <Badge style={{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }} count={this.props.notRead} overflowCount={99}/>
+                </div>
             </div>
         );
     }

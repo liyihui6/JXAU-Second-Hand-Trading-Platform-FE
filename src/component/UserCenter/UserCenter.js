@@ -63,13 +63,12 @@ class UserCenter extends Component{
             let roomData = res.data
             if (roomData.code === 1) {
                 let rooms = roomData.rooms
-                // console.log(rooms)
                 this.props.initRoomInfo(rooms)
             }else {
-                message.error('服务器错误')
+
             }
         }).catch((res)=> {
-            message.error('服务器错误')
+            message.error('服务器错误2')
         })
     }
 
@@ -85,17 +84,17 @@ class UserCenter extends Component{
         return (
             <div className={'homepage'}>
                 <div className={'center-header-wrapper'}>
-                    <CenterHeader></CenterHeader>
+                    <CenterHeader/>
                 </div>
                 <div className={'center-container-wrapper'}>
-                    <CenterDetail userInfo={this.state.sellerInfo}></CenterDetail>
+                    <CenterDetail userInfo={this.state.sellerInfo}/>
                     <div className={'none'}/>
                     <div className={'center-container-wrapper-lists'}>
                         <div className={'center-container-wrapper-list'}>
-                            <Bought length={length}></Bought>
+                            <Bought length={length}/>
                         </div>
                         <div className={'center-container-wrapper-list'}>
-                            <Sold length={length}></Sold>
+                            <Sold length={length}/>
                         </div>
                     </div>
                     <div className={'center-container-wrapper-ret'}>
@@ -104,7 +103,7 @@ class UserCenter extends Component{
 
                 </div>
                 <div className={'footer'}>
-                    <Footer></Footer>
+                    <Footer/>
                 </div>
             </div>
         );

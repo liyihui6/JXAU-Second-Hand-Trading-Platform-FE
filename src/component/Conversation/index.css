@@ -52,7 +52,7 @@
     border: 1px solid #eee;
     border-radius: 5px;
     padding: 10px;
-    width: 80%;
+    max-width: 80%;
     overflow: visible;
     background: #fff;
 }
@@ -90,7 +90,7 @@
     float: right;
 }
 .conversation-content-detail-self{
-    width: 80%;
+    max-width: 80%;
     border: 1px solid #eee;
     border-radius: 5px;
     padding: 10px;
@@ -107,4 +107,5 @@
     word-wrap:break-word;
     word-break: break-all;
     overflow: hidden;
+    float: right;
 }

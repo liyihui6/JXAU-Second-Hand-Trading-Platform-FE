@@ -52,7 +52,7 @@ class BoughtDetailCard extends Component{
                 <Card
                     title={data.publishTitle}
                     style={{ width: '100%' }}
-                    cover={<img alt="example" src={photo} style={{width:'156px',height:'156px'}} />}
+                    cover={<img alt="example" src={photo}/>}
                     actions={[<Icon type="delete" onClick={this.deleteProduct} />, <Icon type="edit" onClick={this.editProduct} />]}
                 >
                     <Meta

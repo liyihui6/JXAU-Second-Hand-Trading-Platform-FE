@@ -1,10 +1,12 @@
+import User from '../../Storages/LocalStorages/User'
+import setChatIsRead from '../../api/PostApi/setChatIsRead'
+import {Input, Button, Modal, Avatar, message} from 'antd'
+import addChat from '../../api/PostApi/addChat'
 import React,{Component} from 'react'
-import {Input, Button, Modal, Avatar} from 'antd'
+import {connect} from 'react-redux'
 import 'socket.io-client'
 import './index.css'
-import addChat from '../../api/PostApi/addChat'
-import setChatIsRead from '../../api/PostApi/setChatIsRead'
-import {connect} from 'react-redux'
+import axios from "../../api/main";
 
 const mapStateToProps = (state) => {
     return {
@@ -39,11 +41,19 @@ class Chat extends Component{
     }
      componentWillMount() {
         if (this.props.location.state){
+            let from = this.props.location.state.userId
+            let to = this.props.location.state.sellId
+            if (from === User.getUser().userId){
+
+            } else {
+                from = this.props.location.state.sellId
+                to = this.props.location.state.userId
+            }
             this.setState({
                 roomId:this.props.location.state.roomId,
                 roomName:this.props.location.state.roomName,
-                from:this.props.location.state.userId,
-                to:this.props.location.state.sellId,
+                from:from,
+                to:to,
             })
         }
         let roomName = ''
@@ -57,6 +67,7 @@ class Chat extends Component{
      }
      componentDidMount() {
         try {
+            // console.log(this.props.RoomInfo[0])
             if (this.props.RoomInfo[0].chats){
                 this.setState({
                     messages:this.props.RoomInfo[0].chats
@@ -65,7 +76,6 @@ class Chat extends Component{
         }catch (e) {
 
         }
-
      }
 
     handleMsg = (e) => {
@@ -81,6 +91,7 @@ class Chat extends Component{
             to:this.state.to,
             fkRoomId:this.state.roomId
         }
+        console.log(data)
         addChat(data,this)
         this.setState({
             message:''
@@ -126,14 +137,11 @@ class Chat extends Component{
         this.props.history.goBack()
     }
     render() {
-
+        console.log(this.state.from)
+        console.log(this.state.to)
         return (
             <div className={'chat'}>
                 <div className={'chat-header'}>
-                    {/*<h2>{this.state.roomName}</h2>*/}
-                    {/*<Button block type="primary" onClick={this.showModal}>*/}
-                        {/*修改房间ID*/}
-                    {/*</Button>*/}
                     <div className={'conversation-header-wrapper'}>
                         <div onClick={this.goBack} className={'conversation-header-messages'}> 消息(20)</div>
                         <span className={'conversation-header-username'}>李艺晖</span>
@@ -164,6 +172,9 @@ class Chat extends Component{
                                         </div>
                                     )
                                 }else{
+                                    // console.log(value)
+                                    value.isRead = 1
+                                    setChatIsRead(value.chatId)
                                     return (
                                         <div key={index} className={'conversation-content'}>
                                             <div className={'conversation-content-avatar'}><Avatar>U</Avatar></div>

@@ -43,7 +43,7 @@ class BoughtDetail extends Component{
                 </div>
                 <div className={'bought-detail-content-wrapper'} ref={'par'}>
                     {
-                        this.state.productInfo.length>1?this.state.productInfo.map((value,index)=>{
+                        this.state.productInfo.length>=1?this.state.productInfo.map((value,index)=>{
                             return <div key={index} className={'bought-detail-content'}>
                                 <BoughtDetailCard deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
                             </div>
