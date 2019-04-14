@@ -4,6 +4,7 @@ import moment from 'moment';
 import CommentButton from './CommentButton'
 import User from '../../../Storages/LocalStorages/User'
 import addComment from '../../../api/PostApi/addComment'
+import {PICTURESERVERIP} from "../../../config";
 
 
 /**
@@ -53,7 +54,7 @@ class ForumComment extends Component{
         let user = User.getUser()
         let tempInfo = {
             author: user.userNike,
-            avatar: 'http://127.0.0.1:5000/show/'+user.userPhotoPath,
+            avatar: PICTURESERVERIP+'/show/'+user.userPhotoPath,
             content: (
                 <p>{tempData.articleCommentContent}</p>
             ),
@@ -78,7 +79,7 @@ class ForumComment extends Component{
         this.props.datas.articleComments.forEach((value,index) => {
             datas.push({
                 author: value.commentUserNike,
-                avatar: 'http://127.0.0.1:5000/show/'+value.commentUserPhonePath,
+                avatar: PICTURESERVERIP+'/show/'+value.commentUserPhonePath,
                 content: (
                     <p>{value.articleCommentContent}</p>
                 ),

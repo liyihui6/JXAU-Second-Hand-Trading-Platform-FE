@@ -81,7 +81,7 @@ class Footer extends Component{
                         </Link>
                     </li>
                 </ul>
-                <Add visible={this.state.visible} handleCancel={this.handleCancel}></Add>
+                <Add visible={this.state.visible} handleCancel={this.handleCancel}/>
             </div>
         )
     }

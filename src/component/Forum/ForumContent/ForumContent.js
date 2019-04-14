@@ -3,6 +3,7 @@ import './index.css'
 import ava from './123.jpg'
 import {Avatar} from 'antd'
 import ImgDetail from '../ImgDetail/ImgDetail'
+import {PICTURESERVERIP} from "../../../config";
 
 /**
  *
@@ -24,7 +25,7 @@ class ForumContent extends Component{
             <div className={'forum-content'}>
                 <div className={'forum-content-header'}>
                     <div className={'forum-content-header-avatar'}>
-                        <Avatar src={this.props.datas.user.userPhotoPath?'http://127.0.0.1:5000/show/'+this.props.datas.user.userPhotoPath:ava} alt=""/>
+                        <Avatar src={this.props.datas.user.userPhotoPath?PICTURESERVERIP+'/show/'+this.props.datas.user.userPhotoPath:ava} alt=""/>
                     </div>
                     <div className={'forum-content-header-username'}>
                         {this.props.datas.user.userNike}

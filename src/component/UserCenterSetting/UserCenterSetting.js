@@ -5,6 +5,7 @@ import UploadAvatar from './UploadAvatar/UploadAvatar'
 import re from './return.svg'
 import userSetting from '../../api/PostApi/userSetting'
 import User from '../../Storages/LocalStorages/User'
+import {PICTURESERVERIP} from "../../config";
 
 class UserCenterSetting extends Component{
     constructor(props) {
@@ -38,7 +39,7 @@ class UserCenterSetting extends Component{
 
     handlePic= (filename) => {
         this.setState({
-            pic:'http://127.0.0.1:5000/show/'+filename,
+            pic:PICTURESERVERIP+'/show/'+filename,
             photo:filename
         })
     }
@@ -72,7 +73,7 @@ class UserCenterSetting extends Component{
             name:info.userNike,
             desc:info.userDes,
             phone:info.userPhone,
-            pic:'http://127.0.0.1:5000/show/'+info.userPhotoPath
+            pic:PICTURESERVERIP+'/show/'+info.userPhotoPath
         })
     }
 

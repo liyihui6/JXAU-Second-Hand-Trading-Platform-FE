@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { Upload, Icon, message } from 'antd';
 import './index.css'
-
+import {PICTURESERVERIP} from "../../../config";
 
 
 function getBase64(img, callback) {
@@ -68,7 +68,7 @@ class UploadAvatar extends Component{
                     listType="picture-card"
                     className="avatar-uploader"
                     showUploadList={false}
-                    action="http://127.0.0.1:5000/saveFile"
+                    action={PICTURESERVERIP+"/saveFile"}
                     beforeUpload={this.beforeUpload}
                     onChange={this.handleChange}
                 >

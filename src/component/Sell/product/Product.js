@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './index.css'
 import avatar from "./123.jpg"
 import {Link} from 'react-router-dom'
+import {PICTURESERVERIP} from "../../../config";
 
 class Product extends Component{
     constructor(props) {
@@ -14,13 +15,13 @@ class Product extends Component{
     render() {
         let photos = this.props.data.commodityPhotos
         let user = this.props.data.user
-        let userAvatar = 'http://127.0.0.1:5000/show/default.jpg'
+        let userAvatar = PICTURESERVERIP+'/show/default.jpg'
         if (user){
-            userAvatar = 'http://127.0.0.1:5000/show/'+user.userPhotoPath
+            userAvatar = PICTURESERVERIP+'/show/'+user.userPhotoPath
         }
         let photo = avatar
         if (photos){
-            photo = 'http://127.0.0.1:5000/show/'+photos[0].articlePhotoPath
+            photo = PICTURESERVERIP+'/show/'+photos[0].articlePhotoPath
         }
         return (
             <div className={'sell-product'}>

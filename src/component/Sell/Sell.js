@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
 import './index.css'
 import Product from './product/Product'
-import getProduct from "../../api/FetchApi/getProduct";
+import {connect} from 'react-redux'
 
 /**
  *
@@ -10,20 +10,33 @@ import getProduct from "../../api/FetchApi/getProduct";
  *
  * **/
 
+const mapStateToProps = (state) => {
+    return {
+        allData:state.productReducer.allProduct
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+
 class Sell extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData:[],
             count:0
         }
     }
-    componentWillMount() {
-        getProduct(this)
-    }
+    // componentWillMount() {
+    //     getProduct(this)
+    // }
 
     render() {
-        let data = this.state.allData
+        let data = this.props.allData
+        console.log(data)
         let count = 0
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
@@ -35,7 +48,7 @@ class Sell extends Component{
                 <div className={'sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
-                            data.length>1?data.map((value,index) => {
+                            data.length>=1?data.map((value,index) => {
                                 let flag = false
                                 count ++
                                 if (value.publishKinds !== 1 || count > 6){
@@ -58,4 +71,7 @@ class Sell extends Component{
     }
 }
 
-export default Sell
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Sell)

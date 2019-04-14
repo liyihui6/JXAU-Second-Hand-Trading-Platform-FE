@@ -85,7 +85,7 @@ class AddNote extends Component{
                         <TextArea value={this.state.content} onChange={this.handleContent} rows={6} placeholder={'说点什么吧...'}/>
                     </div>
                     <div className={'add-note-input-pics'}>
-                        <PicturesWall handlePics={this.handlePics}></PicturesWall>
+                        <PicturesWall handlePics={this.handlePics}/>
                     </div>
                     <div className={'add-note-tag add-note-tag-common'}>
                         <span>添加标签</span>

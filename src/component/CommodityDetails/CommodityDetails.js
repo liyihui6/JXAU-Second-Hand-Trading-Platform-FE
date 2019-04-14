@@ -7,6 +7,7 @@ import getProductDetail from '../../api/FetchApi/getProductDetail'
 import getUserInfo from '../../api/FetchApi/getUserInfo'
 import User from '../../Storages/LocalStorages/User'
 import addRoom from '../../api/PostApi/addRoom'
+import {PICTURESERVERIP} from "../../config";
 
 /***
  *
@@ -102,7 +103,7 @@ class CommodityDetails extends Component{
                     </div>
                     <Skeleton loading={this.state.loading} avatar active>
                         <Meta
-                            avatar={<Avatar icon="user" src={this.state.sellerInfo.userPhotoPath?'http://127.0.0.1:5000/show/'+this.state.sellerInfo.userPhotoPath:null} />}
+                            avatar={<Avatar icon="user" src={this.state.sellerInfo.userPhotoPath?PICTURESERVERIP+'/show/'+this.state.sellerInfo.userPhotoPath:null} />}
                             title={this.state.sellerInfo.userNike}
                             description={this.state.sellerInfo.userDes}
                         />

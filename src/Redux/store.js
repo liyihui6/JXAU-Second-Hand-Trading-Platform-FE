@@ -1,7 +1,11 @@
-import roomReducer from './reducer'
-import {createStore} from 'redux'
+import roomReducer from './roomReducer'
+import productReducer from './productReducer'
+import {createStore,combineReducers} from 'redux'
 
 const { composeWithDevTools } = require('redux-devtools-extension');
+let reducers = combineReducers({
+    productReducer,roomReducer
+})
 
-let store = createStore(roomReducer,composeWithDevTools())
+let store = createStore(reducers,composeWithDevTools())
 export default store

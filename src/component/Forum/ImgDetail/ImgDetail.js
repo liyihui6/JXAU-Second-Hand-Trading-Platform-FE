@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {Upload,Modal} from 'antd'
 import './index.css'
 import img from '../ForumContent/img1.png'
+import {PICTURESERVERIP} from "../../../config";
 
 /**
  *
@@ -32,7 +33,7 @@ class ImgDetail extends Component{
                 uid: index,
                 name: index+'xxx.png',
                 status: 'done',
-                url: 'http://127.0.0.1:5000/show/'+value.articlePhotoPath,
+                url: PICTURESERVERIP+'/show/'+value.articlePhotoPath,
             })
         })
         this.setState({

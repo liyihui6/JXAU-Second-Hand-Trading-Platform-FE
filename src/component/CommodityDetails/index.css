@@ -39,9 +39,13 @@
     color: #ff5d24;
 }
 .commodity-details-content p{
+    width: 100%;
+    /*使其超出标签内容换行*/
+    word-break: break-all;
     padding: 5px 5px 10px 5px;
     text-indent: 5px;
     border-bottom: 1px solid #eee;
+
 }
 .commodity-details-content-images{
     padding: 5px;

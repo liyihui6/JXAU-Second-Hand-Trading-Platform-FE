@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import './index.css'
 import avatar from './123.jpg'
+import {PICTURESERVERIP} from "../../../config";
 
 /**
  *
@@ -28,7 +29,7 @@ class CenterDetail extends Component{
                         </div>
                     </div>
                     <div className={'detail-user-avatar'}>
-                        <img src={this.props.userInfo.userPhotoPath?'http://127.0.0.1:5000/show/'+this.props.userInfo.userPhotoPath:avatar} alt=""/>
+                        <img src={this.props.userInfo.userPhotoPath?PICTURESERVERIP+'/show/'+this.props.userInfo.userPhotoPath:avatar} alt=""/>
                     </div>
                 </div>
             </div>

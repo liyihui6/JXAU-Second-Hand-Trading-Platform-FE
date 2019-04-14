@@ -8,6 +8,7 @@ import login from '../../Storages/SessionStorages/LoginSession'
 import {connect} from 'react-redux'
 import User from "../../Storages/LocalStorages/User";
 import axios from "../../api/main";
+// import roomReducer from "../../Redux/roomReducer";
 
 /**
  *
@@ -17,7 +18,7 @@ import axios from "../../api/main";
 
 const mapStateToProps = (state) => {
     return {
-        userRoomList: state.userRoomList
+        userRoomList: state.roomReducer.userRoomList
     }
 }
 
@@ -83,14 +84,14 @@ class Messages extends Component{
                         <ul className={'messages-contents'}>
                             {
                                 this.props.userRoomList.length>=1?this.props.userRoomList.map((value,index) => {
-                                    console.log(value)
+                                    // console.log(value)
                                     let count = 0
                                     value.chats.forEach(item => {
                                         if (item.isRead === 0){
                                             count ++
                                         }
                                     })
-                                    console.log(count)
+                                    // console.log(count)
                                     return (
                                         <li key={index} className={'message-content'}>
                                             <MessageContent history={this.props.history} data={value} notRead={count}/>

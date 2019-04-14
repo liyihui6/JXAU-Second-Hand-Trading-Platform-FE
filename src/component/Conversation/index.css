@@ -36,6 +36,10 @@
     margin-top: 48px;
     padding-bottom: 235px;
     position: relative;
+    overflow-y: scroll;
+}
+.conversation-content-wrapper ::-webkit-scrollbar {
+    display:none
 }
 .conversation-content{
     width: 100%;

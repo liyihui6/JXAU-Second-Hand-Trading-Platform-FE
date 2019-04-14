@@ -3,19 +3,32 @@ import './index.css'
 import Product from "../Sell/product/Product";
 import re from "../UserCenterSetting/return.svg";
 import getProduct from "../../api/FetchApi/getProduct";
+import {connect} from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+        allData:state.productReducer.allProduct
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
 
 
 class AllProduct extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData:[],
             tag:'all'
         }
     }
     componentWillMount(){
         document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
-        getProduct(this)
+        // getProduct(this)
         let tag = this.props.location.state.tag
         if (tag){
             this.setState({
@@ -28,7 +41,7 @@ class AllProduct extends Component{
         this.props.history.goBack()
     }
     render() {
-        let data = this.state.allData
+        let data = this.props.allData
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
         let count = 0
@@ -41,7 +54,7 @@ class AllProduct extends Component{
                 <div className={'all-sell-products'}>
                     <ul style={{overflow: 'hidden',padding:'0'}}>
                         {
-                            data.length>1?data.map((value,index) => {
+                            data.length>=1?data.map((value,index) => {
                                 let tag = value.tag
                                 let flag = false
                                 if (!tag){
@@ -72,4 +85,7 @@ class AllProduct extends Component{
 
 }
 
-export default AllProduct
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AllProduct)

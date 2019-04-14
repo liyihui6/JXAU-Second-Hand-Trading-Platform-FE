@@ -1,7 +1,7 @@
 import {UPDATEROOMINFO,INITROOMINFO} from './action'
 
 const initState = {
-    userRoomList:[]
+    userRoomList:[],
 }
 const roomReducer = (state = initState,action={}) => {
     switch (action.type) {

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Upload, Icon, Modal} from 'antd';
+import {PICTURESERVERIP} from "../../config";
 
 class PicturesWall extends React.Component {
     state = {
@@ -50,7 +51,7 @@ class PicturesWall extends React.Component {
         return (
             <div className="clearfix">
                 <Upload
-                    action="http://127.0.0.1:5000/saveFiles"
+                    action={PICTURESERVERIP+"/saveFiles"}
                     listType="picture-card"
                     fileList={fileList}
                     onPreview={this.handlePreview}

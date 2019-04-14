@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { Card, Icon, Modal,} from 'antd';
 import deleteProduct from '../../../api/FetchApi/deleteProduct'
+import {PICTURESERVERIP} from "../../../config";
 const { Meta } = Card;
 
 class BoughtDetailCard extends Component{
@@ -45,7 +46,7 @@ class BoughtDetailCard extends Component{
         let data = this.props.data
         // console.log(data)
         let photoPath = data.commodityPhotos[0]
-        let photo = photoPath?'http://127.0.0.1:5000/show/'+photoPath.articlePhotoPath:'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+        let photo = photoPath?PICTURESERVERIP+'/show/'+photoPath.articlePhotoPath:'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
         let content = data.publishContent?data.publishContent:'暂无描述'
         return (
             <div>

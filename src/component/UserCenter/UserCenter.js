@@ -13,6 +13,8 @@ import getUserProduct from '../../api/FetchApi/getUserProduct'
 import User from '../../Storages/LocalStorages/User'
 import {connect} from 'react-redux'
 import axios from '../../api/main'
+import getProduct from "../../api/FetchApi/getProduct";
+// import roomReducer from "../../Redux/roomReducer";
 
 /**
  *
@@ -22,7 +24,7 @@ import axios from '../../api/main'
 
 const mapStateToProps = (state) => {
     return {
-        userRoomList: state.userRoomList
+        userRoomList: state.roomReducer.userRoomList
     }
 }
 
@@ -31,6 +33,12 @@ const mapDispatchToProps = (dispatch) => {
         initRoomInfo: (data) => {
             dispatch({
                 type: 'INITROOMINFO',
+                payload:data
+            });
+        },
+        initProductInfo: (data) => {
+            dispatch({
+                type: 'INITPRODUCTDATA',
                 payload:data
             });
         }
@@ -70,6 +78,10 @@ class UserCenter extends Component{
         }).catch((res)=> {
             message.error('服务器错误2')
         })
+        getProduct()
+        setInterval(()=>{
+            getProduct()
+        },5000)
     }
 
     loginOut = () => {

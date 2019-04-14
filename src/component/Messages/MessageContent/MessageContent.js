@@ -4,6 +4,7 @@ import './index.css'
 import formateDate from '../../../utils/formateDate'
 import addRoom from "../../../api/PostApi/addRoom";
 import User from '../../../Storages/LocalStorages/User'
+import {PICTURESERVERIP} from "../../../config";
 
 // const { Meta } = Card;
 
@@ -51,7 +52,7 @@ class MessageContent extends Component{
                 fkUser1:this.state.userId,
                 fkUser2:this.state.sellId
             }
-            console.log(data)
+            // console.log(data)
             addRoom(data,this)
         }catch (e) {
             message.error('请联网哦~')
@@ -68,7 +69,7 @@ class MessageContent extends Component{
             <div onClick={this.toDetail} className={'message-content-wrapper'}>
 
                 <div className={'message-content-avatar'}>
-                    <img src={user1?'http://127.0.0.1:5000/show/'+user1.userPhotoPath:null} alt={'hello'}/>
+                    <img src={user1?PICTURESERVERIP+'/show/'+user1.userPhotoPath:null} alt={'hello'}/>
                 </div>
                 <div className={'message-content-info'}>
                     <div>

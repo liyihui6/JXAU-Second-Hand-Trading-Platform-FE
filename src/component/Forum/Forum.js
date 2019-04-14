@@ -4,7 +4,7 @@ import ForumHeader from './ForumHeader/ForumHeader'
 import ForumContent from './ForumContent/ForumContent'
 import ForumComment from './ForumComment/ForumComment'
 import Footer from '../../component/Footer/Footer'
-import getProduct from "../../api/FetchApi/getProduct";
+import {connect} from 'react-redux'
 
 
 /**
@@ -13,17 +13,27 @@ import getProduct from "../../api/FetchApi/getProduct";
  *
  * **/
 
+const mapStateToProps = (state) => {
+    return {
+        allData:state.productReducer.allProduct
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
 class Forum extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allData: [],
             type: 4
         }
     }
 
     componentWillMount() {
-        getProduct(this)
         let state = this.props.location.state
         this.setState({
             type: state.type
@@ -45,7 +55,7 @@ class Forum extends Component {
                     <div style={{width: '100%', height: '52px'}}>
                     </div>
                     {
-                        this.state.allData.length>1?this.state.allData.map((value, index) => {
+                        this.props.allData.length>1?this.props.allData.map((value, index) => {
                             if (value.publishKinds !== 1 && (type === 2 || value.publishKinds === type)) {
                                 return <div key={index} className={'forum-content-detail'}>
                                     <ForumContent datas={value}/>
@@ -71,4 +81,7 @@ class Forum extends Component {
     }
 }
 
-export default Forum
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Forum)

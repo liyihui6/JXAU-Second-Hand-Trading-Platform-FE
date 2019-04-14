@@ -7,7 +7,7 @@ class AddPage extends Component{
 
         return (
             <div className={'add'}>
-                <RouterAdd></RouterAdd>
+                <RouterAdd/>
             </div>
         );
     }

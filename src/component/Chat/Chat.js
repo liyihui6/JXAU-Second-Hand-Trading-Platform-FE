@@ -1,16 +1,18 @@
 import User from '../../Storages/LocalStorages/User'
 import setChatIsRead from '../../api/PostApi/setChatIsRead'
-import {Input, Button, Modal, Avatar, message} from 'antd'
+import {Input, Button, Modal, Avatar} from 'antd'
 import addChat from '../../api/PostApi/addChat'
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import 'socket.io-client'
 import './index.css'
-import axios from "../../api/main";
+import back from './back.svg'
+import {CHATSERVERIP} from "../../config";
+
 
 const mapStateToProps = (state) => {
     return {
-        RoomInfo:state.userRoomList
+        RoomInfo:state.roomReducer.userRoomList
     }
 }
 
@@ -29,7 +31,7 @@ class Chat extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            socket:require('socket.io-client')('http://localhost:4000/namespace1'),
+            socket:require('socket.io-client')(CHATSERVERIP+'/namespace1'),
             message:'',
             messages:[],
             roomId:0,
@@ -67,15 +69,18 @@ class Chat extends Component{
      }
      componentDidMount() {
         try {
-            // console.log(this.props.RoomInfo[0])
             if (this.props.RoomInfo[0].chats){
                 this.setState({
                     messages:this.props.RoomInfo[0].chats
                 })
             }
+            setTimeout(()=>{
+                document.getElementById('chat-el').scrollIntoView(false);//为ture返回顶部，false为底部
+            },50)
         }catch (e) {
 
         }
+
      }
 
     handleMsg = (e) => {
@@ -137,13 +142,13 @@ class Chat extends Component{
         this.props.history.goBack()
     }
     render() {
-        console.log(this.state.from)
-        console.log(this.state.to)
+        // console.log(this.state.from)
+        // console.log(this.state.to)
         return (
-            <div className={'chat'}>
+            <div className={'chat'} id={'chat-el'}>
                 <div className={'chat-header'}>
                     <div className={'conversation-header-wrapper'}>
-                        <div onClick={this.goBack} className={'conversation-header-messages'}> 消息(20)</div>
+                        <div onClick={this.goBack} className={'conversation-header-messages'}><img src={back} style={{width:'20px'}} alt=""/></div>
                         <span className={'conversation-header-username'}>李艺晖</span>
                         <div className={'conversation-header-setting'}>
                             123
