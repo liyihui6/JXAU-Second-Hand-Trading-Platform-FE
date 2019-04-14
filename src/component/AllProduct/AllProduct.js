@@ -31,6 +31,7 @@ class AllProduct extends Component{
         let data = this.state.allData
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'
+        let count = 0
         return (
             <div className={'all-product'}>
                 <div className={'all-product-header'}>
@@ -48,11 +49,13 @@ class AllProduct extends Component{
                                 }
                                 if (this.state.tag === 'all' && value.publishKinds === 1){
                                     flag = true
+                                    count ++
                                 }else if(value.publishKinds === 1 && tag === this.state.tag ){
                                     flag = true
+                                    count ++
                                 }
-
-                                return (flag?<li key={index} className={index%2===0?style_1:style_2}>
+                                // console.log(index)
+                                return (flag?<li key={index} className={count%2===1?style_1:style_2}>
                                     <Product data={value}/>
                                 </li>:null)
                             }):(

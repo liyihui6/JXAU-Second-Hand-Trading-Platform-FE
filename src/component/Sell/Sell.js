@@ -42,7 +42,7 @@ class Sell extends Component{
                                     flag = true
                                     count --
                                 }
-                                return (flag?null:<li key={index} className={index%2===0?style_1:style_2}>
+                                return (flag?null:<li key={index} className={count%2===1?style_1:style_2}>
                                     <Product data={value}/>
                                 </li>)
                             }):(

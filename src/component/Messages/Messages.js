@@ -59,7 +59,7 @@ class Messages extends Component{
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
                             {
-                                this.props.userRoomList.length>1?this.props.userRoomList.map((value,index) => {
+                                this.props.userRoomList.length>=1?this.props.userRoomList.map((value,index) => {
                                     return (
                                         <li key={index} className={'message-content'}>
                                             <MessageContent history={this.props.history} data={value}/>

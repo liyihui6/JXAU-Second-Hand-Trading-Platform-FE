@@ -49,7 +49,7 @@ class Conversation extends Component{
                     </div>
                 </div>
                 <div className={'footer'}>
-                    <ConversationFooter></ConversationFooter>
+                    <ConversationFooter/>
                 </div>
             </div>
         );

@@ -63,6 +63,7 @@ class UserCenter extends Component{
             let roomData = res.data
             if (roomData.code === 1) {
                 let rooms = roomData.rooms
+                // console.log(rooms)
                 this.props.initRoomInfo(rooms)
             }else {
                 message.error('服务器错误')

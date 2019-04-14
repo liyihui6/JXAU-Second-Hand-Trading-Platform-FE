@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input,Button,Modal} from 'antd'
+import {Input, Button, Modal, Avatar} from 'antd'
 import 'socket.io-client'
 import './index.css'
 import addChat from '../../api/PostApi/addChat'
@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 
 const mapStateToProps = (state) => {
     return {
-        data:state
+        RoomInfo:state.userRoomList
     }
 }
 
@@ -54,6 +54,18 @@ class Chat extends Component{
         }
          this.state.socket.on('receiveMsg',this.receiveMsg)
          this.state.socket.emit('join',roomName,'hello,我进入了房间')
+     }
+     componentDidMount() {
+        try {
+            if (this.props.RoomInfo[0].chats){
+                this.setState({
+                    messages:this.props.RoomInfo[0].chats
+                })
+            }
+        }catch (e) {
+
+        }
+
      }
 
     handleMsg = (e) => {
@@ -109,14 +121,26 @@ class Chat extends Component{
             roomId:e.target.value
         })
     }
+
+    goBack = () => {
+        this.props.history.goBack()
+    }
     render() {
+
         return (
             <div className={'chat'}>
                 <div className={'chat-header'}>
-                    <h2>{this.state.roomName}</h2>
-                    <Button block type="primary" onClick={this.showModal}>
-                        修改房间ID
-                    </Button>
+                    {/*<h2>{this.state.roomName}</h2>*/}
+                    {/*<Button block type="primary" onClick={this.showModal}>*/}
+                        {/*修改房间ID*/}
+                    {/*</Button>*/}
+                    <div className={'conversation-header-wrapper'}>
+                        <div onClick={this.goBack} className={'conversation-header-messages'}> 消息(20)</div>
+                        <span className={'conversation-header-username'}>李艺晖</span>
+                        <div className={'conversation-header-setting'}>
+                            123
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <Modal
@@ -129,17 +153,32 @@ class Chat extends Component{
                     </Modal>
                 </div>
                 <div className={'chat-content-wrapper'}>
-                    {
-                        this.state.messages.map((value,index)=> {
-                            return <div key={index} className={'chat-content'}>
-                                <p><span style={{marginRight:'5px'}}>{new Date(value.sendTime).toLocaleString()}</span> : {value.chatContent}</p>
-                            </div>
-                        })
-                    }
+                    <div className={'conversation-content-wrapper'}>
+                        {
+                            this.state.messages.map((value,index)=> {
+                                if (value.from === this.state.from) {
+                                    return (
+                                        <div key={index} className={'conversation-content-self'}>
+                                            <div className={'conversation-content-avatar-self'}><Avatar>U</Avatar></div>
+                                            <div className={'conversation-content-detail-self'}><p>{value.chatContent}</p></div>
+                                        </div>
+                                    )
+                                }else{
+                                    return (
+                                        <div key={index} className={'conversation-content'}>
+                                            <div className={'conversation-content-avatar'}><Avatar>U</Avatar></div>
+                                            <div className={'conversation-content-detail'}><p>{value.chatContent}</p></div>
+                                        </div>
+                                    )
+                                }
+
+                            })
+                        }
+                    </div>
                 </div>
                 <div className={'chat-footer'}>
                     <Input className={'chat-input-message'} placeholder={'type message'} value={this.state.message} onChange={this.handleMsg} onPressEnter={this.sendMsg}/>
-                    <Button onClick={this.sendMsg} className={'chat-send-message'} type={"primary"}>发送消息</Button>
+                    <Button onClick={this.sendMsg} className={'chat-send-message'} type={"primary"}>发送</Button>
                 </div>
             </div>
         );

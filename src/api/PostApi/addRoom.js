@@ -9,7 +9,7 @@ export default function addRoom(data,component){
         let resInfo = response.data
         let roomId = resInfo.room.roomId
         if (roomId){
-            // console.log(roomId)
+            console.log(roomId)
             component.props.history.push({pathname:'/chat',state:{roomId:roomId,roomName:resInfo.room.roomName,userId:component.state.userId,sellId:component.state.sellId}})
         }else {
             message.error('网络错误')

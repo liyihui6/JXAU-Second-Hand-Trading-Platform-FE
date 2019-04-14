@@ -35,6 +35,7 @@
 .conversation-content-wrapper{
     margin-top: 48px;
     padding-bottom: 235px;
+    position: relative;
 }
 .conversation-content{
     width: 100%;
@@ -53,6 +54,21 @@
     padding: 10px;
     width: 80%;
     overflow: visible;
+    background: #fff;
+}
+.conversation-content-detail-zzz {
+    /*content: '';*/
+    /*padding: 5px;*/
+    /*background: gray;*/
+    width:10px;
+
+    height:10px;
+    border:1px solid #eee;
+    background: #fff;
+    transform:rotate(45deg);
+    position: relative;
+    left: 46px;
+    top: 15px;
 }
 .conversation-content-detail p{
     line-height: 1.5;
@@ -67,6 +83,7 @@
 .conversation-content-self{
     width: 100%;
     padding: 5px;
+    overflow: hidden;
 }
 .conversation-content-avatar-self{
     margin-right: 10px;

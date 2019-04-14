@@ -3,6 +3,7 @@ import {message,Badge} from 'antd'
 import './index.css'
 import formateDate from '../../../utils/formateDate'
 import addRoom from "../../../api/PostApi/addRoom";
+import User from '../../../Storages/LocalStorages/User'
 
 // const { Meta } = Card;
 
@@ -17,6 +18,8 @@ class MessageContent extends Component{
         super(props);
         this.state = {
             loading: false,
+            userId:0,
+            sellId:0
         }
     }
 
@@ -24,16 +27,38 @@ class MessageContent extends Component{
         this.setState({ loading: !checked });
     }
 
+    componentWillUnmount() {
+        let user1 = this.props.data.user1
+        let user2 = this.props.data.user2
+        if (this.props.data.user1.userId!==User.getUser().userId) {
+            user1 = this.props.data.user2
+            user2 = this.props.data.user1
+        }
+        console.log({
+            userId:user1.userId,
+            sellId:user2.userId
+        })
+        this.setState({
+            userId:user1.userId,
+            sellId:user2.userId
+        })
+    }
+
     toDetail = () => {
-        // console.log(this.props.data)
         try {
             let user1 = this.props.data.user1
             let user2 = this.props.data.user2
+            console.log(User.getUser().userId)
+            if (this.props.data.user1.userId===User.getUser().userId) {
+                user1 = this.props.data.user2
+                user2 = this.props.data.user1
+            }
             let data = {
                 roomName:'room_'+[user1.userId,user2.userId].sort().join('_'),
                 fkUser1:user1.userId,
                 fkUser2:user2.userId
             }
+            console.log(data)
             addRoom(data,this)
         }catch (e) {
             message.error('请联网哦~')
@@ -43,6 +68,11 @@ class MessageContent extends Component{
     render() {
         let newChat = this.props.data.chats[this.props.data.chats.length-1]
         let user1 = this.props.data.user1
+        // console.log(User.getUser().userId)
+        if (this.props.data.user1.userId===User.getUser().userId) {
+            user1 = this.props.data.user2
+        }
+        console.log(user1)
         return (
             <div onClick={this.toDetail} className={'message-content-wrapper'}>
 
