@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch) => {
                 type: 'INITPRODUCTDATA',
                 payload:data
             });
-        }
+        },
     };
 }
 
@@ -65,23 +65,27 @@ class UserCenter extends Component{
     }
 
     componentDidMount() {
-        let info = User.getUser()
-        let userId = info.userId
-        axios.get('/api/room/'+userId).then((res)=>{
-            let roomData = res.data
-            if (roomData.code === 1) {
-                let rooms = roomData.rooms
-                this.props.initRoomInfo(rooms)
-            }else {
+        let func = async ()=>{
+            let info = User.getUser()
+            let userId = info.userId
+            axios.get('/api/room/'+userId).then((res)=>{
+                let roomData = res.data
+                if (roomData.code === 1) {
+                    let rooms = roomData.rooms
+                    this.props.initRoomInfo(rooms)
+                }else {
 
-            }
-        }).catch((res)=> {
-            message.error('服务器错误2')
-        })
-        getProduct()
-        setInterval(()=>{
+                }
+            }).catch((res)=> {
+                message.error('服务器错误2')
+            })
             getProduct()
-        },5000)
+        }
+        func().then(()=>{
+            setInterval(()=>{
+                getProduct()
+            },5000)
+        })
     }
 
     loginOut = () => {

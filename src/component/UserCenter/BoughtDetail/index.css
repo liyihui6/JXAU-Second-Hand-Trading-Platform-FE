@@ -17,7 +17,9 @@
 }
 .bought-detail-content-wrapper{
     width: 100%;
+    height: 100vh;
     padding: 5px 10px;
+    position: relative;
 }
 .bought-detail-content{
     padding: 10px 10px;

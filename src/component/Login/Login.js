@@ -6,6 +6,24 @@ import ava from './123.jpg'
 import ret from './ret.svg'
 import login from '../../Storages/SessionStorages/LoginSession'
 import LoginApi from '../../api/PostApi/Login'
+import {connect} from 'react-redux'
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initUserInfo: (data)=> {
+            dispatch({
+                type:'INITUSERINFO',
+                payload:data
+            })
+        }
+    }
+}
 
 
 class Login extends Component{
@@ -17,13 +35,13 @@ class Login extends Component{
         }
     }
 
-    haddlePwd = (e) => {
+    handlePwd = (e) => {
         this.setState({
             pwd:e.target.value
         })
     }
 
-    haddleEmail = (e) => {
+    handleEmail = (e) => {
         this.setState({
             email:e.target.value
         })
@@ -38,7 +56,7 @@ class Login extends Component{
                 password:this.state.pwd
             }
             login.login(data)
-            LoginApi(data,this.props.history)
+            LoginApi(data,this)
         }
     }
 
@@ -62,10 +80,10 @@ class Login extends Component{
                     </div>
                     <div className={'login-input'}>
                         <div className={'login-input-email'}>
-                            <Input onChange={this.haddleEmail} value={this.state.email} size={'large'} placeholder={'手机号/邮箱'}/>
+                            <Input onChange={this.handleEmail} value={this.state.email} size={'large'} placeholder={'手机号/邮箱'}/>
                         </div>
                         <div className={'login-input-password'}>
-                            <Input onPressEnter={this.submit} onChange={this.haddlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
+                            <Input onPressEnter={this.submit} onChange={this.handlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
                         </div>
                     </div>
                     <div className={'login-submit'}>
@@ -95,4 +113,7 @@ class Login extends Component{
 
 }
 
-export default Login
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login)

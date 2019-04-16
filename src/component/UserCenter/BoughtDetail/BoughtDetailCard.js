@@ -17,7 +17,9 @@ class BoughtDetailCard extends Component{
     }
 
     editProduct = () => {
-        console.log('edit')
+        // console.log('edit')
+        let id = this.props.data.publishId
+        this.props.showModal(id)
     }
 
     showModal = () => {

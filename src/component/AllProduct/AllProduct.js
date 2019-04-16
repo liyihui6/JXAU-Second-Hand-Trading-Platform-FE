@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import './index.css'
 import Product from "../Sell/product/Product";
 import re from "../UserCenterSetting/return.svg";
-import getProduct from "../../api/FetchApi/getProduct";
 import {connect} from 'react-redux'
 
 const mapStateToProps = (state) => {

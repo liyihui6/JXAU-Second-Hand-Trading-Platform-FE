@@ -3,7 +3,7 @@ import token from "../../Storages/LocalStorages/Token";
 import user from "../../Storages/LocalStorages/User";
 import {message} from "antd";
 
-let login = (data,history) => {
+let login = (data,component) => {
     axios.post('api/login',data,{}).then((response)=>{
         let info = response.data
         // console.log(response)
@@ -11,8 +11,9 @@ let login = (data,history) => {
             message.success('登录成功')
             token.setToken(info.token)
             user.setUser(info.user)
+            component.props.initUserInfo(info.user)
             axios.defaults.headers['token'] = info.token
-            history.push('/userCenter')
+            component.props.history.push('/userCenter')
         }else {
             message.error(info.message)
         }

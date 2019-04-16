@@ -13,17 +13,12 @@ class Login {
 
     getLoginInfo() {
         let userInfo = sessionStorage.getItem('user')
-        let data = JSON.parse(userInfo)
-        return data
+        return JSON.parse(userInfo)
     }
 
     isLogin(){
         let userInfo = this.getLoginInfo()
-        if (userInfo){
-            return true
-        } else {
-            return false
-        }
+        return !!userInfo;
     }
 }
 
