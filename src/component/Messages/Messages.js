@@ -91,7 +91,7 @@ class Messages extends Component{
                                             count ++
                                         }
                                     })
-                                    // console.log(count)
+                                    console.log(count)
                                     return (
                                         <li key={index} className={'message-content'}>
                                             <MessageContent history={this.props.history} data={value} notRead={count}/>

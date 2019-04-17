@@ -8,6 +8,7 @@ import 'socket.io-client'
 import './index.css'
 import back from './back.svg'
 import {CHATSERVERIP} from "../../config";
+import ReactEmoji from 'react-emoji'
 
 
 const mapStateToProps = (state) => {
@@ -150,6 +151,12 @@ class Chat extends Component{
                     <div className={'conversation-header-wrapper'}>
                         <div onClick={this.goBack} className={'conversation-header-messages'}><img src={back} style={{width:'20px'}} alt=""/></div>
                         <span className={'conversation-header-username'}>李艺晖</span>
+                        {/*<span>{ReactEmoji.emojify(':100: :)')}</span>*/}
+                        {/*<span>{ReactEmoji.emojify(':o')}</span>*/}
+                        {/*<span>{ReactEmoji.emojify(':(')}</span>*/}
+                        {/*<span>{ReactEmoji.emojify(':p')}</span>*/}
+                        {/*<span>{ReactEmoji.emojify(':x')}</span>*/}
+                        {/*<span>{ReactEmoji.emojify(':D')}</span>*/}
                         <div className={'conversation-header-setting'}>
                             123
                         </div>

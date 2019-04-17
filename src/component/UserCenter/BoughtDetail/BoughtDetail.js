@@ -3,7 +3,9 @@ import './index.css'
 import BoughtDetailCard from './BoughtDetailCard'
 import getUserProduct from '../../../api/FetchApi/getUserProduct'
 import User from '../../../Storages/LocalStorages/User'
-import {Modal} from 'antd'
+import {Modal,Form,Input,Button,Select,} from 'antd'
+
+const Option = Select.Option;
 
 class BoughtDetail extends Component{
     constructor(props) {
@@ -67,32 +69,31 @@ class BoughtDetail extends Component{
     }
 
     componentDidMount() {
-        let parent = this.refs.par
-        let heightArray = []
-        let cols = 2
-        let childs = parent.childNodes
-        console.log(childs)
-        for (let i = 0;i < childs.length;i ++){
-            // console.log(childs[i].offsetHeight)
-            if (i<cols){
-                heightArray.push(childs[i].offsetHeight)
-            }else {
-                let minHeight = Math.min(...heightArray)
-                console.log(i+' : '+minHeight)
-                let index = heightArray.indexOf(minHeight)
-                console.log(index)
-                childs[i].style.position = 'absolute'
-                childs[i].style.top = minHeight+'px'
-                if (i%2===0){
-                    childs[i].style.left = '10px'
-                    childs[i].style.width = (childs[i].offsetWidth-10)+'px'
+        setTimeout(()=>{
+            let parent = this.refs.par
+            let heightArray = []
+            let cols = 2
+            let childs = parent.childNodes
+            for (let i = 0;i < childs.length;i ++){
+                console.log(childs[i])
+                if (i<cols){
+                    heightArray.push(childs[i].offsetHeight)
                 }else {
-                    childs[i].style.right = '10px'
-                    childs[i].style.width = (childs[i].offsetWidth-10)+'px'
+                    let minHeight = Math.min(...heightArray)
+                    let index = heightArray.indexOf(minHeight)
+                    childs[i].style.position = 'absolute'
+                    childs[i].style.top = minHeight+'px'
+                    if (i%2===0){
+                        childs[i].style.left = '10px'
+                        childs[i].style.width = (childs[i].offsetWidth-10)+'px'
+                    }else {
+                        childs[i].style.right = '10px'
+                        childs[i].style.width = (childs[i].offsetWidth-10)+'px'
+                    }
+                    heightArray[index] += childs[i].offsetHeight
                 }
-                heightArray[index] += childs[i].offsetHeight
             }
-        }
+        },50)
     }
 
     render() {
@@ -104,97 +105,22 @@ class BoughtDetail extends Component{
                 </div>
                 <div className={'bought-detail-content-wrapper'} ref={'par'}>
                     {
-                        // this.state.productInfo.length>=1?this.state.productInfo.map((value,index)=>{
-                        //     return <div key={index} className={'bought-detail-content'}>
-                        //         <BoughtDetailCard showModal={this.showModal} deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
-                        //     </div>
-                        // }):(
-                        //     <div className={'forum-content--nodata'}>
-                        //         <h1>暂无数据哦~</h1>
-                        //     </div>
-                        // )
+                        this.state.productInfo.length>=1?this.state.productInfo.map((value,index)=>{
+                            return <div key={index} className={'bought-detail-content'}>
+                                <BoughtDetailCard showModal={this.showModal} deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
+                            </div>
+                        }):(
+                            <div className={'forum-content--nodata'}>
+                                <h1>暂无数据哦~</h1>
+                            </div>
+                        )
                     }
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'70px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
-                    <div className={'bought-detail-content'}>
-                        <div style={{height:'80px',textAlign:'center',background:'gray'}}>hello</div>
-                    </div>
+                    {/*<div className={'bought-detail-content'}>*/}
+                        {/*<div style={{height:'50px',textAlign:'center',background:'gray'}}>hello</div>*/}
+                    {/*</div>*/}
+                    {/*<div className={'bought-detail-content'}>*/}
+                        {/*<div style={{height:'60px',textAlign:'center',background:'gray'}}>hello</div>*/}
+                    {/*</div>*/}
                 </div>
                 <Modal
                     title="Title"
@@ -203,7 +129,37 @@ class BoughtDetail extends Component{
                     confirmLoading={this.state.confirmLoading}
                     onCancel={this.handleCancel}
                 >
-                    <p>{this.state.ModalText}</p>
+                    <div>
+                        {/*<p>{this.state.ModalText}</p>*/}
+                        <Form>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>title</td>
+                                        <td><Input placeholder={'请输入'}/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>基本信息</td>
+                                        <td><Input placeholder={'请输入'}/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>喜欢的食物</td>
+                                        <td>
+                                            <Select defaultValue={'noodle'}>
+                                                <Option value="noodle">面条</Option>
+                                                <Option value="egg">鸡蛋</Option>
+                                                <Option value="bread">面包</Option>
+                                            </Select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>转手原因</td>
+                                        <td><Input placeholder={'请输入'}/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </Form>
+                    </div>
                 </Modal>
             </div>
         );
