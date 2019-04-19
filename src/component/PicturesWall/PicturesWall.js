@@ -40,6 +40,14 @@ class PicturesWall extends React.Component {
         }
     }
 
+    clearList = () => {
+        this.setState({
+            fileList:[]
+        })
+    }
+
+
+
     render() {
         const {previewVisible, previewImage, fileList} = this.state;
         const uploadButton = (

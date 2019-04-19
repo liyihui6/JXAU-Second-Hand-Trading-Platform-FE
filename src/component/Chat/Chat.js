@@ -8,7 +8,6 @@ import 'socket.io-client'
 import './index.css'
 import back from './back.svg'
 import {CHATSERVERIP} from "../../config";
-import ReactEmoji from 'react-emoji'
 
 
 const mapStateToProps = (state) => {

@@ -114,12 +114,12 @@ class AddProduct extends Component{
                         <Option value="else">其他</Option>
                     </Select>
                 </div>
-                <div className={'add-product-input-price'}><span>价格￥</span><InputNumber onChange={this.handlePrice} value={this.state.price} defaultValue={100}></InputNumber></div>
+                <div className={'add-product-input-price'}><span>价格￥</span><InputNumber onChange={this.handlePrice} value={this.state.price} defaultValue={100}/></div>
                 <div className={'add-product-input-des'}>
                     <TextArea rows={4} value={this.state.reason} onChange={this.handleReason} placeholder={'描述宝贝转手的原因，入手渠道和使用感受'}/>
                 </div>
                 <div className={'add-product-input-pics'}>
-                    <PicturesWall handlePics={this.handlePics}></PicturesWall>
+                    <PicturesWall handlePics={this.handlePics}/>
                 </div>
                 <div className={'add-product-input-submit'}>
                     <Button type={"primary"} className={'add-product-input-submit-ok'} onClick={this.submit}>确认发布</Button>

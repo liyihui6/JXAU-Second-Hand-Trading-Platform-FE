@@ -28,7 +28,7 @@ class Product extends Component{
                 <Link to={{pathname:'/commodityDetails',state:{email:this.props.data.user.userEmail,publishId:this.props.data.publishId}}}>
                     <div className={'sell--product-detail'}>
                         <div className={'sell-product-pic'}>
-                            <img src={photo} alt="" width={'100%'}/>
+                            <img src={photo} alt=""/>
                         </div>
                         <h2 className={'sell-product-title'}>
                             {this.props.data.publishTitle}
