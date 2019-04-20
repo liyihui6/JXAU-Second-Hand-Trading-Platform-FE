@@ -1,12 +1,20 @@
 let Waterfall = async (parent) => {
-    setTimeout(()=>{
-        let heightArray = []
-        let cols = 2
-        let childs = parent.childNodes
-        for (let i = 0;i < childs.length;i ++){
-            if (i<cols){
-                heightArray.push(childs[i].offsetHeight)
-            }else {
+    await func(parent)
+}
+
+let func = (parent)=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            let heightArray = []
+            let childs = parent.childNodes
+            heightArray.push(0)
+            heightArray.push(0)
+            for (let i = 0;i < childs.length;i ++){
+                // if (i<cols){
+                //     heightArray.push(childs[i].offsetHeight)
+                // }else {
+                //
+                // }
                 let minHeight = Math.min(...heightArray)
                 let index = heightArray.indexOf(minHeight)
                 childs[i].style.position = 'absolute'
@@ -18,10 +26,11 @@ let Waterfall = async (parent) => {
                     childs[i].style.right = '10px'
                     childs[i].style.width = (childs[i].offsetWidth-10)+'px'
                 }
-                heightArray[index] += childs[i].offsetHeight
+                heightArray[index] += childs[i].offsetHeight-5
             }
-        }
-    },100)
+        },800)
+
+    })
 }
 
 export default Waterfall

@@ -34,6 +34,7 @@ class Product extends Component{
                             {this.props.data.publishTitle}
                         </h2>
                         <span className={'sell-price'}>￥{this.props.data.publishPrice}</span>
+                        <span className={'sell-want'}>100人想要</span>
                     </div>
                     <div className={'sell-user-info'}>
                         <img className={'sell-user-avatar'} src={userAvatar} alt=""/>

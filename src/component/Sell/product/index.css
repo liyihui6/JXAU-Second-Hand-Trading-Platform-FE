@@ -13,6 +13,12 @@
     font-size: 18px;
     color: rgba(255, 125, 26, 0.7);
 }
+.sell-want{
+    font-size: 12px;
+    padding:5px;
+    color: gray;
+    float: right;
+}
 .sell--product-detail{
     border-bottom: 0.1rem solid #eee;
 }

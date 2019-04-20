@@ -36,7 +36,6 @@ class Sell extends Component{
 
     render() {
         let data = this.props.allData
-        console.log(data)
         let count = 0
         let style_1 = 'sell-product-wrapper'
         let style_2 = 'sell-product-wrapper clear-margin-right'

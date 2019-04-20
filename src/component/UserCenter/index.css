@@ -1,12 +1,12 @@
 .center-header-wrapper{
-    /*position: fixed;*/
-    /*top: 0;*/
+    position: fixed;
+    top: 0;
     width: 100%;
     background: rgb(42, 109, 200);
     color: #fff;
 }
 .center-container-wrapper{
-    /*margin-top: 50px;*/
+    width: 100%;
 }
 .center-container-wrapper-lists{
     width: 100%;

@@ -1,3 +1,7 @@
 .ant-upload-list-item {
     margin: 0 4px 4px 0 !important;
 }
+/*设置不显示删除按钮*/
+.forum-content-images .anticon-delete{
+    display: none;
+}

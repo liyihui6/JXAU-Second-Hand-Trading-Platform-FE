@@ -102,6 +102,9 @@ class UserCenter extends Component{
                 <div className={'center-header-wrapper'}>
                     <CenterHeader/>
                 </div>
+                <div style={{width:"100%",height:"50px"}}>
+
+                </div>
                 <div className={'center-container-wrapper'}>
                     <CenterDetail userInfo={this.state.sellerInfo}/>
                     <div className={'none'}/>

@@ -3,12 +3,31 @@ import './index.css'
 import BoughtDetailCard from './BoughtDetailCard'
 import getUserProduct from '../../../api/FetchApi/getUserProduct'
 import User from '../../../Storages/LocalStorages/User'
-import {Modal, Input, Select, InputNumber, message,} from 'antd'
+import {Modal, Input, Select, InputNumber, message,Spin,Icon} from 'antd'
 import Waterfall from '../../../utils/Waterfall'
 import PicturesWall from "../../PicturesWall/PicturesWall";
+import {connect} from 'react-redux'
 
 const Option = Select.Option;
 const TextArea = Input.TextArea
+
+const mapStateToProps = (state) => {
+    return {
+        userInfo:state.userInfoReducer
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initUserInfo: (data)=> {
+            console.log(data)
+            dispatch({
+                type:'UPDATEUSERINFO',
+                payload:data
+            })
+        }
+    }
+}
 
 class BoughtDetail extends Component{
     constructor(props) {
@@ -16,6 +35,7 @@ class BoughtDetail extends Component{
         this.state = {
             productInfo:[],
             ModalText: 'Content of the modal',
+            loading:true,
             visible: false,
             confirmLoading: false,
             editId:-1,
@@ -84,6 +104,11 @@ class BoughtDetail extends Component{
 
     componentDidMount() {
         Waterfall(this.refs.par)
+        setTimeout(()=>{
+            this.setState({
+                loading:false
+            })
+        },1000)
     }
 
     handleTitle = (e) => {
@@ -164,25 +189,28 @@ class BoughtDetail extends Component{
     }
 
     render() {
+        const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
         return (
             <div className={'bought-detail'}>
                 <div className={'bought-detail-header'}>
                     <span className={'bought-detail-header-span'} onClick={this.goBack}> 《 </span>
                     <span className={'bought-detail-header-title'}>我发布的</span>
                 </div>
-                <div className={'bought-detail-content-wrapper'} ref={'par'}>
-                    {
-                        this.state.productInfo.length>=1?this.state.productInfo.map((value,index)=>{
-                            return <div key={index} className={'bought-detail-content'}>
-                                <BoughtDetailCard showModal={this.showModal} deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
-                            </div>
-                        }):(
-                            <div className={'forum-content--nodata'}>
-                                <h1>暂无数据哦~</h1>
-                            </div>
-                        )
-                    }
-                </div>
+                <Spin indicator={antIcon} tip="Loading..." spinning={this.state.loading} size="large">
+                    <div className={'bought-detail-content-wrapper'} ref={'par'}>
+                        {
+                            this.state.productInfo.length>=1?this.state.productInfo.map((value,index)=>{
+                                return <div key={index} className={'bought-detail-content'}>
+                                    <BoughtDetailCard showModal={this.showModal} deleteBoughtProduct={this.deleteBoughtProduct} data={value}/>
+                                </div>
+                            }):(
+                                <div className={'forum-content--nodata'}>
+                                    <h1>暂无数据哦~</h1>
+                                </div>
+                            )
+                        }
+                    </div>
+                </Spin>
                 <Modal
                     title="Title"
                     visible={this.state.visible}
@@ -221,4 +249,7 @@ class BoughtDetail extends Component{
     }
 }
 
-export default BoughtDetail
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BoughtDetail)

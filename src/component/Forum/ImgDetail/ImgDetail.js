@@ -69,7 +69,6 @@ class ImgDetail extends Component{
         return (
             <div className="hideDeleteBtn">
                 <Upload
-                    action="#"
                     listType="picture-card"
                     fileList={this.state.fileList}
                     onPreview={this.preview.bind(this)}

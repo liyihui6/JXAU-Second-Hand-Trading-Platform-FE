@@ -44,6 +44,7 @@ class ForumComment extends Component{
     submit = () => {
         if (this.state.content.length<5){
             message.error('请至少输入5个字的评论')
+            return
         }
         let tempData = {
             articleCommentContent:this.state.content,
@@ -84,8 +85,8 @@ class ForumComment extends Component{
                     <p>{value.articleCommentContent}</p>
                 ),
                 datetime: (
-                    <Tooltip title={moment().subtract(30, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-                        <span>{moment().subtract(30, 'days').fromNow()}</span>
+                    <Tooltip title={moment().subtract(value.articleCommentDate, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+                        <span>{moment().subtract(value.articleCommentDate, 'days').fromNow()}</span>
                     </Tooltip>
                 ),
             })

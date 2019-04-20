@@ -5,7 +5,7 @@ import Messages from '../component/Messages/Messages'
 import UserCenter from "../component/UserCenter/UserCenter";
 import Forum from '../component/Forum/Forum'
 import RouterAdd from '../Router/RouterAdd'
-// import AddPage from '../component/Add/AddPage'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import CommodityDetails from '../component/CommodityDetails/CommodityDetails'
 import Login from '../component/Login/Login'
 import Register from '../component/Register/Register'
@@ -14,6 +14,20 @@ import AllProduct from '../component/AllProduct/AllProduct'
 import Conversation from '../component/Conversation/Conversation'
 import BoughtDetail from '../component/UserCenter/BoughtDetail/BoughtDetail'
 import Chat from '../component/Chat/Chat'
+import wrapAnimation from '../utils/wrapAnimation'
+
+const Index = wrapAnimation(
+    Home
+)
+const Index2 = wrapAnimation(
+    Forum
+)
+const Index3 = wrapAnimation(
+    Messages
+)
+const Index4 = wrapAnimation(
+    UserCenter
+)
 
 class RootRouter extends Component{
     constructor(props) {
@@ -21,23 +35,34 @@ class RootRouter extends Component{
         this.state = {}
     }
     render() {
-
         return (
-            <Router>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/messages' component={Messages}/>
-                <Route exact path='/userCenter' component={UserCenter}/>
-                <Route exact path='/forum' component={Forum}/>
-                <Route exact path='/commodityDetails' component={CommodityDetails}/>
-                <RouterAdd/>
-                <Route exact path='/login' component={Login}/>
-                <Route path={'/register'} component={Register}/>
-                <Route path={'/userCenterSetting'} component={UserCenterSetting}/>
-                <Route path={'/allProduct'} component={AllProduct}/>
-                <Route path={'/conversation'} component={Conversation}/>
-                <Route path={'/bought/detail'} component={BoughtDetail}/>
-                <Route path={'/chat'} component={Chat}/>
-            </Router>
+            <TransitionGroup>
+                <CSSTransition timeout={1000} classNames="fade">
+                    <Router>
+                        <Route exact path='/' children={props => {
+                            return <Index {...props} />
+                        }}/>
+                        <Route exact path='/messages' children={props => {
+                            return <Index3 {...props} />
+                        }}/>
+                        <Route exact path='/userCenter' children={props => {
+                            return <Index4 {...props} />
+                        }}/>
+                        <Route exact path='/forum' children={props => {
+                            return <Index2 {...props} />
+                        }}/>
+                        <Route exact path='/commodityDetails' component={CommodityDetails}/>
+                        <RouterAdd/>
+                        <Route exact path='/login' component={Login}/>
+                        <Route path={'/register'} component={Register}/>
+                        <Route path={'/userCenterSetting'} component={UserCenterSetting}/>
+                        <Route path={'/allProduct'} component={AllProduct}/>
+                        <Route path={'/conversation'} component={Conversation}/>
+                        <Route path={'/bought/detail'} component={BoughtDetail}/>
+                        <Route path={'/chat'} component={Chat}/>
+                    </Router>
+                </CSSTransition>
+            </TransitionGroup>
         );
     }
 }

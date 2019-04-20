@@ -30,3 +30,7 @@
 .forum-content--nodata h1{
     color: gray;
 }
+.forum{
+    width: 100%;
+    background: #fff;
+}

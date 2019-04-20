@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import add from './add.svg'
-import {Link} from 'react-router-dom'
+import {NavLink as Link} from 'react-router-dom'
 import './index.css'
 import '../../assets/css/style.css'
 import Add from '../../component/Add/Add'
@@ -36,7 +36,7 @@ class Footer extends Component{
                 <ul className={'menu-wrapper'}>
 
                         <li className={'menu-content-wrapper'}>
-                            <Link to="/">
+                            <Link exact activeClassName={"selected"} to="/">
                             <div className={'menu-content'}>
                                 {/*<img src={home} width={'30px'} alt=""/>*/}
                                 <span className={'icon-home'} style={{fontSize: '30px'}}/>
@@ -46,7 +46,7 @@ class Footer extends Component{
                         </li>
 
                     <li className={'menu-content-wrapper'}>
-                        <Link to={{pathname:'/forum',state:{type:2}}}>
+                        <Link exact activeClassName={"selected"} to={{pathname:'/forum',state:{type:2}}}>
                         <div className={'menu-content'}>
                             {/*<img src={pro} width={'30px'} alt=""/>*/}
                             <span className={'icon-product'} style={{fontSize: '30px'}}/>
@@ -63,7 +63,7 @@ class Footer extends Component{
                         </div>
                     </li>
                     <li className={'menu-content-wrapper'}>
-                        <Link to="/messages">
+                        <Link exact activeClassName={"selected"} to="/messages">
                         <div className={'menu-content'}>
                             {/*<img src={msg} width={'30px'} alt=""/>*/}
                             <span className={'icon-msg'} style={{fontSize: '30px'}}/>
@@ -72,7 +72,7 @@ class Footer extends Component{
                         </Link>
                     </li>
                     <li className={'menu-content-wrapper'}>
-                        <Link to="/userCenter">
+                        <Link exact activeClassName={"selected"}  to="/userCenter">
                         <div className={'menu-content'}>
                             {/*<img src={user} width={'30px'} alt=""/>*/}
                             <span className={'icon-user'} style={{fontSize: '30px'}}/>
