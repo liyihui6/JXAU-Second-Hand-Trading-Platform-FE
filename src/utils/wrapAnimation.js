@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import { CSSTransition } from "react-transition-group";
 
-function wrapAnimation(WrappedComponent) {
+function wrapAnimation(WrappedComponent,enterActive,exitActive) {
     return class extends Component {
         render() {
             return (
@@ -9,9 +9,9 @@ function wrapAnimation(WrappedComponent) {
                     in={this.props.match !== null}
                     classNames={{
                         enter: 'animated',
-                        enterActive: 'zoomInLeft',
+                        enterActive: enterActive,
                         exit: 'animated',
-                        exitActive: 'zoomOutRight'
+                        exitActive: exitActive
                     }}
                     timeout={800}
                     mountOnEnter={true}

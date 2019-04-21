@@ -1,8 +1,11 @@
 .sell-product{
     width: 100%;
     overflow: auto;
+    background: #fff;
 }
+.sell-product-wrapper{
 
+}
 .sell-product-title{
     word-wrap: break-word;word-break: break-all;overflow: hidden;
     padding: 2px 2px;
@@ -11,7 +14,8 @@
 }
 .sell-price{
     font-size: 18px;
-    color: rgba(255, 125, 26, 0.7);
+    color: rgba(240,20,20, 0.7);
+    font-weight: 700;
 }
 .sell-want{
     font-size: 12px;
@@ -38,12 +42,16 @@
 }
 .sell-user-name{
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
+    margin-left: 5px;
+    vertical-align: center;
 }
 .sell-user-avatar{
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 5px;
+    border: 0.5px solid #eee;
     margin-right: 5px;
+    vertical-align: center;
 }

@@ -45,6 +45,7 @@ class Messages extends Component{
     componentWillMount() {
         if (!login.isLogin()){
             this.props.history.push('/login')
+            return
         }
         setInterval(()=>{
             let info = User.getUser()

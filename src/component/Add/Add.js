@@ -23,6 +23,7 @@ class Add extends Component{
                     onCancel={this.handleCancel}
                     footer={null}
                     align={null}
+                    afterClose={null}
                 >
                     <div className={'addOption'}>
                         <Button><Link to={'/add/product'}>发布闲置</Link></Button>

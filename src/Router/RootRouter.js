@@ -17,16 +17,16 @@ import Chat from '../component/Chat/Chat'
 import wrapAnimation from '../utils/wrapAnimation'
 
 const Index = wrapAnimation(
-    Home
+    Home,'zoomIn','fadeOutUp'
 )
 const Index2 = wrapAnimation(
-    Forum
+    Forum,'zoomIn','fadeOutUp'
 )
 const Index3 = wrapAnimation(
-    Messages
+    Messages,'zoomIn','fadeOutUp'
 )
 const Index4 = wrapAnimation(
-    UserCenter
+    UserCenter,'zoomIn','fadeOutUp'
 )
 
 class RootRouter extends Component{

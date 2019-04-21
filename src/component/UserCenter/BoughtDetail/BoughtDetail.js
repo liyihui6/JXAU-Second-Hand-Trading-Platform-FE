@@ -7,6 +7,7 @@ import {Modal, Input, Select, InputNumber, message,Spin,Icon} from 'antd'
 import Waterfall from '../../../utils/Waterfall'
 import PicturesWall from "../../PicturesWall/PicturesWall";
 import {connect} from 'react-redux'
+import ret from './return.svg'
 
 const Option = Select.Option;
 const TextArea = Input.TextArea
@@ -193,7 +194,7 @@ class BoughtDetail extends Component{
         return (
             <div className={'bought-detail'}>
                 <div className={'bought-detail-header'}>
-                    <span className={'bought-detail-header-span'} onClick={this.goBack}> 《 </span>
+                    <span className={'bought-detail-header-span'} onClick={this.goBack}> <img style={{width:"30px",paddingLeft:"10px"}} src={ret} alt=""/> </span>
                     <span className={'bought-detail-header-title'}>我发布的</span>
                 </div>
                 <Spin indicator={antIcon} tip="Loading..." spinning={this.state.loading} size="large">

@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         initUserInfo: (data)=> {
-            console.log(data)
+            // console.log(data)
             dispatch({
                 type:'INITUSERINFO',
                 payload:data
@@ -84,7 +84,7 @@ class Login extends Component{
                             <Input onChange={this.handleEmail} value={this.state.email} size={'large'} placeholder={'手机号/邮箱'}/>
                         </div>
                         <div className={'login-input-password'}>
-                            <Input onPressEnter={this.submit} onChange={this.handlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
+                            <Input type={"password"} onPressEnter={this.submit} onChange={this.handlePwd} value={this.state.pwd} size={'large'} placeholder={'密码'}/>
                         </div>
                     </div>
                     <div className={'login-submit'}>
