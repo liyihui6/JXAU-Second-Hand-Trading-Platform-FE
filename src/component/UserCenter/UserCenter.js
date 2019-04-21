@@ -100,7 +100,7 @@ class UserCenter extends Component{
         return (
             <div className={'homepage'}>
                 <div className={'center-header-wrapper'}>
-                    <CenterHeader/>
+                    <CenterHeader loginOut={this.loginOut}/>
                 </div>
                 <div style={{width:"100%",height:"50px"}}>
 

@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Input,Button,Divider,message} from 'antd'
+import {Input,Button,Divider,message,Modal} from 'antd'
 import {Link} from 'react-router-dom'
 import './index.css'
 import ava from './123.jpg'
@@ -32,7 +32,8 @@ class Login extends Component{
         super(props);
         this.state = {
             email:'',
-            pwd:''
+            pwd:'',
+            visible: false,
         }
     }
 
@@ -65,13 +66,31 @@ class Login extends Component{
         this.props.history.goBack()
     }
     showForget = () => {
-
+        this.setState({
+            visible:true
+        })
     }
-
+    hideModal = () =>{
+        this.setState({
+            visible:false
+        })
+    }
 
     render() {
         return (
             <div className={'login'}>
+                <Modal
+                    title="修改密码"
+                    visible={this.state.visible}
+                    onOk={this.hideModal}
+                    onCancel={this.hideModal}
+                    okText="OK"
+                    cancelText="取消"
+                >
+                    <p>
+                        请发送邮件到3187858832@qq.com申请修改密码！
+                    </p>
+                </Modal>
                 <div className={'login-header'}>
                     <span><img onClick={this.back} src={ret} width={'40px'} height={'40px'} alt=""/></span>
                 </div>
