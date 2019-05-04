@@ -17,7 +17,7 @@ class ContentTitle extends Component{
     render() {
         return (
             <div>
-                <span>李艺晖</span>
+                <span>消息</span>
                 <span>2019-1-1</span>
             </div>
         );

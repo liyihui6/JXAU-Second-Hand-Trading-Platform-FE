@@ -24,7 +24,7 @@ class Conversation extends Component{
                 <div className={'conversation-header'}>
                     <div className={'conversation-header-wrapper'}>
                         <div onClick={this.goBack} className={'conversation-header-messages'}> 消息(20)</div>
-                        <span className={'conversation-header-username'}>李艺晖</span>
+                        <span className={'conversation-header-username'}>消息</span>
                         <div className={'conversation-header-setting'}>
                             123
                         </div>

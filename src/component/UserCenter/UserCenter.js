@@ -110,9 +110,9 @@ class UserCenter extends Component{
                     <CenterDetail userInfo={this.state.sellerInfo}/>
                     <div className={'none'}/>
                     <div className={'center-container-wrapper-lists'}>
-                        <div className={'center-container-wrapper-list'}>
+                        {/* <div className={'center-container-wrapper-list'}>
                             <Bought length={length}/>
-                        </div>
+                        </div> */}
                         <div className={'center-container-wrapper-list'}>
                             <Sold length={length}/>
                         </div>

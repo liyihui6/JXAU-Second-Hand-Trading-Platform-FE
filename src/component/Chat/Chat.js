@@ -167,7 +167,7 @@ class Chat extends Component{
                     <div className={'chat-header'}>
                         <div className={'conversation-header-wrapper'}>
                             <div onClick={this.goBack} className={'conversation-header-messages'}><img src={back} style={{width:'20px'}} alt=""/></div>
-                            <span className={'conversation-header-username'}>李艺晖</span>
+                            <span className={'conversation-header-username'}>消息</span>
                             <div className={'conversation-header-setting'}>
                                 123
                             </div>
