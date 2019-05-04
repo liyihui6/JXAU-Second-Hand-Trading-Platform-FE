@@ -47,6 +47,16 @@
     display: flex;
     /*overflow: auto;*/
 }
+.conversation-content::before{
+    content: '';
+    position: absolute;
+    border-left: 0 solid #6A6;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #6A6;
+    left: -10px;
+    top: 8px;
+}
 .conversation-content-avatar{
     margin-right: 10px;
     position: relative;

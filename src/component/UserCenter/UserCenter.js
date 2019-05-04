@@ -14,14 +14,12 @@ import User from '../../Storages/LocalStorages/User'
 import {connect} from 'react-redux'
 import axios from '../../api/main'
 import getProduct from "../../api/FetchApi/getProduct";
-// import roomReducer from "../../Redux/roomReducer";
 
 /**
  *
  * 用户中心组件
  *
  * **/
-
 const mapStateToProps = (state) => {
     return {
         userRoomList: state.roomReducer.userRoomList

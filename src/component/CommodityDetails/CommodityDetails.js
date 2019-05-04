@@ -36,10 +36,6 @@ class CommodityDetails extends Component{
         getUserInfo(this,this.props.location.state.email)
     }
 
-    componentDidMount() {
-
-    }
-
     onCancel = () =>{
         this.props.history.goBack()
     }
@@ -115,7 +111,7 @@ class CommodityDetails extends Component{
                             {
                                 this.state.productData.commodityPhotos?this.state.productData.commodityPhotos.map((value,index)=>{
                                     return <div key={index} className={'commodity-details-content-image'}>
-                                        <img src={'http://127.0.0.1:5000/show/'+value.articlePhotoPath} alt=""/>
+                                        <img src={PICTURESERVERIP+'/show/'+value.articlePhotoPath} alt=""/>
                                     </div>
                                 }):null
                             }

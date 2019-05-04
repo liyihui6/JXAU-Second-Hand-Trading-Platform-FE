@@ -8,6 +8,7 @@ import login from '../../Storages/SessionStorages/LoginSession'
 import {connect} from 'react-redux'
 import User from "../../Storages/LocalStorages/User";
 import axios from "../../api/main";
+import once from '../../utils/once'
 // import roomReducer from "../../Redux/roomReducer";
 
 /**
@@ -15,7 +16,7 @@ import axios from "../../api/main";
  * 消息首页组件
  *
  * **/
-
+var jishiqi
 const mapStateToProps = (state) => {
     return {
         userRoomList: state.roomReducer.userRoomList
@@ -47,25 +48,30 @@ class Messages extends Component{
             this.props.history.push('/login')
             return
         }
-        setInterval(()=>{
-            let info = User.getUser()
-            let userId = info.userId
-            axios.get('/api/room/'+userId).then((res)=>{
-                let roomData = res.data
-                if (roomData.code === 1) {
-                    // console.log('更新数据成功')
-                    let rooms = roomData.rooms
-                    this.props.initRoomInfo(rooms)
-                }else {
+        once(()=>{
+            jishiqi = setInterval(()=>{
+                let info = User.getUser()
+                let userId = info.userId
+                axios.get('/api/room/'+userId).then((res)=>{
+                    let roomData = res.data
+                    if (roomData.code === 1) {
+                        // console.log('更新数据成功')
+                        let rooms = roomData.rooms
+                        this.props.initRoomInfo(rooms)
+                    }else {
 
-                }
-            }).catch((res)=> {
-                // message.error('服务器错误2')
-            })
-        },2000)
+                    }
+                }).catch((res)=> {
+                    // message.error('服务器错误2')
+                })
+            },2000)
+        })
     }
     componentDidMount() {
         document.getElementById('message-container-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
+    }
+    componentWillUnmount() {
+        clearInterval(jishiqi)
     }
 
     render() {
