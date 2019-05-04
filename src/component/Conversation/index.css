@@ -33,8 +33,7 @@
     right: 0;
 }
 .conversation-content-wrapper{
-    margin-top: 48px;
-    padding-bottom: 235px;
+    padding-bottom: 45px;
     position: relative;
     overflow-y: scroll;
 }

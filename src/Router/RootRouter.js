@@ -19,16 +19,16 @@ import {Provider} from 'react-redux'
 import store from '../Redux/store'
 
 const Index = wrapAnimation(
-    Home,'zoomIn','fadeOutUp'
+    Home,'zoomIn','fadeOutDownBig'
 )
 const Index2 = wrapAnimation(
-    Forum,'zoomIn','fadeOutUp'
+    Forum,'zoomIn','fadeOutDownBig'
 )
 const Index3 = wrapAnimation(
-    Messages,'zoomIn','fadeOutUp'
+    Messages,'zoomIn','fadeOutDownBig'
 )
 const Index4 = wrapAnimation(
-    UserCenter,'zoomIn','fadeOutUp'
+    UserCenter,'appAppear','fadeOutDownBig'
 )
 
 class RootRouter extends Component{

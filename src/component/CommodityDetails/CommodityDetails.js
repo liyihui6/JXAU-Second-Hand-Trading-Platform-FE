@@ -32,8 +32,16 @@ class CommodityDetails extends Component{
 
     componentWillMount(){
         document.getElementById('root').scrollIntoView(true);//为ture返回顶部，false为底部
-        getProductDetail(this,this.props.location.state.publishId)
-        getUserInfo(this,this.props.location.state.email)
+        let publishId,email
+        try {
+            publishId = this.props.location.state.publishId
+            email = this.props.location.state.email
+        }catch (e) {
+            publishId = 20
+            email = '3187858832@qq.com'
+        }
+        getProductDetail(this,publishId)
+        getUserInfo(this,email)
     }
 
     onCancel = () =>{

@@ -1,6 +1,11 @@
+.homepage{
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+}
 .center-header-wrapper{
-    position: fixed;
-    top: 0;
+    /*position: fixed;*/
+    /*top: 0;*/
     width: 100%;
     background: rgb(42, 109, 200);
     color: #fff;

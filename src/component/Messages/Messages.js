@@ -6,10 +6,8 @@ import MessageContent from './MessageContent/MessageContent'
 import {Input} from "antd";
 import login from '../../Storages/SessionStorages/LoginSession'
 import {connect} from 'react-redux'
-import User from "../../Storages/LocalStorages/User";
 import axios from "../../api/main";
 import once from '../../utils/once'
-// import roomReducer from "../../Redux/roomReducer";
 
 /**
  *
@@ -19,7 +17,8 @@ import once from '../../utils/once'
 var jishiqi
 const mapStateToProps = (state) => {
     return {
-        userRoomList: state.roomReducer.userRoomList
+        userRoomList: state.roomReducer.userRoomList,
+        userInfo: state.userInfoReducer.userInfo
     }
 }
 
@@ -50,7 +49,7 @@ class Messages extends Component{
         }
         once(()=>{
             jishiqi = setInterval(()=>{
-                let info = User.getUser()
+                let info = this.props.userInfo
                 let userId = info.userId
                 axios.get('/api/room/'+userId).then((res)=>{
                     let roomData = res.data
@@ -84,17 +83,14 @@ class Messages extends Component{
                     </div>
                 </div>
                 <div className={'message-container-wrapper'} id={'message-container-wrapper'}>
-                    <div style={{width:'100%',height:'84px'}}>
-
-                    </div>
+                    <div style={{width: '100%', height: '84px'}}/>
                     <div className={'messages-wrapper'}>
                         <ul className={'messages-contents'}>
                             {
                                 this.props.userRoomList.length>=1?this.props.userRoomList.map((value,index) => {
-                                    // console.log(value)
                                     let count = 0
                                     value.chats.forEach(item => {
-                                        if (item.isRead === 0){
+                                        if (item.isRead === 0 && item.from !== this.props.userInfo.userId){
                                             count ++
                                         }
                                     })
@@ -110,10 +106,10 @@ class Messages extends Component{
                                 )
                             }
                             {/*<li className={'message-content'}>*/}
-                                {/*<MessageContent history={this.props.history}/>*/}
+                            {/*<MessageContent history={this.props.history}/>*/}
                             {/*</li>*/}
                             {/*<li className={'message-content'}>*/}
-                                {/*<MessageContent history={this.props.history}/>*/}
+                            {/*<MessageContent history={this.props.history}/>*/}
                             {/*</li>*/}
                         </ul>
                     </div>

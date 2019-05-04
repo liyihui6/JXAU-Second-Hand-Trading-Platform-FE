@@ -1,6 +1,6 @@
 import User from '../../Storages/LocalStorages/User'
 import setChatIsRead from '../../api/PostApi/setChatIsRead'
-import {Input, Button, Modal, Avatar} from 'antd'
+import {Input, Button, Modal, Avatar, Spin} from 'antd'
 import addChat from '../../api/PostApi/addChat'
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
@@ -8,11 +8,14 @@ import 'socket.io-client'
 import './index.css'
 import back from './back.svg'
 import {CHATSERVERIP} from "../../config";
+import {PICTURESERVERIP} from "../../config";
+import {getUserInfoById} from '../../api/FetchApi/getUserInfo'
 
 
 const mapStateToProps = (state) => {
     return {
-        RoomInfo:state.roomReducer.userRoomList
+        RoomInfo:state.roomReducer.userRoomList,
+        UserInfo:state.userInfoReducer.userInfo
     }
 }
 
@@ -37,8 +40,10 @@ class Chat extends Component{
             roomId:0,
             roomName:'default',
             visible: false,
+            loading: true,
             from:0,
-            to:0
+            to:0,
+            friendInfo: {},
         }
     }
      componentWillMount() {
@@ -57,6 +62,16 @@ class Chat extends Component{
                 from:from,
                 to:to,
             })
+            getUserInfoById(to).then((response)=> {
+                let data = response.data
+                if (data){
+                    this.setState({
+                        friendInfo:data
+                    })
+                }
+            }).catch((response)=>{
+
+            })
         }
         let roomName = ''
         try {
@@ -69,14 +84,18 @@ class Chat extends Component{
      }
      componentDidMount() {
         try {
-            if (this.props.RoomInfo[0].chats){
-                this.setState({
-                    messages:this.props.RoomInfo[0].chats
-                })
-            }
+            this.props.RoomInfo.forEach((value,index)=>{
+                if (value.roomId === this.props.location.state.roomId){
+                    this.setState({
+                        messages:value.chats
+                    })
+                }
+            })
             setTimeout(()=>{
-                document.getElementById('chat-el').scrollIntoView(false);//为ture返回顶部，false为底部
-            },50)
+                this.setState({
+                    loading: false
+                })
+            },1000)
         }catch (e) {
 
         }
@@ -142,26 +161,19 @@ class Chat extends Component{
         this.props.history.goBack()
     }
     render() {
-        // console.log(this.state.from)
-        // console.log(this.state.to)
         return (
-            <div className={'chat'} id={'chat-el'}>
-                <div className={'chat-header'}>
-                    <div className={'conversation-header-wrapper'}>
-                        <div onClick={this.goBack} className={'conversation-header-messages'}><img src={back} style={{width:'20px'}} alt=""/></div>
-                        <span className={'conversation-header-username'}>李艺晖</span>
-                        {/*<span>{ReactEmoji.emojify(':100: :)')}</span>*/}
-                        {/*<span>{ReactEmoji.emojify(':o')}</span>*/}
-                        {/*<span>{ReactEmoji.emojify(':(')}</span>*/}
-                        {/*<span>{ReactEmoji.emojify(':p')}</span>*/}
-                        {/*<span>{ReactEmoji.emojify(':x')}</span>*/}
-                        {/*<span>{ReactEmoji.emojify(':D')}</span>*/}
-                        <div className={'conversation-header-setting'}>
-                            123
+            <Spin tip="Loading..." className={"loading"} spinning={this.state.loading}>
+                <div className={'chat'} id={'chat-el'}>
+                    <div className={'chat-header'}>
+                        <div className={'conversation-header-wrapper'}>
+                            <div onClick={this.goBack} className={'conversation-header-messages'}><img src={back} style={{width:'20px'}} alt=""/></div>
+                            <span className={'conversation-header-username'}>李艺晖</span>
+                            <div className={'conversation-header-setting'}>
+                                123
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
+                    <div style={{width: "100%", height: "42px"}}/>
                     <Modal
                         title="修改房间名称"
                         visible={this.state.visible}
@@ -170,39 +182,38 @@ class Chat extends Component{
                     >
                         <Input value={this.state.roomName} onChange={this.handleRoom} placeholder={'输入房间名'} onPressEnter={this.handleOk}/>
                     </Modal>
-                </div>
-                <div className={'chat-content-wrapper'}>
-                    <div className={'conversation-content-wrapper'}>
-                        {
-                            this.state.messages.map((value,index)=> {
-                                if (value.from === this.state.from) {
-                                    return (
-                                        <div key={index} className={'conversation-content-self'}>
-                                            <div className={'conversation-content-avatar-self'}><Avatar>U</Avatar></div>
-                                            <div className={'conversation-content-detail-self'}><p>{value.chatContent}</p></div>
-                                        </div>
-                                    )
-                                }else{
-                                    // console.log(value)
-                                    value.isRead = 1
-                                    setChatIsRead(value.chatId)
-                                    return (
-                                        <div key={index} className={'conversation-content'}>
-                                            <div className={'conversation-content-avatar'}><Avatar>U</Avatar></div>
-                                            <div className={'conversation-content-detail'}><p>{value.chatContent}</p></div>
-                                        </div>
-                                    )
-                                }
+                    <div className={'chat-content-wrapper'}>
+                        <div className={'conversation-content-wrapper'}>
+                            {
+                                this.state.messages.map((value,index)=> {
+                                    if (value.from === this.state.from) {
+                                        return (
+                                            <div key={index} className={'conversation-content-self'}>
+                                                <div className={'conversation-content-avatar-self'}><Avatar src={PICTURESERVERIP+'/show/'+this.props.UserInfo.userPhotoPath}>U</Avatar></div>
+                                                <div className={'conversation-content-detail-self'}><p>{value.chatContent}</p></div>
+                                            </div>
+                                        )
+                                    }else{
+                                        value.isRead = 1
+                                        setChatIsRead(value.chatId)
+                                        return (
+                                            <div key={index} className={'conversation-content'}>
+                                                <div className={'conversation-content-avatar'}><Avatar src={this.state.friendInfo.userPhotoPath?PICTURESERVERIP+'/show/'+this.state.friendInfo.userPhotoPath:PICTURESERVERIP+'/show/default.jpg'}>U</Avatar></div>
+                                                <div className={'conversation-content-detail'}><p>{value.chatContent}</p></div>
+                                            </div>
+                                        )
+                                    }
 
-                            })
-                        }
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className={'chat-footer'}>
+                        <Input className={'chat-input-message'} placeholder={'type message'} value={this.state.message} onChange={this.handleMsg} onPressEnter={this.sendMsg}/>
+                        <Button onClick={this.sendMsg} className={'chat-send-message'} type={"primary"}>发送</Button>
                     </div>
                 </div>
-                <div className={'chat-footer'}>
-                    <Input className={'chat-input-message'} placeholder={'type message'} value={this.state.message} onChange={this.handleMsg} onPressEnter={this.sendMsg}/>
-                    <Button onClick={this.sendMsg} className={'chat-send-message'} type={"primary"}>发送</Button>
-                </div>
-            </div>
+            </Spin>
         );
     }
 

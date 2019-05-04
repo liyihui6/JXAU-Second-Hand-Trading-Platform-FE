@@ -1,5 +1,6 @@
 .chat{
     width: 100%;
+    min-height: 100vh;
 }
 .chat-header{
     width: 100%;
@@ -42,4 +43,7 @@
 }
 .chat-content p{
     margin: 0;
+}
+.loading {
+    /*background: rgba(0,0,0,0.05);*/
 }

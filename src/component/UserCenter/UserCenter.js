@@ -40,6 +40,12 @@ const mapDispatchToProps = (dispatch) => {
                 payload:data
             });
         },
+        initUserInfo: (data)=> {
+            dispatch({
+                type:'INITUSERINFO',
+                payload:data
+            })
+        }
     };
 }
 
@@ -99,9 +105,6 @@ class UserCenter extends Component{
             <div className={'homepage'}>
                 <div className={'center-header-wrapper'}>
                     <CenterHeader loginOut={this.loginOut}/>
-                </div>
-                <div style={{width:"100%",height:"50px"}}>
-
                 </div>
                 <div className={'center-container-wrapper'}>
                     <CenterDetail userInfo={this.state.sellerInfo}/>

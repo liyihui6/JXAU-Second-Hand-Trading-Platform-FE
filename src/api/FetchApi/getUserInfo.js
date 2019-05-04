@@ -7,6 +7,7 @@ let getUserInfo = (component,email) => {
             component.setState({
                 sellerInfo:data
             })
+            component.props.initUserInfo(data)
         }
     }).catch((response)=>{
 
@@ -14,15 +15,7 @@ let getUserInfo = (component,email) => {
 }
 
 export let getUserInfoById = (id) => {
-    Axios.get('/api/userById/'+id).then((response)=> {
-        let data = response.data
-        console.log(data)
-        if (data){
-
-        }
-    }).catch((response)=>{
-
-    })
+    return Axios.get('/api/userById/'+id)
 }
 
 export default getUserInfo

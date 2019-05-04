@@ -4,8 +4,18 @@ import {Button,Input,message} from 'antd'
 import UploadAvatar from './UploadAvatar/UploadAvatar'
 import re from './return.svg'
 import userSetting from '../../api/PostApi/userSetting'
-import User from '../../Storages/LocalStorages/User'
 import {PICTURESERVERIP} from "../../config";
+import {connect} from "react-redux";
+
+const mapStateToProps = (state) => {
+    return {
+        userInfo: state.userInfoReducer.userInfo
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
 
 class UserCenterSetting extends Component{
     constructor(props) {
@@ -66,7 +76,8 @@ class UserCenterSetting extends Component{
         }
     }
     componentWillMount() {
-        let info = User.getUser()
+        let info = this.props.userInfo
+        console.log(info.userPhotoPath)
         this.setState({
             userInfo:info,
             email:info.userEmail,
@@ -117,4 +128,7 @@ class UserCenterSetting extends Component{
     }
 }
 
-export default UserCenterSetting
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UserCenterSetting)

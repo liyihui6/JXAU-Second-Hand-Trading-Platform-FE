@@ -3,16 +3,16 @@
 class Login {
     login(value) {
         let userInfo = JSON.stringify(value)
-        sessionStorage.setItem('user',userInfo)
+        localStorage.setItem('user',userInfo)
     }
 
 
     loginOut() {
-        sessionStorage.removeItem('user')
+        localStorage.removeItem('user')
     }
 
     getLoginInfo() {
-        let userInfo = sessionStorage.getItem('user')
+        let userInfo = localStorage.getItem('user')
         return JSON.parse(userInfo)
     }
 

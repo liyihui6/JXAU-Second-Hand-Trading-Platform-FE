@@ -27,7 +27,7 @@ class Home extends Component{
 
     render() {
         return (
-            <div>
+            <div className={"home"}>
                 <div className={"layout-wrapper"}>
                     <div className={'header-wrapper'}>
                         <Header/>

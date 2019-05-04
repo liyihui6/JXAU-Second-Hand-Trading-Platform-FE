@@ -17,7 +17,7 @@ export default function addRoom(data,component){
                 message.error('网络错误')
             }
         }).catch((response)=> {
-            message.error('网络错误')
+            message.error('服务器错误')
         })
     }
 

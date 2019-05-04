@@ -35,8 +35,14 @@ class Forum extends Component {
 
     componentWillMount() {
         let state = this.props.location.state
+        let type
+        try {
+            type = state.type
+        }catch (e) {
+            type = 'all'
+        }
         this.setState({
-            type: state.type
+            type: type
         })
     }
 
