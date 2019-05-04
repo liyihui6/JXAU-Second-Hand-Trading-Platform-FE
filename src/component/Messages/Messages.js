@@ -7,7 +7,6 @@ import {Input} from "antd";
 import login from '../../Storages/SessionStorages/LoginSession'
 import {connect} from 'react-redux'
 import axios from "../../api/main";
-import once from '../../utils/once'
 
 /**
  *
@@ -18,7 +17,8 @@ var jishiqi
 const mapStateToProps = (state) => {
     return {
         userRoomList: state.roomReducer.userRoomList,
-        userInfo: state.userInfoReducer.userInfo
+        userInfo: state.userInfoReducer.userInfo,
+        charInfoTimer: state.timerReducer.ChatInfoTimer
     }
 }
 
@@ -29,6 +29,12 @@ const mapDispatchToProps = (dispatch) => {
                 type: 'INITROOMINFO',
                 payload:data
             });
+        },
+        updateChatInfoTimer: (data) => {
+            dispatch({
+                type:'UPDATECHATINFO',
+                payload:data
+            })
         }
     };
 }
@@ -47,7 +53,7 @@ class Messages extends Component{
             this.props.history.push('/login')
             return
         }
-        once(()=>{
+        if (!this.props.charInfoTimer){
             jishiqi = setInterval(()=>{
                 let info = this.props.userInfo
                 let userId = info.userId
@@ -64,7 +70,8 @@ class Messages extends Component{
                     // message.error('服务器错误2')
                 })
             },2000)
-        })
+            this.props.updateChatInfoTimer(jishiqi)
+        }
     }
     componentDidMount() {
         document.getElementById('message-container-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部

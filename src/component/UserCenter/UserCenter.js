@@ -3,7 +3,6 @@ import './index.css'
 import {Button,message} from 'antd'
 import CenterHeader from './CenterHeader/CenterHeader'
 import CenterDetail from './CenterDetail/CenterDetail'
-import Bought from './Bought/Bought'
 import Sold from './Sold/Sold'
 import Footer from '../Footer/Footer'
 import login from '../../Storages/SessionStorages/LoginSession'
@@ -22,7 +21,9 @@ import getProduct from "../../api/FetchApi/getProduct";
  * **/
 const mapStateToProps = (state) => {
     return {
-        userRoomList: state.roomReducer.userRoomList
+        userRoomList: state.roomReducer.userRoomList,
+        userInfo: state.userInfoReducer.userInfo,
+        productTimer: state.timerReducer.ProductTimer
     }
 }
 
@@ -44,6 +45,17 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({
                 type:'INITUSERINFO',
                 payload:data
+            })
+        },
+        updateProductTimer: (data) => {
+            dispatch({
+                type:'UPDATEPRODUCTTIMER',
+                payload:data
+            })
+        },
+        clearCharInfoTimer: () => {
+            dispatch({
+                type:'CLEARCHATINFO',
             })
         }
     };
@@ -69,33 +81,41 @@ class UserCenter extends Component{
     }
 
     componentDidMount() {
-        let func = async ()=>{
-            let info = User.getUser()
-            let userId = info.userId
-            axios.get('/api/room/'+userId).then((res)=>{
-                let roomData = res.data
-                if (roomData.code === 1) {
-                    let rooms = roomData.rooms
-                    this.props.initRoomInfo(rooms)
-                }else {
+        if (User.getUser()){
+            let func = async ()=>{
+                let info = User.getUser()
+                let userId = info.userId
+                if (userId){
+                    axios.get('/api/room/'+userId).then((res)=>{
+                        let roomData = res.data
+                        if (roomData.code === 1) {
+                            let rooms = roomData.rooms
+                            this.props.initRoomInfo(rooms)
+                        }else {
 
+                        }
+                    }).catch((res)=> {
+                        message.error('服务器错误2')
+                    })
                 }
-            }).catch((res)=> {
-                message.error('服务器错误2')
-            })
-            getProduct()
-        }
-        func().then(()=>{
-            setInterval(()=>{
                 getProduct()
-            },5000)
-        })
+            }
+            if (!this.props.productTimer){
+                func().then(()=>{
+                    let getProductTimer = setInterval(()=>{
+                        getProduct()
+                    },2000)
+                    this.props.updateProductTimer(getProductTimer)
+                })
+            }
+        }
     }
 
     loginOut = () => {
         login.loginOut()
         token.clearToken()
         message.success('退出登录成功')
+        this.props.clearCharInfoTimer()
         this.props.history.push('/')
     }
 

@@ -17,7 +17,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         initUserInfo: (data)=> {
-            console.log(data)
             dispatch({
                 type:'INITUSERINFO',
                 payload:data
