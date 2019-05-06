@@ -24,7 +24,7 @@ class CenterDetail extends Component{
                     <div className={'detail-user-info'}>
                         <h1 className={'detail-user-name'}>{this.props.userInfo.userNike}</h1>
                         <div className={'detail-info'}>
-                            <div>在闲鱼上共发布失物<span>12</span>件</div>
+                            <div>在易卖上共发布失物<span>12</span>件</div>
                             {/* <div>在闲鱼上共卖出<span>12</span>件商品</div> */}
                         </div>
                     </div>

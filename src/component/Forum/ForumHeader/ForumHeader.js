@@ -20,7 +20,7 @@ class ForumHeader extends Component{
     render() {
         return (
             <div className={'forum-header'}>
-                <span className={'forum-header-title'}>鱼塘</span>
+                <span className={'forum-header-title'}>易网</span>
                 <Link to={'/add/note'}>
                     <span className={'add-forum'}>
                         发帖子

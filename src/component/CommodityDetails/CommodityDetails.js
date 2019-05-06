@@ -45,7 +45,7 @@ class CommodityDetails extends Component{
     }
 
     onCancel = () =>{
-        this.props.history.goBack()
+        this.props.history.replace("/")
     }
 
     showModal = () => {

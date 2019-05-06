@@ -72,7 +72,7 @@ class UserCenter extends Component{
 
     componentWillMount() {
         if (!login.isLogin()){
-            message.error('清先登录！')
+            message.error('请先登录！')
             this.props.history.push('/login')
         }else {
             getUserInfo(this,User.getUser().userEmail)

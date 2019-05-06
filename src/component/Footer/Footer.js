@@ -40,7 +40,7 @@ class Footer extends Component{
                             <div className={'menu-content'}>
                                 {/*<img src={home} width={'30px'} alt=""/>*/}
                                 <span className={'icon-home'} style={{fontSize: '30px'}}/>
-                                <div>闲鱼</div>
+                                <div>易卖</div>
                             </div>
                             </Link>
                         </li>
@@ -50,7 +50,7 @@ class Footer extends Component{
                         <div className={'menu-content'}>
                             {/*<img src={pro} width={'30px'} alt=""/>*/}
                             <span className={'icon-product'} style={{fontSize: '30px'}}/>
-                            <div>鱼塘</div>
+                            <div>易网</div>
                         </div>
                         </Link>
                     </li>
