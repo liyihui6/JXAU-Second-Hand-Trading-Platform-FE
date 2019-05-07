@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1005e140-a234-4abe-8b96-10af5fe1be24" name="Default Changelist" comment="" />
+    <list default="true" id="1005e140-a234-4abe-8b96-10af5fe1be24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/component/Chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Chat/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Conversation/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Conversation/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Forum/Forum.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Forum/Forum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Messages/MessageContent/MessageContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Messages/MessageContent/MessageContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Messages/MessageContent/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Messages/MessageContent/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Redux/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="220">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -29,19 +36,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Redux/timerReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1694">
-              <caret line="84" column="30" lean-forward="true" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+            <state relative-caret-position="331">
+              <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -50,19 +48,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Redux/action.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/component/UserCenter/UserCenter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="86" column="40" lean-forward="true" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+            <state relative-caret-position="1298">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -85,10 +74,55 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/Messages/Messages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1034">
-              <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+            <state relative-caret-position="-395">
+              <caret line="72" column="31" lean-forward="true" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/component/Messages/MessageContent/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/component/Messages/MessageContent/MessageContent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/component/Chat/Chat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="160" column="35" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/component/Forum/Forum.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,8 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/component/UserCenter/BoughtDetail/index.css" />
-        <option value="$PROJECT_DIR$/src/utils/pubuliu.js" />
         <option value="$PROJECT_DIR$/src/component/Add/AddProduct/AddProduct.js" />
         <option value="$PROJECT_DIR$/src/component/PicturesWall/PicturesWall.js" />
         <option value="$PROJECT_DIR$/src/component/Forum/ImgDetail/ImgDetail.js" />
@@ -142,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/component/Home/Home.js" />
         <option value="$PROJECT_DIR$/src/component/Home/index.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/component/Forum/Forum.js" />
         <option value="$PROJECT_DIR$/src/component/Forum/index.css" />
         <option value="$PROJECT_DIR$/src/component/UserCenter/index.css" />
         <option value="$PROJECT_DIR$/src/component/CommodityDetails/CommodityDetails.js" />
@@ -152,15 +183,18 @@
         <option value="$PROJECT_DIR$/src/utils/wrapAnimation.js" />
         <option value="$PROJECT_DIR$/src/api/FetchApi/getUserInfo.js" />
         <option value="$PROJECT_DIR$/src/component/Chat/index.css" />
-        <option value="$PROJECT_DIR$/src/component/Chat/Chat.js" />
-        <option value="$PROJECT_DIR$/src/component/Conversation/index.css" />
         <option value="$PROJECT_DIR$/src/Redux/store.js" />
-        <option value="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" />
         <option value="$PROJECT_DIR$/src/Redux/action.js" />
         <option value="$PROJECT_DIR$/src/Redux/timerReducer.js" />
         <option value="$PROJECT_DIR$/src/component/Messages/Messages.js" />
         <option value="$PROJECT_DIR$/src/component/Login/Login.js" />
         <option value="$PROJECT_DIR$/src/component/UserCenter/UserCenter.js" />
+        <option value="$PROJECT_DIR$/src/component/Conversation/index.css" />
+        <option value="$PROJECT_DIR$/src/component/Forum/Forum.js" />
+        <option value="$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js" />
+        <option value="$PROJECT_DIR$/src/component/Chat/Chat.js" />
+        <option value="$PROJECT_DIR$/src/component/Messages/MessageContent/index.css" />
+        <option value="$PROJECT_DIR$/src/component/Messages/MessageContent/MessageContent.js" />
       </list>
     </option>
   </component>
@@ -176,6 +210,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -199,13 +234,27 @@
               <item name="sell" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
+              <item name="Chat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="component" type="462c0819:PsiDirectoryNode" />
+              <item name="Messages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sell" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="component" type="462c0819:PsiDirectoryNode" />
+              <item name="Messages" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageContent" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,11 +368,12 @@
       <workItem from="1556958310975" duration="8724000" />
       <workItem from="1556971579464" duration="2607000" />
       <workItem from="1557146460365" duration="601000" />
+      <workItem from="1557209999804" duration="1902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308712000" />
+    <option name="totallyTimeSpent" value="310614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -336,6 +386,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4981884" visible="true" weight="0.24966975" />
       <window_info id="Structure" order="1" sideWeight="0.5018116" side_tool="true" weight="0.24966975" />
@@ -343,7 +394,7 @@
       <window_info id="Favorites" order="3" sideWeight="0.5018116" side_tool="true" weight="0.24966975" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49867898" weight="0.059490085" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49867898" weight="0.26912183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -383,16 +434,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router/esm/react-router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="396" column="4" selection-start-line="396" selection-start-column="4" selection-end-line="396" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/UserCenter/BoughtDetail/return.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -455,13 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/Messages/MessageContent/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -558,16 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/Forum/Forum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,61 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/Chat/Chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/Chat/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/Conversation/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/timerReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
-          <caret line="84" column="30" lean-forward="true" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Redux/action.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -785,10 +758,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/Messages/Messages.js">
+    <entry file="file://$PROJECT_DIR$/src/Redux/action.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+        <state relative-caret-position="220">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/timerReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Redux/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Conversation/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="126" column="1" lean-forward="true" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Forum/Forum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/UserCenterSetting/UserCenterSetting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -797,8 +811,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/UserCenter/UserCenter.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1298">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Chat/Chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="160" column="35" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Messages/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Messages/MessageContent/index.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="86" column="40" lean-forward="true" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Messages/Messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-395">
+          <caret line="72" column="31" lean-forward="true" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/Messages/MessageContent/MessageContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="79" column="70" selection-start-line="79" selection-start-column="70" selection-end-line="79" selection-end-column="70" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

@@ -39,7 +39,7 @@ class Forum extends Component {
         try {
             type = state.type
         }catch (e) {
-            type = 'all'
+            type = 2
         }
         this.setState({
             type: type

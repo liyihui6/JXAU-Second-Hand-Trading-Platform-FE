@@ -158,7 +158,7 @@ class Chat extends Component{
     }
 
     goBack = () => {
-        this.props.history.replace("/");
+        this.props.history.goBack();
     }
     render() {
         return (

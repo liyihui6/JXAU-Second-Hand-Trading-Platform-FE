@@ -77,7 +77,7 @@ class MessageContent extends Component{
                         <span className={'message-content-info-time'}>{newChat?formateDate(new Date(newChat.sendTime),'yyyy-MM-dd hh:mm:ss'):null}</span>
                     </div>
                     <div className={'message-content-detail'}>
-                        {newChat?newChat.chatContent:null}
+                        {newChat?newChat.chatContent:"你们已经是好友了，快来一起聊天吧~"}
                     </div>
                 </div>
                 <div className={'message-content-Badge'}>

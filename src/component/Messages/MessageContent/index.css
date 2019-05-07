@@ -12,6 +12,11 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+.message-content-detail{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .message-content-info{
     width: 80%;
 }

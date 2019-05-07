@@ -77,7 +77,7 @@ class UserCenterSetting extends Component{
     }
     componentWillMount() {
         let info = this.props.userInfo
-        console.log(info.userPhotoPath)
+        // console.log(info.userPhotoPath)
         this.setState({
             userInfo:info,
             email:info.userEmail,
