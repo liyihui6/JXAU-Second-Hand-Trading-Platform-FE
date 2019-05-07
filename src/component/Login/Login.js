@@ -122,7 +122,7 @@ class Login extends Component{
                             <div className={'login-else-option'}>Github</div>
                         </div>
                         <div className={'login-footer-version-info'}>
-                            <span>掘金 juejin.im</span>
+                            <span>易网-2019</span>
                         </div>
                     </div>
                 </div>
