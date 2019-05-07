@@ -7,6 +7,8 @@ import Classification from '../Classification/Classification'
 import FaultFinding from '../FaultFinding/FaultFinding'
 import Sell from '../Sell/Sell'
 import './index.css'
+import getProduct from "../../api/FetchApi/getProduct";
+import {connect} from 'react-redux'
 
 
 /**
@@ -14,6 +16,23 @@ import './index.css'
  * 首页组件
  *
  * **/
+const mapStateToProps = (state) => {
+    return {
+        ProductTimer: state.timerReducer.ProductTimer
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateProductTimer: (data) => {
+            dispatch({
+                type:'UPDATEPRODUCTTIMER',
+                payload:data
+            })
+        }
+    };
+}
+
 class Home extends Component{
     constructor(props) {
         super(props);
@@ -22,8 +41,19 @@ class Home extends Component{
         }
     }
 
-
-
+    componentWillMount() {
+        let func = async ()=>{
+            getProduct()
+        }
+        if (!this.props.ProductTimer){
+            func().then(()=>{
+                let getProductTimer = setInterval(()=>{
+                    getProduct()
+                },2000)
+                this.props.updateProductTimer(getProductTimer)
+            })
+        }
+    }
 
     render() {
         return (
@@ -52,4 +82,7 @@ class Home extends Component{
         );
     }
 }
-export default Home
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home)

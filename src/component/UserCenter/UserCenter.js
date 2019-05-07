@@ -53,9 +53,15 @@ const mapDispatchToProps = (dispatch) => {
                 payload:data
             })
         },
+        // CLEARPRODUCTINFO
         clearCharInfoTimer: () => {
             dispatch({
                 type:'CLEARCHATINFO',
+            })
+        },
+        clearProductTimer: () => {
+            dispatch({
+                type:'CLEARPRODUCTINFO',
             })
         }
     };
@@ -116,6 +122,7 @@ class UserCenter extends Component{
         token.clearToken()
         message.success('退出登录成功')
         this.props.clearCharInfoTimer()
+        this.props.clearProductTimer()
         this.props.history.push('/')
     }
 

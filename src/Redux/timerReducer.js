@@ -1,4 +1,4 @@
-import {INITTIMER, UPDATEPRODUCTTIMER,UPDATECHATINFO,CLEARCHATINFO} from "./action";
+import {INITTIMER, UPDATEPRODUCTTIMER,UPDATECHATINFO,CLEARCHATINFO,CLEARPRODUCTINFO} from "./action";
 
 const initState = {
     ProductTimer: '',
@@ -23,6 +23,10 @@ const timerReducer = (state=initState,action={}) => {
         case CLEARCHATINFO:
             return Object.assign({}, state, {
                 ChatInfoTimer: ''
+            })
+        case CLEARPRODUCTINFO:
+            return Object.assign({}, state, {
+                ProductTimer: ''
             })
         default:
             return state
