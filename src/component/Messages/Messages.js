@@ -13,7 +13,6 @@ import axios from "../../api/main";
  * 消息首页组件
  *
  * **/
-var jishiqi
 const mapStateToProps = (state) => {
     return {
         userRoomList: state.roomReducer.userRoomList,
@@ -54,13 +53,13 @@ class Messages extends Component{
             return
         }
         if (!this.props.charInfoTimer){
-            jishiqi = setInterval(()=>{
+            let jishiqi = setInterval(()=>{
                 let info = this.props.userInfo
                 let userId = info.userId
                 axios.get('/api/room/'+userId).then((res)=>{
                     let roomData = res.data
                     if (roomData.code === 1) {
-                        // console.log('更新数据成功')
+                        console.log('更新数据成功')
                         let rooms = roomData.rooms
                         this.props.initRoomInfo(rooms)
                     }else {
@@ -69,15 +68,16 @@ class Messages extends Component{
                 }).catch((res)=> {
                     // message.error('服务器错误2')
                 })
-            },2000)
+            },1000)
+            console.log("启动计时器")
             this.props.updateChatInfoTimer(jishiqi)
         }
     }
     componentDidMount() {
-        document.getElementById('message-container-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
+        document.getElementById('message-container-wrapper').scrollIntoView(false);//为ture返回顶部，false为底部
     }
     componentWillUnmount() {
-        clearInterval(jishiqi)
+        // clearInterval(jishiqi)
     }
 
     render() {

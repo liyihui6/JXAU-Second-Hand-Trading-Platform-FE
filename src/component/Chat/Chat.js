@@ -95,11 +95,11 @@ class Chat extends Component{
                 this.setState({
                     loading: false
                 })
+                document.getElementsByClassName('chat-content-wrapper')[0].scrollIntoView(false);
             },1000)
         }catch (e) {
 
         }
-
      }
 
     handleMsg = (e) => {

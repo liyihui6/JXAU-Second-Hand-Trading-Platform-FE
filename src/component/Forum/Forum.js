@@ -47,7 +47,7 @@ class Forum extends Component {
     }
 
     componentDidMount() {
-        document.getElementById('forum-content-wrapper').scrollIntoView(true);//为ture返回顶部，false为底部
+        document.getElementById('forum-content-wrapper').scrollIntoView(false);//为ture返回顶部，false为底部
     }
 
     render() {
